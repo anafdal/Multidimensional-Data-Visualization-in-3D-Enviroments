@@ -100,7 +100,7 @@ public class DataPlotter4D : MonoBehaviour
                         Quaternion.identity);
 
 
-                dataPoint.GetComponent<Renderer>().material.color = Color.Lerp(Color.white, Color.black, Mathf.PingPong(normalVal, 1));
+                dataPoint.GetComponent<Renderer>().material.color = Color.Lerp(Color.blue, Color.red, Mathf.PingPong(normalVal, 1));
                 //new Color(x*0.001f,x/1.0f,1.0f, 1.0f);///fix color each group should have a difefrent color; pick database with less groups
 
                 dataPoint.transform.localScale = new Vector3(normalVal * 1000, normalVal * 1000, normalVal * 1000);//size

@@ -97,7 +97,7 @@ public class DataPlotter3D : MonoBehaviour
                 dataPoint.transform.name = dataPointName;
 
                 // Gets material color and sets it to a new RGB color we define
-                dataPoint.GetComponent<Renderer>().material.color = Color.Lerp(Color.white, Color.black, Mathf.PingPong(normalVal,1));
+                dataPoint.GetComponent<Renderer>().material.color = Color.Lerp(Color.blue, Color.red, Mathf.PingPong(normalVal,1));
                     //new Color(x*0.001f,x/1.0f,1.0f, 1.0f);///fix color each group should have a difefrent color; pick database with less groups
             }
             
