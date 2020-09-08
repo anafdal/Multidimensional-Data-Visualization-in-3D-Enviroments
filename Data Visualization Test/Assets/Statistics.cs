@@ -43,7 +43,7 @@ public class Statistics : MonoBehaviour
     //find maximum  value from a dataset
     public static int FindMaxValue2(string columnName, List<Dictionary<string, object>> dataList, List<string> columnList)
     {
-        int maxValue = 0;
+        int maxValue = System.Convert.ToInt32(dataList[0][columnName]);
 
         for (var j = 1; j < columnList.Count; j++)//through columns for date
         {
@@ -66,7 +66,7 @@ public class Statistics : MonoBehaviour
     //find minimum value from a dataset
     public static int FindMinValue2(string columnName, List<Dictionary<string, object>> dataList, List<string> columnList)
     {
-        int minValue = 0;
+        int minValue= System.Convert.ToInt32(dataList[0][columnName]);
 
         for (var j = 1; j < columnList.Count; j++)//through columns for date
         {
