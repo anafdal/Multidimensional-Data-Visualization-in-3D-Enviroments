@@ -30,21 +30,33 @@ public class DataPlotter5D : MonoBehaviour
 
 
     //scales
-    public float plotScale = 20;
-    public float sizeScale = 100;
-    public float yScale = 10;
+    public float plotScale;
+    public float sizeScale;
+    public float yScale;
 
     // The prefab for the data points that will be instantiated
     public GameObject PointPrefab;
 
+    //other
+    private List<string> columnList1;
+    private List<string> columnList2;
+    private List<string> columnList3;
 
+    private float min1;
+    private float max2;
+
+    private float min3;
+    private float max4;
+
+    private float min5;
+    private float max6;
 
 
     // Object which will contain instantiated prefabs in hiearchy
     public GameObject PointHolder;
 
     // Use this for initialization
-    void Start()
+    void OnEnable()
     {
         dataList1 = CSVReader.Read(inputfile1);
         dataList2 = CSVReader.Read(inputfile2);
@@ -52,32 +64,27 @@ public class DataPlotter5D : MonoBehaviour
 
 
         // Declare list of strings, fill with keys (column names)
-        List<string> columnList1 = new List<string>(dataList1[1].Keys);
-        List<string> columnList2 = new List<string>(dataList2[1].Keys);
-        List<string> columnList3 = new List<string>(dataList3[1].Keys);
+       columnList1 = new List<string>(dataList1[1].Keys);
+       columnList2 = new List<string>(dataList2[1].Keys);
+       columnList3 = new List<string>(dataList3[1].Keys);
 
         geoArea = columnList1[0];//column for states
 
         methaneRate = columnList1[1];//column for methane
         carbonRate = columnList2[1];//column for carbon
-        fossilRate = columnList3[1];
+        fossilRate = columnList3[1];//column for fossil consumption
 
         //tempValue = new float[dataList1.Count];//temporary array
 
-         float test1 = Statistics.FindMinValue3(methaneRate, dataList1, columnList1);
-         float test2 = Statistics.FindMaxValue3(methaneRate, dataList1, columnList1);
+        min1 = Statistics.FindMinValue3(methaneRate, dataList1, columnList1);
+        max2 = Statistics.FindMaxValue3(methaneRate, dataList1, columnList1);
 
-         float test3 = Statistics.FindMinValue3(carbonRate, dataList2, columnList2);
-         float test4 = Statistics.FindMaxValue3(carbonRate, dataList2, columnList2);
+        min3 = Statistics.FindMinValue3(carbonRate, dataList2, columnList2);
+        max4 = Statistics.FindMaxValue3(carbonRate, dataList2, columnList2);
 
-         float test5 = Statistics.FindMinValue3(fossilRate, dataList3, columnList3);
-         float test6 = Statistics.FindMaxValue3(fossilRate, dataList3, columnList3);
-
-
-        //Debug.Log(test3);
-        //Debug.Log(test4);
-
-
+        min5 = Statistics.FindMinValue3(fossilRate, dataList3, columnList3);
+        max6 = Statistics.FindMaxValue3(fossilRate, dataList3, columnList3);
+    
         for (var j = 1; j < columnList1.Count; j++)//through columns for dates
         {
             float z = j;//per date
@@ -95,16 +102,16 @@ public class DataPlotter5D : MonoBehaviour
             {
                 float x = i;//per state
 
-                float normalMethane = Statistics.normalizeValue(test1, test2, Methane[i]);//make a list so you can normalize the whole thing
-                float normalCarbon = Statistics.normalizeValue(test3, test4, Carbon[i]);//make a list so you can normalize the whole thing
-                float normalFossil= Statistics.normalizeValue(test5, test6, Fossil[i]);//make a list so you can normalize the whole thing
+                float normalMethane = Statistics.normalizeValue(min1, max2, Methane[i]);//make a list so you can normalize the whole thing
+                float normalCarbon = Statistics.normalizeValue(min3, max4, Carbon[i]);//make a list so you can normalize the whole thing
+                float normalFossil = Statistics.normalizeValue(min5, max6, Fossil[i]);//make a list so you can normalize the whole thing
 
 
                 float y = normalFossil;
                 float ydef = yScale * y;//use third axis as well
 
                 //float ydef = (float)0.01 * y;
-               
+
 
 
                 // Instantiate as gameobject variable so that it can be manipulated within loop
@@ -114,8 +121,8 @@ public class DataPlotter5D : MonoBehaviour
                         Quaternion.identity);
 
 
-               dataPoint.GetComponent<Renderer>().material.color = Color.Lerp(Color.blue, Color.red, Mathf.PingPong(normalCarbon, 1));//color interpolation represented by carbon
-                
+                dataPoint.GetComponent<Renderer>().material.color = Color.Lerp(Color.blue, Color.red, Mathf.PingPong(normalCarbon, 1));//color interpolation represented by carbon
+
 
                 dataPoint.transform.localScale = new Vector3(normalMethane * sizeScale, normalMethane * sizeScale, normalMethane * sizeScale);//size interpolation by methane
 
@@ -138,9 +145,7 @@ public class DataPlotter5D : MonoBehaviour
                 // Gets material color and sets it to a new RGB color we define
 
             }
-
-        }
-
+        }     
     }
 
    
@@ -160,40 +165,5 @@ public class DataPlotter5D : MonoBehaviour
         //Debug.Log(temporary.Count);
         return Case;
     }
-/*
-    public List<float> ChangeDate2(string carbonRate)
-    {
-        Carbon.Clear();
-
-        for (var n = 0; n < dataList2.Count; n++)
-        {
-
-            tempValue[n] = System.Convert.ToInt32(dataList2[n][carbonRate]);//add previous values
-            Carbon.Add(tempValue[n]);
-
-        }
-
-        //Debug.Log(temporary.Count);
-        return Carbon;
-    }
-
-
-    public List<float> ChangeDate3(string fossilRate)
-    {
-        Fossil.Clear();
-
-        for (var n = 0; n < dataList3.Count; n++)
-        {
-
-            tempValue[n] = System.Convert.ToInt32(dataList3[n][fossilRate]);//add previous values
-            Fossil.Add(tempValue[n]);
-
-        }
-
-        //DebugFossil;
-
-        return Fossil;
-    }*/
-
 
 }

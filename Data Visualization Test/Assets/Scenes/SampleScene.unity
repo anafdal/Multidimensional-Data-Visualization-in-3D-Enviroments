@@ -9750,7 +9750,7 @@ GameObject:
   - component: {fileID: 799530054}
   - component: {fileID: 799530055}
   m_Layer: 0
-  m_Name: DataPlotter 1 (2)
+  m_Name: 'DataPlotter '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9785,8 +9785,8 @@ MonoBehaviour:
   inputfile1: Methane
   inputfile2: Carbon_Dioxide
   inputfile3: Fossil_Fuel
-  plotScale: 200
-  sizeScale: 100
+  plotScale: 500
+  sizeScale: 500
   yScale: 10
   PointPrefab: {fileID: 3509923614277587540, guid: a04829af2b69c4d44ab9a4846c8d8b72,
     type: 3}
