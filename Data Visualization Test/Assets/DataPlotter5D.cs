@@ -9,24 +9,30 @@ public class DataPlotter5D : MonoBehaviour
     // Name of the input file, no extension
     public string inputfile1;
     public string inputfile2;
+    public string inputfile3;
 
     // List for holding data from CSV reader
     private List<Dictionary<string, object>> dataList1;
     private List<Dictionary<string, object>> dataList2;
+    private List<Dictionary<string, object>> dataList3;
 
     //list
-    private List<int> Case = new List<int>();//list of all the total cases
-    private List<int> Death = new List<int>();//list of all the total cases
+    private List<float> Methane = new List<float>();//list of all the total cases
+    private List<float> Carbon = new List<float>();//list of all the total cases
+    private List<float> Fossil = new List<float>();
 
 
     //column names
     private string geoArea;
-    private string caseRate;
+    private string methaneRate;
+    private string carbonRate;
+    private string fossilRate;
 
-    private string deathRate;
-    private int[] tempValue;
 
+    //scales
     public float plotScale = 20;
+    public float sizeScale = 100;
+    public float yScale = 10;
 
     // The prefab for the data points that will be instantiated
     public GameObject PointPrefab;
@@ -40,26 +46,33 @@ public class DataPlotter5D : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
-
         dataList1 = CSVReader.Read(inputfile1);
         dataList2 = CSVReader.Read(inputfile2);
+        dataList3 = CSVReader.Read(inputfile3);
+
 
         // Declare list of strings, fill with keys (column names)
         List<string> columnList1 = new List<string>(dataList1[1].Keys);
         List<string> columnList2 = new List<string>(dataList2[1].Keys);
+        List<string> columnList3 = new List<string>(dataList3[1].Keys);
 
         geoArea = columnList1[0];//column for states
-        caseRate = columnList1[1];//column for date
-        deathRate = columnList2[1];//column for date
 
-        tempValue = new int[dataList1.Count];//temporary array
+        methaneRate = columnList1[1];//column for methane
+        carbonRate = columnList2[1];//column for carbon
+        fossilRate = columnList3[1];
 
-        int test1 = Statistics.FindMinValue2(caseRate, dataList1, columnList1);
-        int test2 = Statistics.FindMaxValue2(caseRate, dataList1, columnList1);
+        //tempValue = new float[dataList1.Count];//temporary array
 
-        int test3 = Statistics.FindMinValue2(deathRate, dataList2, columnList2);
-        int test4 = Statistics.FindMaxValue2(deathRate, dataList2, columnList2);
+         float test1 = Statistics.FindMinValue3(methaneRate, dataList1, columnList1);
+         float test2 = Statistics.FindMaxValue3(methaneRate, dataList1, columnList1);
+
+         float test3 = Statistics.FindMinValue3(carbonRate, dataList2, columnList2);
+         float test4 = Statistics.FindMaxValue3(carbonRate, dataList2, columnList2);
+
+         float test5 = Statistics.FindMinValue3(fossilRate, dataList3, columnList3);
+         float test6 = Statistics.FindMaxValue3(fossilRate, dataList3, columnList3);
+
 
         //Debug.Log(test3);
         //Debug.Log(test4);
@@ -68,29 +81,30 @@ public class DataPlotter5D : MonoBehaviour
         for (var j = 1; j < columnList1.Count; j++)//through columns for dates
         {
             float z = j;//per date
-            caseRate = columnList1[j];//column for date
-            deathRate = columnList2[j];
+            methaneRate = columnList1[j];//column for date
+            carbonRate = columnList2[j];
+            fossilRate = columnList3[j];
 
 
-            Case = ChangeDate(caseRate);
-            Death = ChangeDate2(deathRate);
-
+            Methane = ChangeDate(Methane, methaneRate, dataList1);
+            Carbon = ChangeDate(Carbon, carbonRate, dataList2);
+            Fossil = ChangeDate(Fossil, fossilRate, dataList3);
 
             //Loop through Pointlist
             for (var i = 0; i < dataList1.Count; i++)//go through row for states
             {
                 float x = i;//per state
 
-                float normalVal = Statistics.normalizeValue(test1, test2, Case[i]);//make a list so you can normalize the whole thing
+                float normalMethane = Statistics.normalizeValue(test1, test2, Methane[i]);//make a list so you can normalize the whole thing
+                float normalCarbon = Statistics.normalizeValue(test3, test4, Carbon[i]);//make a list so you can normalize the whole thing
+                float normalFossil= Statistics.normalizeValue(test5, test6, Fossil[i]);//make a list so you can normalize the whole thing
 
-                float normaldeath = Statistics.normalizeValue(test3, test4, Death[i]);//make a list so you can normalize the whole thing
-                float y = normalVal;
-                float ydef = 100 * y;//use third axis as well
+
+                float y = normalFossil;
+                float ydef = yScale * y;//use third axis as well
 
                 //float ydef = (float)0.01 * y;
-                //Debug.Log("Case"+Case[i]);
-                Debug.Log(normaldeath);
-
+               
 
 
                 // Instantiate as gameobject variable so that it can be manipulated within loop
@@ -100,10 +114,10 @@ public class DataPlotter5D : MonoBehaviour
                         Quaternion.identity);
 
 
-                dataPoint.GetComponent<Renderer>().material.color = Color.Lerp(Color.blue, Color.red, Mathf.PingPong(normalVal, 1));
-                //new Color(x*0.001f,x/1.0f,1.0f, 1.0f);///fix color each group should have a difefrent color; pick database with less groups
+               dataPoint.GetComponent<Renderer>().material.color = Color.Lerp(Color.blue, Color.red, Mathf.PingPong(normalCarbon, 1));//color interpolation represented by carbon
+                
 
-                dataPoint.transform.localScale = new Vector3(normalVal * 1000, normalVal * 1000, normalVal * 1000);//size
+                dataPoint.transform.localScale = new Vector3(normalMethane * sizeScale, normalMethane * sizeScale, normalMethane * sizeScale);//size interpolation by methane
 
                 //new Vector3(normalVal*100, y, z) * plotScale
 
@@ -114,7 +128,7 @@ public class DataPlotter5D : MonoBehaviour
                 string dataPointName =
                     dataList1[i][geoArea] + " "          //state
                     + columnList1[j] + " "               //date
-                    + dataList1[i][caseRate];            //cases
+                    + dataList1[i][methaneRate];         //cases
 
                 // Debug.Log(x + " " + y + " " + z);
 
@@ -129,14 +143,16 @@ public class DataPlotter5D : MonoBehaviour
 
     }
 
-    public List<int> ChangeDate(string caseRate)
+   
+    static List<float> ChangeDate(List<float> Case, string valueRate, List<Dictionary<string, object>> dataList)
     {
+        float [] tempValue = new float[dataList.Count];//temporary array, a placeholder for the values
         Case.Clear();
 
-        for (var n = 0; n < dataList1.Count; n++)
+        for (var n = 0; n < dataList.Count; n++)
         {
 
-            tempValue[n] = System.Convert.ToInt32(dataList1[n][caseRate]);//add previous values
+            tempValue[n] = System.Convert.ToSingle(dataList[n][valueRate]);//add previous values
             Case.Add(tempValue[n]);
 
         }
@@ -144,22 +160,40 @@ public class DataPlotter5D : MonoBehaviour
         //Debug.Log(temporary.Count);
         return Case;
     }
-
-    public List<int> ChangeDate2(string deathRate)
+/*
+    public List<float> ChangeDate2(string carbonRate)
     {
-        Death.Clear();
+        Carbon.Clear();
 
-        for (var n = 0; n < dataList1.Count; n++)
+        for (var n = 0; n < dataList2.Count; n++)
         {
 
-            tempValue[n] = System.Convert.ToInt32(dataList2[n][deathRate]);//add previous values
-            Death.Add(tempValue[n]);
+            tempValue[n] = System.Convert.ToInt32(dataList2[n][carbonRate]);//add previous values
+            Carbon.Add(tempValue[n]);
 
         }
 
         //Debug.Log(temporary.Count);
-        return Death;
+        return Carbon;
     }
+
+
+    public List<float> ChangeDate3(string fossilRate)
+    {
+        Fossil.Clear();
+
+        for (var n = 0; n < dataList3.Count; n++)
+        {
+
+            tempValue[n] = System.Convert.ToInt32(dataList3[n][fossilRate]);//add previous values
+            Fossil.Add(tempValue[n]);
+
+        }
+
+        //DebugFossil;
+
+        return Fossil;
+    }*/
 
 
 }

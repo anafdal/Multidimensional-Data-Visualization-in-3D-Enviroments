@@ -63,6 +63,33 @@ public class Statistics : MonoBehaviour
        return maxValue;
         
     }
+
+    //find maximum  value from a dataset
+    public static float FindMaxValue3(string columnName, List<Dictionary<string, object>> dataList, List<string> columnList)
+    {
+        float maxValue = System.Convert.ToSingle(dataList[0][columnName]);
+
+        for (var j = 1; j < columnList.Count; j++)//through columns for date
+        {
+            columnName = columnList[j];
+
+
+            //Loop through Dictionary, overwrite existing minValue if new value is smaller
+            for (var i = 0; i < dataList.Count; i++)//I dont want last columnt to be counted***
+            {
+
+
+                if (maxValue < System.Convert.ToSingle(dataList[i][columnName]))
+                    maxValue = System.Convert.ToSingle(dataList[i][columnName]);
+            }
+        }
+        Debug.Log("Max: " + maxValue);
+        return maxValue;
+
+    }
+
+
+
     //find minimum value from a dataset
     public static int FindMinValue2(string columnName, List<Dictionary<string, object>> dataList, List<string> columnList)
     {
@@ -86,10 +113,32 @@ public class Statistics : MonoBehaviour
 
     }
 
- 
+    public static float FindMinValue3(string columnName, List<Dictionary<string, object>> dataList, List<string> columnList)
+    {
+        float minValue = System.Convert.ToSingle(dataList[0][columnName]);
+
+        for (var j = 1; j < columnList.Count; j++)//through columns for date
+        {
+            columnName = columnList[j];
+
+
+
+            //Loop through Dictionary, overwrite existing minValue if new value is smaller
+            for (var i = 0; i < dataList.Count; i++)//I dont want last columnt to be counted***
+            {
+                if (System.Convert.ToSingle(dataList[i][columnName]) < minValue)
+                    minValue = System.Convert.ToSingle(dataList[i][columnName]);
+            }
+        }
+        Debug.Log("Min: " + minValue);
+        return minValue;
+
+    }
+
+
 
     //normalize value
-    public static float normalizeValue(int minValue, int maxValue, int actualValue)
+    public static float normalizeValue(float minValue, float maxValue, float actualValue)
     {
         float normalValue = ((float)actualValue - minValue) / (maxValue - minValue);
 
