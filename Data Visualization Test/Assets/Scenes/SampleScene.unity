@@ -3604,6 +3604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 1790932284}
+  info: {fileID: 1779076353}
 --- !u!1 &1293965151
 GameObject:
   m_ObjectHideFlags: 0
