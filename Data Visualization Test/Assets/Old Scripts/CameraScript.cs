@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
-    public float speed = 10;
+    public float speed = 1000;
 
 
     // Update is called once per frame
