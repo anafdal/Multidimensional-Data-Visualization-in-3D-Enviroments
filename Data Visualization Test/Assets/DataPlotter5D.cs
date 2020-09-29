@@ -133,9 +133,11 @@ public class DataPlotter5D : MonoBehaviour
 
                 // Assigns original values to dataPointName
                 string dataPointName =
-                    dataList1[i][geoArea] + " "          //state
-                    + columnList1[j] + " "               //date
-                    + dataList1[i][methaneRate];         //cases
+                    "Country: " + dataList1[i][geoArea] + //state
+                    " Date: " + columnList1[j] +     //date
+                    " Methane Emission: " + dataList1[i][methaneRate] +        //methane cases
+                    " Carbon Emission: " + dataList1[i][carbonRate] +         //carbon dioxide rate
+                    " Fossil Fuel Consumption: " + dataList1[i][fossilRate];  //fossil fule consumption rate
 
                 // Debug.Log(x + " " + y + " " + z);
 
