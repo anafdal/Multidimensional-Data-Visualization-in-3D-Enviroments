@@ -33,6 +33,7 @@ public class DataPlotter5D1 : MonoBehaviour
     public float plotScale;
     public float sizeScale;
     public float yScale;
+    public float zScale;
 
     // The prefab for the data points that will be instantiated
     public GameObject PointPrefab;
@@ -97,6 +98,8 @@ public class DataPlotter5D1 : MonoBehaviour
             SO2 = ChangeDate(SO2, so2Rate, dataList2);
             PM10 = ChangeDate(PM10, pm10Rate, dataList3);
 
+            float zdef = zScale * z;
+
             //Loop through Pointlist
             for (var i = 0; i < dataList1.Count; i++)//go through row for states
             {
@@ -117,7 +120,7 @@ public class DataPlotter5D1 : MonoBehaviour
                 // Instantiate as gameobject variable so that it can be manipulated within loop
                 GameObject dataPoint = Instantiate(
                         PointPrefab,
-                        new Vector3(x, ydef, z) * plotScale,
+                        new Vector3(x, ydef, zdef) * plotScale,
                         Quaternion.identity);
 
 
@@ -133,11 +136,11 @@ public class DataPlotter5D1 : MonoBehaviour
 
                 // Assigns original values to dataPointName
                 string dataPointName =
-                    "City: " + dataList1[i][geoArea] +"  "+ //state
+                    "City: " + dataList1[i][geoArea] + //state
                     " Month: " + columnList1[j] + "  "+    //date
                     " NO2 Emission: " + dataList1[i][no2Rate] +"  "+        //NO2 cases
-                    " SO2 Emission: " + dataList1[i][so2Rate] +"   "+        //SO2 rate
-                    " PM10 Fuel Consumption: " + dataList1[i][pm10Rate];  //PM10 rate
+                    " SO2 Emission: " + SO2[i] +"   "+        //SO2 rate
+                    " PM10 Fuel Consumption: " + PM10[i];  //PM10 rate
 
                 // Debug.Log(x + " " + y + " " + z);
 

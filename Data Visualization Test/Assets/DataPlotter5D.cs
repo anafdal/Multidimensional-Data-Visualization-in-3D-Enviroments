@@ -136,8 +136,8 @@ public class DataPlotter5D : MonoBehaviour
                     "Country: " + dataList1[i][geoArea] + //state
                     " Date: " + columnList1[j] +     //date
                     " Methane Emission: " + dataList1[i][methaneRate] +        //methane cases
-                    " Carbon Emission: " + dataList1[i][carbonRate] +         //carbon dioxide rate
-                    " Fossil Fuel Consumption: " + dataList1[i][fossilRate];  //fossil fule consumption rate
+                    " Carbon Emission: " + Carbon[i] +         //carbon dioxide rate
+                    " Fossil Fuel Consumption: " + Fossil[i];  //fossil fule consumption rate
 
                 // Debug.Log(x + " " + y + " " + z);
 
