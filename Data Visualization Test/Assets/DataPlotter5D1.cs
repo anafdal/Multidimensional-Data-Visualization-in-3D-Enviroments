@@ -124,10 +124,10 @@ public class DataPlotter5D1 : MonoBehaviour
                         Quaternion.identity);
 
 
-                dataPoint.GetComponent<Renderer>().material.color = Color.Lerp(Color.blue, Color.red, Mathf.PingPong(normalSO2, 1));//color interpolation represented by SO2
+                dataPoint.GetComponent<Renderer>().material.color = Color.Lerp(Color.blue, Color.red, Mathf.PingPong(normalNO2, 1));//color interpolation represented by NO2
 
 
-                dataPoint.transform.localScale = new Vector3(normalNO2 * sizeScale, normalNO2 * sizeScale, normalNO2 * sizeScale);//size interpolation by NO2
+                dataPoint.transform.localScale = new Vector3(normalSO2 * sizeScale, normalSO2 * sizeScale, normalSO2 * sizeScale);//size interpolation by SO2
 
                 //new Vector3(normalVal*100, y, z) * plotScale
 
