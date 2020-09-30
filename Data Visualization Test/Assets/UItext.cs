@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using System;
+
+
 
 public class UItext : MonoBehaviour
 {
 
-    public Text data;
+    public TMP_Text data;
     public Canvas info;
     public static int visibility;
 
