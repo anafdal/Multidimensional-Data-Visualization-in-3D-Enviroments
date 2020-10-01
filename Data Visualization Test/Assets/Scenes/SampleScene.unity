@@ -7897,7 +7897,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2139559066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7915,7 +7915,7 @@ MonoBehaviour:
   sizeScale: 1000
   yScale: 20
   zScale: 2
-  PointPrefab: {fileID: 3509923614277587540, guid: 3be1657bc72e6a040aebe7be7a9b1c15,
+  PointPrefab: {fileID: 7425777926043340555, guid: 99b01d68311f1064983d67b3c5fb7030,
     type: 3}
   LabelHolder: {fileID: 574745474}
 --- !u!4 &2139559067

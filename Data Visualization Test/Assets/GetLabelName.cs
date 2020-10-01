@@ -4,12 +4,12 @@ using UnityEngine;
 using System;
 using TMPro;
 
-public class GetName : MonoBehaviour
+public class GetLabelName : MonoBehaviour
 {
     public TMP_Text data;
     void Start()
     {
-        data.text = transform.parent.name;
+        data.text = transform.name;
     }
 
     

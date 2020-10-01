@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using TMPro;
-using System;
+
 
 public class LabelPositionZ: MonoBehaviour
 {
