@@ -55,6 +55,7 @@ public class DataPlotter5D1 : MonoBehaviour
 
     // Object which will contain instantiated prefabs in hiearchy
     public GameObject PointHolder;
+    
 
     // Use this for initialization
     void OnEnable()
@@ -123,6 +124,8 @@ public class DataPlotter5D1 : MonoBehaviour
                         new Vector3(x, ydef, zdef) * plotScale,
                         Quaternion.identity);
 
+           
+
 
                 dataPoint.GetComponent<Renderer>().material.color = Color.Lerp(Color.blue, Color.red, Mathf.PingPong(normalNO2, 1));//color interpolation represented by NO2
 
@@ -153,7 +156,9 @@ public class DataPlotter5D1 : MonoBehaviour
         }     
     }
 
-   
+
+ 
+
     static List<float> ChangeDate(List<float> Case, string valueRate, List<Dictionary<string, object>> dataList)
     {
         float [] tempValue = new float[dataList.Count];//temporary array, a placeholder for the values
