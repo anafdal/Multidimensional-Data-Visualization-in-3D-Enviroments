@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using TMPro;
-using System;
+
 
 public class LabelPositionX : MonoBehaviour
 {
@@ -74,7 +74,7 @@ public class LabelPositionX : MonoBehaviour
 
             // Assigns original values to dataPointName
             string dataPointName =
-                "City: " + dataList1[i][geoArea];//region
+                " "+dataList1[i][geoArea];//region
 
 
             // Debug.Log(x + " " + y + " " + z);
