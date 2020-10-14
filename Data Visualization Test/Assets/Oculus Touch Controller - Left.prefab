@@ -630,7 +630,7 @@ GameObject:
   - component: {fileID: 1722929794587895067}
   - component: {fileID: 1633156125867622565}
   m_Layer: 0
-  m_Name: OculusTouchForRiftLeftModel
+  m_Name: Oculus Touch Controller - Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -645,7 +645,7 @@ Transform:
   m_GameObject: {fileID: 1728980302889129317}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 200, y: 200, z: 200}
   m_Children:
   - {fileID: 1726768362999481433}
   - {fileID: 1723159953190661259}
