@@ -32,8 +32,8 @@ public class HandPresence : MonoBehaviour
             if (prefab)
             {
                 spawnedController = Instantiate(prefab, transform);
-                spawnedController.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);//one has to be 20 the other 50
-
+                spawnedController.transform.localScale = new Vector3(1f, 1f, 1f);//one has to be 20 the other 50
+                //0.3 for size 10
 
 
                 //Debug.Log("Found " + targetDevice.name + "  " + spawnedController.transform.localScale.magnitude);
