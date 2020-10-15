@@ -11,17 +11,14 @@ public class HandPresence : MonoBehaviour
     private GameObject spawnedController;
  
 
-    // Start is called before the first frame update
-    void Start()
+    // Update is called once per frame
+    void Update()
     {
-        
-
-
         List<InputDevice> devices = new List<InputDevice>();
         //InputDevices.GetDevices(devices);// containes everything we use
         //InputDeviceCharacteristics rightController = InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller;
-        
-        InputDevices.GetDevicesWithCharacteristics(controllerCharacteristics,devices);
+
+        InputDevices.GetDevicesWithCharacteristics(controllerCharacteristics, devices);
 
         foreach (var item in devices)
         {
@@ -34,24 +31,19 @@ public class HandPresence : MonoBehaviour
             GameObject prefab = controllerPrefabs.Find(controller => controller.name == targetDevice.name);//name must match in prefab with VR device
             if (prefab)
             {
-                spawnedController=Instantiate(prefab, transform);
+                spawnedController = Instantiate(prefab, transform);
                 spawnedController.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);//one has to be 20 the other 50
 
-               
 
-                Debug.Log("Found " + targetDevice.name+ "  "+spawnedController.transform.localScale.magnitude);
+
+                //Debug.Log("Found " + targetDevice.name + "  " + spawnedController.transform.localScale.magnitude);
             }
             else
             {
-                Debug.LogError("Did not find corresponding controller model: "+ targetDevice.name);
+                Debug.LogError("Did not find corresponding controller model: " + targetDevice.name);
                 spawnedController = Instantiate(controllerPrefabs[0], transform);
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
 
         targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryValue);//press primary button B on right controller and get value
 
