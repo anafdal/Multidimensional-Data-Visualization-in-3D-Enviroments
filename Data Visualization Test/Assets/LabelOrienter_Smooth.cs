@@ -23,15 +23,16 @@ public class LabelOrienter_Smooth : MonoBehaviour {
 	void Start ()
     {
         //populates the array "labels" with gameobjects that have the correct tag, defined in inspector
-        labels = GameObject.FindGameObjectsWithTag(targetTag); 
-        
+        //labels = GameObject.FindGameObjectsWithTag(targetTag);
+
 
     }
-	
-	// Update is called once per frame
-	void Update () {
 
-      	orientLables ();  // remove if instead you are calling orientLables directly, whenever the camera has moved to make save processing time
+    // Update is called once per frame
+    void Update () {
+
+        labels = GameObject.FindGameObjectsWithTag(targetTag);
+        orientLables ();  // remove if instead you are calling orientLables directly, whenever the camera has moved to make save processing time
 	}
 
         // Method definition

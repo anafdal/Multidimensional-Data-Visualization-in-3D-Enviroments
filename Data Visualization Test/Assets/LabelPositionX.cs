@@ -71,7 +71,7 @@ public class LabelPositionX : MonoBehaviour
                     Quaternion.identity);
 
             // Make child of PointHolder object, to keep points within container in hiearchy
-            dataPoint.transform.SetParent(LabelHolder.transform, true);
+             dataPoint.transform.SetParent(LabelHolder.transform, true);
 
             // Assigns original values to dataPointName
             string dataPointName =
