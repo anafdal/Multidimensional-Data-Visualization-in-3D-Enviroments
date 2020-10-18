@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
-
+//to show the rayline
 public class LocomotionCont : MonoBehaviour
 {
     public XRController teleRay;//teleportation Ray

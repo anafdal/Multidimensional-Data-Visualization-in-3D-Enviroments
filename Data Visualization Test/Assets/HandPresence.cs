@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
-
+//getting the controllers in so they can be used
 public class HandPresence : MonoBehaviour
 {
     public InputDeviceCharacteristics controllerCharacteristics;
@@ -32,7 +32,7 @@ public class HandPresence : MonoBehaviour
             if (prefab)
             {
                 spawnedController = Instantiate(prefab, transform);
-                spawnedController.transform.localScale = new Vector3(1f, 1f, 1f);//one has to be 20 the other 50
+                spawnedController.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);//one has to be 20 the other 50
                 //0.3 for size 10
 
 
