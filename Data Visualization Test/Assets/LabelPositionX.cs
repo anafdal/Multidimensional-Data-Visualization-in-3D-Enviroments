@@ -70,7 +70,8 @@ public class LabelPositionX : MonoBehaviour
                     new Vector3(x*plotScale, LabelHolder.transform.position.y, LabelHolder.transform.position.z),
                     Quaternion.identity);
 
-
+            // Make child of PointHolder object, to keep points within container in hiearchy
+            dataPoint.transform.SetParent(LabelHolder.transform, true);
 
             // Assigns original values to dataPointName
             string dataPointName =

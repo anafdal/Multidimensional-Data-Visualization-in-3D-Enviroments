@@ -71,7 +71,10 @@ public class LabelPositionZ: MonoBehaviour
                     new Vector3(LabelHolder.transform.position.x, LabelHolder.transform.position.y, zdef*plotScale),
                     Quaternion.identity);
 
-            
+            dataPoint.gameObject.tag = "Label";
+
+            // Make child of PointHolder object, to keep points within container in hiearchy
+            dataPoint.transform.SetParent(LabelHolder.transform, true);
 
             // Assigns original values to dataPointName
             string dataPointName =

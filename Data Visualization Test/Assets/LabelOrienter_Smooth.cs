@@ -23,7 +23,8 @@ public class LabelOrienter_Smooth : MonoBehaviour {
 	void Start ()
     {
         //populates the array "labels" with gameobjects that have the correct tag, defined in inspector
-        labels = GameObject.FindGameObjectsWithTag(targetTag);                 
+        labels = GameObject.FindGameObjectsWithTag(targetTag); 
+        
 
     }
 	
