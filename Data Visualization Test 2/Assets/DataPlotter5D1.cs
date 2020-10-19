@@ -126,14 +126,10 @@ public class DataPlotter5D1 : MonoBehaviour
 
 
 
-                if (normalNO2 <= 0.5f)
-                {
-                    dataPoint.GetComponent<Renderer>().material.color = Color.Lerp(Color.blue, Color.white, Mathf.PingPong(normalNO2,1));//color interpolation represented by NO2
-                }
-                else
-                {
-                    dataPoint.GetComponent<Renderer>().material.color = Color.Lerp(Color.white, Color.red, Mathf.PingPong(normalNO2, 1));//color interpolation represented by NO2
-                }
+                
+                dataPoint.GetComponent<Renderer>().material.color = Color.Lerp(Color.blue, Color.red, Mathf.PingPong(normalNO2,1));//color interpolation represented by NO2
+                
+               
 
 
                 dataPoint.transform.localScale = new Vector3(normalSO2 * sizeScale, normalSO2 * sizeScale, normalSO2 * sizeScale);//size interpolation by SO2
@@ -182,5 +178,41 @@ public class DataPlotter5D1 : MonoBehaviour
         //Debug.Log(temporary.Count);
         return Case;
     }
+
+   /* public static Color LerpHSV(HSBColor a, HSBColor b, float t)
+    {
+        // Hue interpolation
+        float h;
+        float d = b.h - a.h;
+        if (a.h > b.h)
+        {
+            // Swap (a.h, b.h)
+            var h3 = b.s;
+            b.h = a.h;
+            a.h = h3;
+
+            d = -d;
+            t = 1 - t;
+        }
+
+        if (d > 0.5) // 180deg
+        {
+            a.h = a.h + 1; // 360deg
+            h = (a.h + t * (b.h - a.h)) % 1; // 360deg
+        }
+        if (d <= 0.5) // 180deg
+        {
+            h = a.h + t * d
+        }
+
+        // Interpolates the rest
+        return new HSBColor
+        (
+        h, // H
+        a.s + t * (b.s - a.s), // S
+        a.b + t * (b.b - a.s), // B
+        a.a + t * (b.a - a.a) // A
+        );
+    }*/
 
 }
