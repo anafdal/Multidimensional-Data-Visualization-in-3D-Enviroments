@@ -19,18 +19,15 @@ public class LabelOrienter_Smooth : MonoBehaviour {
     // The tag of the target object, the ones that will track the camera
     public string targetTag; // 
 
-	// Use this for initialization
-	void Start ()
-    {
-        //populates the array "labels" with gameobjects that have the correct tag, defined in inspector
-        labels = GameObject.FindGameObjectsWithTag(targetTag);                 
-
-    }
+	
+	
 	
 	// Update is called once per frame
 	void Update () {
+        //populates the array "labels" with gameobjects that have the correct tag, defined in inspector
+        labels = GameObject.FindGameObjectsWithTag(targetTag);
 
-      	orientLables ();  // remove if instead you are calling orientLables directly, whenever the camera has moved to make save processing time
+        orientLables ();  // remove if instead you are calling orientLables directly, whenever the camera has moved to make save processing time
 	}
 
         // Method definition

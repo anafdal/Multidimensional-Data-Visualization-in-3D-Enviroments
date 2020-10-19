@@ -4844,9 +4844,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe7eed009257d734f8e7d278f68d15bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputfile1: NO2
-  inputfile2: SO2
-  inputfile3: PM10
+  inputfile1: NO2R
+  inputfile2: SO2R
+  inputfile3: PM10R
   plotScale: 500
   sizeScale: 1000
   yScale: 20
@@ -7988,7 +7988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4499aed3fa7215040bd64ebbbd6e34f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputfile1: PM10
+  inputfile1: PM10R
   plotScale: 500
   sizeScale: 1000
   yScale: 20
@@ -8022,7 +8022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e82c7b972d951247abc131acebd7503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputfile1: PM10
+  inputfile1: PM10R
   plotScale: 500
   sizeScale: 1000
   yScale: 20

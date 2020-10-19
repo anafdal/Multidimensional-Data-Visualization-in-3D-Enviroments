@@ -55,8 +55,9 @@ public class DataPlotter5D1 : MonoBehaviour
 
     // Object which will contain instantiated prefabs in hiearchy
     public GameObject PointHolder;
-    
 
+ 
+   
     // Use this for initialization
     void OnEnable()
     {
@@ -125,14 +126,16 @@ public class DataPlotter5D1 : MonoBehaviour
                         Quaternion.identity);
 
 
+                //dataPoint.GetComponent<Renderer>().material.color = Slerp(Color.blue,Color.red,normalNO2);//HSB
 
-                
-                dataPoint.GetComponent<Renderer>().material.color = Color.Lerp(Color.blue, Color.red, Mathf.PingPong(normalNO2,1));//color interpolation represented by NO2
-                
-               
+                dataPoint.GetComponent<Renderer>().material.color = Slerp3(Color.blue, Color.white, Color.red,normalSO2);//HSB:(https://colorbrewer2.org/#type=diverging&scheme=RdBu&n=3)
+
+                //dataPoint.GetComponent<Renderer>().material.color = Color.Lerp(Color.blue, Color.red, normalNO2);//color interpolation represented by NO2; RGB
 
 
-                dataPoint.transform.localScale = new Vector3(normalSO2 * sizeScale, normalSO2 * sizeScale, normalSO2 * sizeScale);//size interpolation by SO2
+                //dataPoint.GetComponent<Renderer>().material.color = Lerp3(Color.blue, Color.white, Color.red, Mathf.PingPong(normalNO2, 1));
+
+                dataPoint.transform.localScale = new Vector3(normalNO2 * sizeScale, normalNO2 * sizeScale, normalNO2 * sizeScale);//size interpolation by SO2
 
                 //new Vector3(normalVal*100, y, z) * plotScale
 
@@ -179,40 +182,23 @@ public class DataPlotter5D1 : MonoBehaviour
         return Case;
     }
 
-   /* public static Color LerpHSV(HSBColor a, HSBColor b, float t)
+    Color Lerp3(Color a, Color b, Color c, float t)
     {
-        // Hue interpolation
-        float h;
-        float d = b.h - a.h;
-        if (a.h > b.h)
-        {
-            // Swap (a.h, b.h)
-            var h3 = b.s;
-            b.h = a.h;
-            a.h = h3;
-
-            d = -d;
-            t = 1 - t;
-        }
-
-        if (d > 0.5) // 180deg
-        {
-            a.h = a.h + 1; // 360deg
-            h = (a.h + t * (b.h - a.h)) % 1; // 360deg
-        }
-        if (d <= 0.5) // 180deg
-        {
-            h = a.h + t * d
-        }
-
-        // Interpolates the rest
-        return new HSBColor
-        (
-        h, // H
-        a.s + t * (b.s - a.s), // S
-        a.b + t * (b.b - a.s), // B
-        a.a + t * (b.a - a.a) // A
-        );
-    }*/
+        if (t < 0.5f) // 0.0 to 0.5 goes to a -> b
+            return Color.Lerp(a, b, t / 0.5f);
+        else // 0.5 to 1.0 goes to b -> c
+            return Color.Lerp(b, c, (t - 0.5f) / 0.5f);
+    }
+    public static Color Slerp(Color a, Color b, float t)
+    {
+        return (HSBColor.Lerp(HSBColor.FromColor(a), HSBColor.FromColor(b), t)).ToColor();
+    }
+    Color Slerp3(Color a, Color b, Color c, float t)
+    {
+        if (t < 0.5f) // 0.0 to 0.5 goes to a -> b
+            return (HSBColor.Lerp(HSBColor.FromColor(a), HSBColor.FromColor(b), t/0.5f)).ToColor();
+        else // 0.5 to 1.0 goes to b -> c
+            return (HSBColor.Lerp(HSBColor.FromColor(b), HSBColor.FromColor(c), (t - 0.5f) / 0.5f)).ToColor();
+    }
 
 }
