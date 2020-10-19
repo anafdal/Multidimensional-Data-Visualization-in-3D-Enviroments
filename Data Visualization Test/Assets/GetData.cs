@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,43 +15,50 @@ public class GetData : MonoBehaviour
 
     private Material m_Material;//material to get shader info from
     private Color startColor;//save original color
+    private XRSimpleInteractable simpleInteractible = null;
 
-
-    void Start()
+    private void Awake()
     {
         //data = "Click For Data";
        
        //Fetch the Material from the Renderer of the GameObject
         m_Material = GetComponent<Renderer>().material;
         UItext.visibility = 0;
-       
-    }
-    private void OnMouseDown()
-    {
 
-        //Debug.Log(this.name);
+        simpleInteractible = GetComponent<XRSimpleInteractable>();
+
+
+       simpleInteractible.onSelectEnter.AddListener(SetEnter);
+       simpleInteractible.onSelectExit.AddListener(SetExit);
+
+    }
+
+    private void SetEnter(XRBaseInteractor arg0)
+    {
+        //throw new NotImplementedException();
         UItext.visibility = 1;
 
-         data = this.name;
+        data = this.name;
 
-      
+
 
         startColor = this.m_Material.color;
-        this.m_Material.color = this.m_Material.color.gamma*-10;
-       
-
-
+        this.m_Material.color = this.m_Material.color.gamma * -10;
     }
-    private void OnMouseUp()
-    {
 
-        //Debug.Log(this.name);
-        //data = "Click For Data";
+    private void SetExit(XRBaseInteractor arg0)
+    {
+        //throw new NotImplementedException();
+
         UItext.visibility = 0;
 
         this.m_Material.color = startColor;
-
     }
 
+    private void OnDestroy()
+    {
+        simpleInteractible.onSelectEnter.RemoveListener(SetEnter);
+        simpleInteractible.onSelectExit.RemoveListener(SetExit);
+    }
 
 }
