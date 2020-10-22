@@ -145,11 +145,12 @@ public class DataPlotter5D1 : MonoBehaviour
                 // Assigns original values to dataPointName
                 string dataPointName =
                     "City: " + dataList1[i][geoArea] + //state
-                    " Month: " + columnList1[j] + "  " +    //date
-                    " NO2 Emission: " + dataList1[i][no2Rate] + "  " +        //NO2 cases
+                    " Month: " + columnList1[j];   //date
+
+                /* " NO2 Emission: " + dataList1[i][no2Rate] + "  " +        //NO2 cases
                     " SO2 Emission: " + SO2[i] + "   " +        //SO2 rate
                     " PM10 Fuel Consumption: " + PM10[i];  //PM10 rate
-                    //+ " Nomral NO2" + normalNO2;
+                    //+ " Nomral NO2" + normalNO2;*/
 
                 // Debug.Log(x + " " + y + " " + z);
 
@@ -181,7 +182,7 @@ public class DataPlotter5D1 : MonoBehaviour
         //Debug.Log(temporary.Count);
         return Case;
     }
-
+/*
     Color Lerp3(Color a, Color b, Color c, float t)
     {
         if (t < 0.5f) // 0.0 to 0.5 goes to a -> b
@@ -192,8 +193,8 @@ public class DataPlotter5D1 : MonoBehaviour
     public static Color Slerp(Color a, Color b, float t)
     {
         return (HSBColor.Lerp(HSBColor.FromColor(a), HSBColor.FromColor(b), t)).ToColor();
-    }
-    Color Slerp3(Color a, Color b, Color c, float t)
+    }*/
+                Color Slerp3(Color a, Color b, Color c, float t)
     {
         if (t < 0.5f) // 0.0 to 0.5 goes to a -> b
             return (HSBColor.Lerp(HSBColor.FromColor(a), HSBColor.FromColor(b), t/0.5f)).ToColor();
