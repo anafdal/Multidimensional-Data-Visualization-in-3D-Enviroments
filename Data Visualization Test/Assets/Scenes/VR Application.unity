@@ -2721,7 +2721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LineWidth: 0.05
   m_OverrideInteractorLineLength: 1
-  m_LineLength: 1000000
+  m_LineLength: 1000
   m_WidthCurve:
     serializedVersion: 2
     m_Curve:
@@ -2827,10 +2827,6 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -2984,7 +2980,7 @@ MonoBehaviour:
   m_SphereCastRadius: 0
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 512
   m_RaycastTriggerInteraction: 1
   m_HoverToSelect: 0
   m_HoverTimeToSelect: 0.5
@@ -3008,7 +3004,7 @@ MonoBehaviour:
   m_SelectUsage: 2
   m_ActivateUsage: 2
   m_UIPressUsage: 2
-  m_AxisToPressThreshold: 0.1
+  m_AxisToPressThreshold: 0.2
   m_ModelPrefab: {fileID: 0}
   m_ModelTransform: {fileID: 0}
   m_AnimateModel: 0
@@ -8565,7 +8561,7 @@ MonoBehaviour:
   m_SphereCastRadius: 0
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 256
   m_RaycastTriggerInteraction: 1
   m_HoverToSelect: 0
   m_HoverTimeToSelect: 0.5

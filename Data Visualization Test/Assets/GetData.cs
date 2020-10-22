@@ -51,8 +51,7 @@ public class GetData : MonoBehaviour
         //throw new NotImplementedException();
 
         UItext.visibility = 0;
-
-        this.m_Material.color = startColor;
+       this.m_Material.color = startColor;
     }
 
     private void OnDestroy()
