@@ -126,12 +126,12 @@ public class DataPlotter5D1 : MonoBehaviour
 
 
 
-              
-                    dataPoint.GetComponent<Renderer>().material.color = Color.Lerp(Color.blue, Color.red, Mathf.PingPong(normalNO2,1));//color interpolation represented by NO2
-              
+
+                //dataPoint.GetComponent<Renderer>().material.color = Color.Lerp(Color.blue, Color.red, Mathf.PingPong(normalNO2,1));//color interpolation represented by NO2
+                dataPoint.GetComponent<Renderer>().material.color = Slerp3(Color.blue, Color.white, Color.red, normalSO2);//HSB:(https://colorbrewer2.org/#type=diverging&scheme=RdBu&n=3)
 
 
-                dataPoint.transform.localScale = new Vector3(normalSO2 * sizeScale, normalSO2 * sizeScale, normalSO2 * sizeScale);//size interpolation by SO2
+                dataPoint.transform.localScale = new Vector3(normalNO2 * sizeScale, normalNO2 * sizeScale, normalNO2 * sizeScale);//size interpolation by SO2
 
                 //new Vector3(normalVal*100, y, z) * plotScale
 
@@ -141,11 +141,12 @@ public class DataPlotter5D1 : MonoBehaviour
                 // Assigns original values to dataPointName
                 string dataPointName =
                     "City: " + dataList1[i][geoArea] + //state
-                    " Month: " + columnList1[j] + "  " +    //date
-                    " NO2 Emission: " + dataList1[i][no2Rate] + "  " +        //NO2 cases
+                    " Month: " + columnList1[j];   //date
+
+                /* " NO2 Emission: " + dataList1[i][no2Rate] + "  " +        //NO2 cases
                     " SO2 Emission: " + SO2[i] + "   " +        //SO2 rate
                     " PM10 Fuel Consumption: " + PM10[i];  //PM10 rate
-                    //+ " Nomral NO2" + normalNO2;
+                    //+*/
 
                 // Debug.Log(x + " " + y + " " + z);
 
@@ -176,6 +177,14 @@ public class DataPlotter5D1 : MonoBehaviour
 
         //Debug.Log(temporary.Count);
         return Case;
+    }
+
+    Color Slerp3(Color a, Color b, Color c, float t)
+    {
+        if (t < 0.5f) // 0.0 to 0.5 goes to a -> b
+            return (HSBColor.Lerp(HSBColor.FromColor(a), HSBColor.FromColor(b), t / 0.5f)).ToColor();
+        else // 0.5 to 1.0 goes to b -> c
+            return (HSBColor.Lerp(HSBColor.FromColor(b), HSBColor.FromColor(c), (t - 0.5f) / 0.5f)).ToColor();
     }
 
 }

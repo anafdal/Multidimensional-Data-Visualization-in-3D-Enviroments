@@ -33,7 +33,7 @@ public class GetData : MonoBehaviour
       
 
         startColor = this.m_Material.color;
-        this.m_Material.color = this.m_Material.color.gamma*2;
+        this.m_Material.color = this.m_Material.color.gamma*3;
        
 
 

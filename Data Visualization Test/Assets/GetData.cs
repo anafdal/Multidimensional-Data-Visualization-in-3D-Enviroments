@@ -43,7 +43,7 @@ public class GetData : MonoBehaviour
 
 
         startColor = this.m_Material.color;
-        this.m_Material.color = this.m_Material.color.gamma * -10;
+        this.m_Material.color = this.m_Material.color.gamma * 3;
     }
 
     private void SetExit(XRBaseInteractor arg0)
