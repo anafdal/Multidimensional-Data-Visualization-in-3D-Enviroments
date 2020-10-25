@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c3631f5e58749a59194e0cf6baf6d5, type: 3}
   m_Name: Android Providers
   m_EditorClassIdentifier: 
-  m_RequiresSettingsUpdate: 0
+  m_RequiresSettingsUpdate: 1
   m_AutomaticLoading: 0
   m_AutomaticRunning: 0
   m_Loaders:
   - {fileID: 11400000, guid: 264ba3e0b353d694f9608d732769476a, type: 2}
-  - {fileID: 11400000, guid: cac0d35e94c237c47aa5cd033751175b, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c3631f5e58749a59194e0cf6baf6d5, type: 3}
   m_Name: Standalone Providers
   m_EditorClassIdentifier: 
-  m_RequiresSettingsUpdate: 0
+  m_RequiresSettingsUpdate: 1
   m_AutomaticLoading: 0
   m_AutomaticRunning: 0
   m_Loaders:
