@@ -10,12 +10,14 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class GetData : MonoBehaviour
 {
 
-    public static string data;//textual information
+  public static string data;//textual information
     
 
     private Material m_Material;//material to get shader info from
     private Color startColor;//save original color
     private XRSimpleInteractable simpleInteractible = null;
+
+    public InputDevice targetDevice;
 
     private void Awake()
     {
@@ -25,15 +27,23 @@ public class GetData : MonoBehaviour
         m_Material = GetComponent<Renderer>().material;
         UItext.visibility = 0;
 
+        //for the button
+        List<InputDevice> devices = new List<InputDevice>();
+        InputDeviceCharacteristics rightControllerCharacteristics = InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller;
+        InputDevices.GetDevicesWithCharacteristics(rightControllerCharacteristics, devices);
+
+
+        //for the ray interaction
         simpleInteractible = GetComponent<XRSimpleInteractable>();
 
 
        simpleInteractible.onSelectEnter.AddListener(SetEnter);
        simpleInteractible.onSelectExit.AddListener(SetExit);
 
+
     }
 
-    private void SetEnter(XRBaseInteractor arg0)
+    public void SetEnter(XRBaseInteractor arg0)
     {
         //throw new NotImplementedException();
         UItext.visibility = 1;
@@ -44,9 +54,11 @@ public class GetData : MonoBehaviour
 
         startColor = this.m_Material.color;
         this.m_Material.color = this.m_Material.color.gamma * 3;
+
+       
     }
 
-    private void SetExit(XRBaseInteractor arg0)
+    public void SetExit(XRBaseInteractor arg0)
     {
         //throw new NotImplementedException();
 

@@ -8585,7 +8585,7 @@ MonoBehaviour:
   m_SelectUsage: 3
   m_ActivateUsage: 2
   m_UIPressUsage: 2
-  m_AxisToPressThreshold: 0.2
+  m_AxisToPressThreshold: 0.5
   m_ModelPrefab: {fileID: 0}
   m_ModelTransform: {fileID: 0}
   m_AnimateModel: 0

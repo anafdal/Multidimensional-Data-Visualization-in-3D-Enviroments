@@ -8,37 +8,53 @@ public class GetData : MonoBehaviour
 {
 
     public static string data;//textual information
-    
+
 
     private Material m_Material;//material to get shader info from
     private Color startColor;//save original color
 
+    private bool now = false;//make sure you only click answer once
+
     void Start()
     {
         //data = "Click For Data";
-       
-       //Fetch the Material from the Renderer of the GameObject
+
+        //Fetch the Material from the Renderer of the GameObject
         m_Material = GetComponent<Renderer>().material;
         UItext.visibility = 0;
-       
+
     }
-    private void OnMouseDown()
+
+    void Update()//get data from here
+    {
+
+        if (Input.GetKeyDown(KeyCode.Return) && now==true)//press enter
+        {
+            
+            Debug.Log(data);
+
+            //put data in text file, restart recording time and present next question
+        }
+
+        
+    }
+    public void OnMouseDown()
     {
 
         //Debug.Log(this.name);
         UItext.visibility = 1;
 
-         data = this.name;
-
-      
+        data = this.name;
 
         startColor = this.m_Material.color;
-        this.m_Material.color = this.m_Material.color.gamma*3;
-       
+        this.m_Material.color = this.m_Material.color.gamma * 3;
 
-
+        now = true;
+        Update();//this works here
     }
-    private void OnMouseUp()
+
+
+    public void OnMouseUp()
     {
 
         //Debug.Log(this.name);
@@ -47,6 +63,7 @@ public class GetData : MonoBehaviour
 
         this.m_Material.color = startColor;
 
+        now = false;
     }
 
 

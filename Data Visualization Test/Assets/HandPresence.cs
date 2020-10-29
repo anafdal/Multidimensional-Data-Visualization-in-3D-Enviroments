@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit;
+
+
 //getting the controllers in so they can be used
 public class HandPresence : MonoBehaviour
 {
@@ -9,7 +12,6 @@ public class HandPresence : MonoBehaviour
     private InputDevice targetDevice;
     public List<GameObject> controllerPrefabs;
     private GameObject spawnedController;
- 
 
     // Update is called once per frame
     void Update()
@@ -49,7 +51,9 @@ public class HandPresence : MonoBehaviour
 
         if (primaryValue)
         {
-            Debug.Log("Pressing Primary Button");
+            Debug.Log(GetData.data);
         }
     }
+
+  
 }
