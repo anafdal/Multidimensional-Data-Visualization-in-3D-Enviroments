@@ -9,8 +9,8 @@ public class CameraRotate : MonoBehaviour
 
     public Transform body;
 
-    private float yaw = 90.0f;
-    private float pitch = 90.0f;
+    private float yaw = 0.0f;
+    private float pitch = 0.0f;
 
     private Vector3 offset = new Vector3(0.0f, 100.0f, 0.0f);
 
@@ -43,7 +43,7 @@ public class CameraRotate : MonoBehaviour
                 //body.transform.Rotate(-Vector3.up * speedV * Time.deltaTime);
 
                 //transform.eulerAngles = new Vector3(body.transform.localRotation.x, body.transform.localRotation.y+180, body.transform.localRotation.z);
-                transform.eulerAngles += offset;
+                transform.eulerAngles += offset*Time.deltaTime;
 
                 ////saveSpot = transform.eulerAngles;
             }
