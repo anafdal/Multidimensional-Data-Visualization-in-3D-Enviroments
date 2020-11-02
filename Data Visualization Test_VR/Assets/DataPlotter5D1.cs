@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro;
 
 public class DataPlotter5D1 : MonoBehaviour
 {
@@ -52,6 +53,10 @@ public class DataPlotter5D1 : MonoBehaviour
     private float min5;
     private float max6;
 
+    //y-labels
+    public TMP_Text y_min;
+    public TMP_Text y_mid;
+    public TMP_Text y_max;
 
     // Object which will contain instantiated prefabs in hiearchy
     public GameObject PointHolder;
@@ -86,6 +91,8 @@ public class DataPlotter5D1 : MonoBehaviour
 
         min5 = Statistics.FindMinValue3(pm10Rate, dataList3, columnList3);
         max6 = Statistics.FindMaxValue3(pm10Rate, dataList3, columnList3);
+
+        GetYLabel();
     
         for (var j = 1; j < columnList1.Count; j++)//through columns for dates
         {
@@ -158,9 +165,23 @@ public class DataPlotter5D1 : MonoBehaviour
             }
         }     
     }
+    private void GetYLabel()
+    {
+        // Set y Labels by finding game objects and setting TextMesh and assigning value (need to convert to string)
+        y_min.text = min5.ToString("0.0");
+        y_mid.text = (min5 + (max6 - min5) / 2f).ToString("0.0");
+        y_max.text = max6.ToString("0.0");
+
+        //set position
+        y_min.transform.position = new Vector3(y_min.transform.position.x, Statistics.normalizeValue(min5, max6, min5) * yScale * plotScale, y_min.transform.position.z);
+        y_max.transform.position = new Vector3(y_max.transform.position.x, Statistics.normalizeValue(min5, max6, max6) * yScale * plotScale, y_max.transform.position.z);
+
+        y_mid.transform.position = new Vector3(y_mid.transform.position.x, (y_min.transform.position.y + (y_max.transform.position.y - y_min.transform.position.y) / 2f), y_mid.transform.position.z);
+
+    }
 
 
- 
+
 
     static List<float> ChangeDate(List<float> Case, string valueRate, List<Dictionary<string, object>> dataList)
     {
