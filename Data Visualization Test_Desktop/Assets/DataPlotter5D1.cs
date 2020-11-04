@@ -61,9 +61,10 @@ public class DataPlotter5D1 : MonoBehaviour
 
     // Object which will contain instantiated prefabs in hiearchy
     public GameObject PointHolder;
+    [HideInInspector]
+    public string dataNeeded;
 
- 
-   
+
     // Use this for initialization
     void OnEnable()
     {
@@ -157,15 +158,15 @@ public class DataPlotter5D1 : MonoBehaviour
                     "City: " + dataList1[i][geoArea] + //state
                     " Month: " + columnList1[j];   //date
 
-                /* " NO2 Emission: " + dataList1[i][no2Rate] + "  " +        //NO2 cases
+                dataNeeded = " NO2 Emission: " + dataList1[i][no2Rate]+" "+//NO2 cases
                     " SO2 Emission: " + SO2[i] + "   " +        //SO2 rate
                     " PM10 Fuel Consumption: " + PM10[i];  //PM10 rate
                     //+ " Nomral NO2" + normalNO2;*/
 
-                // Debug.Log(x + " " + y + " " + z);
-
                 // Assigns name to the prefab
                 dataPoint.transform.name = dataPointName;
+                
+
 
                 // Gets material color and sets it to a new RGB color we define
 
@@ -217,7 +218,7 @@ public class DataPlotter5D1 : MonoBehaviour
     {
         return (HSBColor.Lerp(HSBColor.FromColor(a), HSBColor.FromColor(b), t)).ToColor();
     }*/
-                Color Slerp3(Color a, Color b, Color c, float t)
+    Color Slerp3(Color a, Color b, Color c, float t)
     {
         if (t < 0.5f) // 0.0 to 0.5 goes to a -> b
             return (HSBColor.Lerp(HSBColor.FromColor(a), HSBColor.FromColor(b), t/0.5f)).ToColor();

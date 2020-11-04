@@ -5,15 +5,16 @@ using UnityEngine.UI;
 using System.IO;
 
 
-public class GetData : MonoBehaviour
+public class HooverData : MonoBehaviour
 {
 
     public static string data;//textual information
+    public static string emmissionLevel;
 
 
     private Material m_Material;//material to get shader info from
     private Color startColor;//save original color
-
+ 
 
  
     void Start()
@@ -67,6 +68,7 @@ public class GetData : MonoBehaviour
         UItext.visibility = 1;
 
         data = this.name;
+       
 
         startColor = this.m_Material.color;
         this.m_Material.color = this.m_Material.color.gamma * 3;

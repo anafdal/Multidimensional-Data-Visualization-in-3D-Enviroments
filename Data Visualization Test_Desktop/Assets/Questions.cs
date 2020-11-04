@@ -32,7 +32,7 @@ public class Questions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && startTrail==false)//start trials
+        if (Input.GetKeyDown(KeyCode.Space) && startTrail==false && indexQuestion==0)//start trials
         {
             startTrail = true;//trials has started
             panel.text = texts[indexQuestion];
@@ -42,8 +42,8 @@ public class Questions : MonoBehaviour
         }
         else if(Input.GetKeyDown(KeyCode.Return) && startTrail == true && now == true)//trials is in session
         {
-            CreateTextFile(GetData.data, levelTime);//get data
-            Debug.Log(GetData.data);
+            CreateTextFile(HooverData.data, levelTime, HooverData.emmissionLevel);//get data
+            Debug.Log(HooverData.data);
             Debug.Log(levelTime);
 
             if (indexQuestion < 3)//there are only three questions to answer
@@ -80,7 +80,7 @@ public class Questions : MonoBehaviour
 
     }
 
-    public void CreateTextFile(string data, float levelTime)
+    public void CreateTextFile(string data, float levelTime, string emmissionData)
     {
         //location of file
         string txtDocumentName = Application.streamingAssetsPath + "/Data_Logs/" + "Data" + ".txt";
@@ -94,6 +94,6 @@ public class Questions : MonoBehaviour
         }
 
 
-        File.AppendAllText(txtDocumentName, data + "\n\n" + levelTime + "\n");
+        File.AppendAllText(txtDocumentName, data + "\n" + levelTime + "\n"+ emmissionData + "\n");
     }
 }
