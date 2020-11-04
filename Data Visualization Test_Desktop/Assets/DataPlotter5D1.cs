@@ -136,11 +136,11 @@ public class DataPlotter5D1 : MonoBehaviour
                         Quaternion.identity);
 
 
-                //dataPoint.GetComponent<Renderer>().material.color = Slerp(Color.blue,Color.red,normalNO2);//HSB
+               
 
                 dataPoint.GetComponent<Renderer>().material.color = Slerp3(Color.blue, Color.white, Color.red,normalSO2);//HSB:(https://colorbrewer2.org/#type=diverging&scheme=RdBu&n=3)
 
-                //dataPoint.GetComponent<Renderer>().material.color = Color.Lerp(Color.blue, Color.red, normalNO2);//color interpolation represented by NO2; RGB
+               
 
 
                 //dataPoint.GetComponent<Renderer>().material.color = Lerp3(Color.blue, Color.white, Color.red, Mathf.PingPong(normalNO2, 1));

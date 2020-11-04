@@ -14,12 +14,6 @@ public class GetData : MonoBehaviour
     private Material m_Material;//material to get shader info from
     private Color startColor;//save original color
 
-    private bool now = false;//make sure you only click answer once
-
-
-    //data
-    private float levelTime = 0.0f;
-    private bool recordTime = true;
 
  
     void Start()
@@ -29,23 +23,22 @@ public class GetData : MonoBehaviour
         //Fetch the Material from the Renderer of the GameObject
         m_Material = GetComponent<Renderer>().material;
         UItext.visibility = 0;
-
-        //create streaming asset folder
-        Directory.CreateDirectory(Application.streamingAssetsPath + "/Data_Logs/");
         
     }
 
+    //might not need this anymore
     void Update()//get data from here
     {
         
 
-        if (Input.GetKeyDown(KeyCode.Return) && now==true)//press enter
+       /* if (Input.GetKeyDown(KeyCode.Return) && now==true && Questions.startTrail==true && indexQuestion<3)//press enter; ttrials needs to be started for this to work; activated when pressed enter for first questions
         {
             
             Debug.Log(data);
             Debug.Log(levelTime);
             CreateTextFile(data,levelTime);
 
+            //indexQuestion += 1;
             recordTime = false;
 
             //put data in text file, restart recording time and present next question
@@ -62,10 +55,11 @@ public class GetData : MonoBehaviour
             levelTime = 0.0f;
             //Debug.Log(levelTime + " enter key used");
             recordTime = true;
-        }
-
+        }*/
+       
 
     }
+
     public void OnMouseDown()
     {
 
@@ -77,8 +71,8 @@ public class GetData : MonoBehaviour
         startColor = this.m_Material.color;
         this.m_Material.color = this.m_Material.color.gamma * 3;
 
-        now = true;
-        Update();//this works here
+        Questions.now = true;//you need only one asnwer and you only oick it when hovering
+        //Update();//this works here;might not need this
     }
 
 
@@ -91,25 +85,10 @@ public class GetData : MonoBehaviour
 
         this.m_Material.color = startColor;
 
-        now = false;
+        Questions.now = false;////you need only one asnwer and you only oick it when hovering
     }
  
     
-    public void CreateTextFile(string data,float levelTime)
-    {
-        //location of file
-        string txtDocumentName = Application.streamingAssetsPath + "/Data_Logs/" + "Data" + ".txt";
-
-        //create the file
-        if (!File.Exists(txtDocumentName))
-        {
-            //add a heading inside that .txt file for this date
-            File.WriteAllText(txtDocumentName, "TITLE OF DATA LOG \n\n");
-
-        }
-
-
-        File.AppendAllText(txtDocumentName, data+"\n\n"+levelTime + "\n");
-    }
+  
 
 }

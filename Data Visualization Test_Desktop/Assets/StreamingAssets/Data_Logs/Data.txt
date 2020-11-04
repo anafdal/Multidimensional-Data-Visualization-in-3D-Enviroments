@@ -1,32 +1,4 @@
 TITLE OF DATA LOG 
 
-City: Pune Month: 7
 
-6.550807
-City: Nagpur Month: 7
 
-9.415857
-City: Kanpur Month: 9
-
-3.172694
-City: Nagpur Month: 10
-
-5.658396
-City: Nagpur Month: 10
-
-3.329559
-City: Nagpur Month: 10
-
-0.4180908
-City: Nagpur Month: 10
-
-0.3014174
-City: Nagpur Month: 10
-
-0.181148
-City: Nagpur Month: 10
-
-0.1545705
-City: Nagpur Month: 10
-
-0.1518206
