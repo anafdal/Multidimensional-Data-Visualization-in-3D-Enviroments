@@ -67,8 +67,9 @@ public class HooverData : MonoBehaviour
         //Debug.Log(this.name);
         UItext.visibility = 1;
 
-        data = this.name;
-       
+        string[] arr = name.Split('\n');
+        data = arr[0] + arr[1];//just want month and date
+        emmissionLevel = this.name;
 
         startColor = this.m_Material.color;
         this.m_Material.color = this.m_Material.color.gamma * 3;

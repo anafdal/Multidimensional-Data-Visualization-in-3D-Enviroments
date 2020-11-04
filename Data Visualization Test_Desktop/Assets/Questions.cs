@@ -20,10 +20,13 @@ public class Questions : MonoBehaviour
     public static int indexQuestion = 0;//index of questions asked
     public static bool now = false;//make sure you only click answer once
 
+    DataPlotter5D1 point;
+
     // Start is called before the first frame update
     void Start()
     {
         panel.text = "To start the trials, press spacebar";
+        point = gameObject.GetComponent<DataPlotter5D1>();
 
         //create streaming asset folder
         Directory.CreateDirectory(Application.streamingAssetsPath + "/Data_Logs/");
@@ -42,7 +45,7 @@ public class Questions : MonoBehaviour
         }
         else if(Input.GetKeyDown(KeyCode.Return) && startTrail == true && now == true)//trials is in session
         {
-            CreateTextFile(HooverData.data, levelTime, HooverData.emmissionLevel);//get data
+            CreateTextFile(HooverData.emmissionLevel, levelTime);//get data
             Debug.Log(HooverData.data);
             Debug.Log(levelTime);
 
@@ -80,7 +83,7 @@ public class Questions : MonoBehaviour
 
     }
 
-    public void CreateTextFile(string data, float levelTime, string emmissionData)
+    public void CreateTextFile(string data, float levelTime)
     {
         //location of file
         string txtDocumentName = Application.streamingAssetsPath + "/Data_Logs/" + "Data" + ".txt";
@@ -94,6 +97,6 @@ public class Questions : MonoBehaviour
         }
 
 
-        File.AppendAllText(txtDocumentName, data + "\n" + levelTime + "\n"+ emmissionData + "\n");
+        File.AppendAllText(txtDocumentName, data + "\n" + levelTime + "\n");
     }
 }

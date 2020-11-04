@@ -52,15 +52,15 @@ public class CameraRotate : MonoBehaviour
         body.transform.rotation = Quaternion.Euler(transform.eulerAngles);
 
         ////close project
-        //if (Input.GetKeyDown(KeyCode.Escape))
-        //{
-        //    #if UNITY_EDITOR
-        //        UnityEditor.EditorApplication.isPlaying = false;
-        //    #else
-        //        Application.Quit();
-        //    #endif
+       if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            #if UNITY_EDITOR
+               UnityEditor.EditorApplication.isPlaying = false;
+           #else
+              Application.Quit();
+           #endif
 
-       //}
+       }
     }
 
 
