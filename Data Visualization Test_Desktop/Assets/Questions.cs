@@ -20,13 +20,13 @@ public class Questions : MonoBehaviour
     public static int indexQuestion = 0;//index of questions asked
     public static bool now = false;//make sure you only click answer once
 
-    DataPlotter5D1 point;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         panel.text = "To start the trials, press spacebar";
-        point = gameObject.GetComponent<DataPlotter5D1>();
+      
 
         //create streaming asset folder
         Directory.CreateDirectory(Application.streamingAssetsPath + "/Data_Logs/");

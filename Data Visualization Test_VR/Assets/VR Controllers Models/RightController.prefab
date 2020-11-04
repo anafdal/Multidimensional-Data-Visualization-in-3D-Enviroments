@@ -47,3 +47,9 @@ MonoBehaviour:
   controllerPrefabs:
   - {fileID: 4024951872544157354, guid: cfa8dc06d611ba340b06bbefba58ee46, type: 3}
   - {fileID: 4245457492171364763, guid: c836783e3928a624e9ff9c70d4f21606, type: 3}
+  texts:
+  - What is the outlier for the city of Raipur in 2011?
+  - What is the lowest emission of Nitrogen Dioxide for the month of March?
+  - Which of the cities has the largest emission of Nitrogen Dioxide for the year
+    2011?
+  panel: {fileID: 0}

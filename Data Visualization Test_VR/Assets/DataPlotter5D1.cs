@@ -147,19 +147,18 @@ public class DataPlotter5D1 : MonoBehaviour
 
                 // Assigns original values to dataPointName
                 string dataPointName =
-                    "City: " + dataList1[i][geoArea] + //state
+                    "City: " + dataList1[i][geoArea] + "\n" + //state
                     " Month: " + columnList1[j];   //date
 
-                /* " NO2 Emission: " + dataList1[i][no2Rate] + "  " +        //NO2 cases
-                    " SO2 Emission: " + SO2[i] + "   " +        //SO2 rate
+                string dataNeeded = " NO2 Emission: " + dataList1[i][no2Rate] + "\n " +//NO2 cases
+                    " SO2 Emission: " + SO2[i] + "\n" +        //SO2 rate
                     " PM10 Fuel Consumption: " + PM10[i];  //PM10 rate
-                    //+*/
-
-                // Debug.Log(x + " " + y + " " + z);
+                                                           //+ " Nomral NO2" + normalNO2;*/
 
                 // Assigns name to the prefab
-                dataPoint.transform.name = dataPointName;
+                dataPoint.transform.name = dataPointName + "\n" + dataNeeded;
 
+                
                 // Gets material color and sets it to a new RGB color we define
 
             }

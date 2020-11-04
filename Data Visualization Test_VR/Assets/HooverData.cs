@@ -7,11 +7,12 @@ using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
 
-public class GetData : MonoBehaviour
+public class HooverData : MonoBehaviour
 {
 
-  public static string data;//textual information
-    
+    public static string data;//textual information
+    public static string emmissionLevel;
+    public static bool now;//only click once
 
     private Material m_Material;//material to get shader info from
     private Color startColor;//save original color
@@ -48,10 +49,12 @@ public class GetData : MonoBehaviour
         //throw new NotImplementedException();
         UItext.visibility = 1;
 
-        data = this.name;
+        string[] arr = name.Split('\n');
+        data = arr[0] + arr[1];//just want month and date
+        emmissionLevel = this.name;
 
 
-
+        now = true;//you need only one asnwer and you only oick it when hovering
         startColor = this.m_Material.color;
         this.m_Material.color = this.m_Material.color.gamma * 3;
 
@@ -61,9 +64,12 @@ public class GetData : MonoBehaviour
     public void SetExit(XRBaseInteractor arg0)
     {
         //throw new NotImplementedException();
+       now = false;//you need only one asnwer and you only oick it when hovering
 
         UItext.visibility = 0;
        this.m_Material.color = startColor;
+
+        Debug.Log(now);
     }
 
     private void OnDestroy()

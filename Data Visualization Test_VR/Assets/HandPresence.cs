@@ -3,28 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
+using System.IO;
+using TMPro;
 
 
 //getting the controllers in so they can be used
 public class HandPresence : MonoBehaviour
 {
     public InputDeviceCharacteristics controllerCharacteristics;
-    private InputDevice targetDevice;
+    public static InputDevice targetDevice;
     public List<GameObject> controllerPrefabs;
     private GameObject spawnedController;
+ 
 
+   
     // Update is called once per frame
     void Update()
     {
+        //fix controllers
         List<InputDevice> devices = new List<InputDevice>();
-        //InputDevices.GetDevices(devices);// containes everything we use
-        //InputDeviceCharacteristics rightController = InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller;
-
         InputDevices.GetDevicesWithCharacteristics(controllerCharacteristics, devices);
 
         foreach (var item in devices)
         {
-            Debug.Log(item.name + item.characteristics);
+            //Debug.Log(item.name + item.characteristics);
         }
 
         if (devices.Count > 0)
@@ -47,13 +49,18 @@ public class HandPresence : MonoBehaviour
             }
         }
 
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////check
         targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryValue);//press primary button B on right controller and get value
+        
 
-        if (primaryValue)
+        if (primaryValue )
         {
-            Debug.Log(GetData.data);
+
+            //Debug.Log("Press primary button!");
         }
+
+     
     }
 
-  
+   
 }

@@ -1,0 +1,22 @@
+TITLE OF DATA LOG 
+
+
+
+City: Bangalore
+ Month: 12
+ NO2 Emission: 28.70492
+  SO2 Emission: 15.06557
+ PM10 Fuel Consumption: 95.31148
+7.943401
+City: Coimbatore
+ Month: 12
+ NO2 Emission: 25.57692
+  SO2 Emission: 4.115385
+ PM10 Fuel Consumption: 63.84615
+2.090265
+City: Bhubaneswar
+ Month: 12
+ NO2 Emission: 28.06993
+  SO2 Emission: 2
+ PM10 Fuel Consumption: 155.2971
+1.765538

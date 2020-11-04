@@ -23,7 +23,7 @@ public class UItext : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        data.text = GetData.data;//use a different script
+        data.text = HooverData.data;//use a different script
 
 
         if (visibility == 1)
