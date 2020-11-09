@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using TMPro;
+using Microsoft.MixedReality.Toolkit.UI;
 
 public class DataPlotter5D1 : MonoBehaviour
 {
@@ -35,6 +36,7 @@ public class DataPlotter5D1 : MonoBehaviour
     public float sizeScale;
     public float yScale;
     public float zScale;
+    public float xScale;
 
     // The prefab for the data points that will be instantiated
     public GameObject PointPrefab;
@@ -123,12 +125,12 @@ public class DataPlotter5D1 : MonoBehaviour
 
                 //float ydef = (float)0.01 * y;
 
-
+                float xdef = x * xScale;//added this for x
 
                 // Instantiate as gameobject variable so that it can be manipulated within loop
                 GameObject dataPoint = Instantiate(
                         PointPrefab,
-                        new Vector3(x, ydef, zdef) * plotScale,
+                        new Vector3(xdef, ydef, zdef) * plotScale,
                         Quaternion.identity);
 
 
