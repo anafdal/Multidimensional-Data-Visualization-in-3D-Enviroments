@@ -39,7 +39,7 @@ public class Questions : MonoBehaviour
         {
             startTrail = true;//trials has started
             panel.text = texts[indexQuestion];
-
+            recordTime = false;//start recording
 
             indexQuestion = 1;//set it for next question
         }

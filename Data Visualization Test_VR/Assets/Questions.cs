@@ -33,7 +33,7 @@ public class Questions : MonoBehaviour
     public float activationOne=0.1f;//threshhold
     public float activationTwo=0.1f;
    
-    Coroutine restart = null;
+    Coroutine restart;
 
 
     public XRController leftDevice;
@@ -54,7 +54,7 @@ public class Questions : MonoBehaviour
         {
             startTrail = true;//trials has started
             panel.text = texts[indexQuestion];
-
+            recordTime = false;
 
             indexQuestion = 1;//set it for next question
 

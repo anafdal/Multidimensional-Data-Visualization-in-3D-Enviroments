@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -168,6 +169,7 @@ GameObject:
   - component: {fileID: 1931652684142640101}
   - component: {fileID: 1931652684142640100}
   - component: {fileID: 8204772329311134189}
+  - component: {fileID: -426627378828527599}
   m_Layer: 5
   m_Name: CanvasLabelX
   m_TagString: Untagged
@@ -268,6 +270,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 1931652683374602766}
+--- !u!114 &-426627378828527599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931652684142640103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff4e3b9019304b5aaec5664de0778d21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7831387448894298605
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +343,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0.392}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

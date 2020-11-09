@@ -11,12 +11,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AR Application.unity
     guid: b351ccf4800d26b4181578e105ee5349
+  - enabled: 0
+    path: Assets/MRTK/Examples/Demos/HandTracking/Scenes/HandInteractionExamples.unity
+    guid: 3dd4a396b5225f8469b9a1eb608bfa57
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: d749bf1e8be0f3846ae1fea9a89f1172,
       type: 2}
-    Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 4f12c08087210c64581db996f6daa1fb,
+    Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: e4e20cb6fc02d20428f7a4802a177084,
       type: 2}
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 8741f9ebf5160524493c220465e45d7d,
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: bf1db32a2e754b94fb360fa0f018a26b,
       type: 2}
     xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 3a1da45b6574d0d47803580383334443,
       type: 2}
