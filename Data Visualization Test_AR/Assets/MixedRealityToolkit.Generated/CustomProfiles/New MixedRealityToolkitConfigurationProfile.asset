@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: New MixedRealityToolkitConfigurationProfile
   m_EditorClassIdentifier: 
   isCustomProfile: 1
-  targetExperienceScale: 3
+  targetExperienceScale: 2
   enableCameraSystem: 1
   cameraProfile: {fileID: 11400000, guid: 492ff466598aea74299c9272ad6da46f, type: 2}
   cameraSystemType:
