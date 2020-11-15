@@ -2822,12 +2822,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   texts:
   - What is the outlier for the city of Raipur in 2011?
-  - 'What is the lowest emission of Nitrogen Dioxide for the month of March (Month:
-    3)?'
-  - Which of the cities has the largest emission of Nitrogen Dioxide for which month
-    of the year 2011?
+  - 'What is the lowest emission of PM-10 for the month of November (Month: 11)?'
+  - Which of the cities has the largest emission of PM-10 for which month in 2011?
   panel: {fileID: 837470913}
-  dataset: 5D
+  dataset: 3D
 --- !u!1 &1293897359
 GameObject:
   m_ObjectHideFlags: 0
@@ -3084,7 +3082,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1387911591}
-  - component: {fileID: 1387911593}
+  - component: {fileID: 1387911592}
   m_Layer: 0
   m_Name: 'DataPlotter '
   m_TagString: Untagged
@@ -3106,7 +3104,7 @@ Transform:
   m_Father: {fileID: 895301850}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1387911593
+--- !u!114 &1387911592
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3115,14 +3113,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1387911590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b22c37a5579fd0e4ca23173a82aa29c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 918dc48dd1c218543af2740bd8389b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inputfile1: NO2R
   inputfile2: SO2R
   inputfile3: PM10R
   plotScale: 500
-  sizeScale: 1000
+  sizeScale: 500
   yScale: 10
   zScale: 2
   xScale: 2
@@ -5110,7 +5108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputfile1: PM10R
-  plotScale: 500
+  plotScale: 450
   yScale: 20
   zScale: 2
   xScale: 2

@@ -11,6 +11,7 @@ public class Questions : MonoBehaviour
 
     public TMP_Text panel;//the panel that holds the questions
     public static bool startTrail = false;
+    public string dataset;
   
 
     //data
@@ -103,7 +104,7 @@ public class Questions : MonoBehaviour
         }
 
         
-        File.AppendAllText(txtDocumentName, data + "\n" + "time:  "+levelTime + "\n"+"timestamp: "+startTrialString+"\n\n");
+        File.AppendAllText(txtDocumentName, data + "\n" + "time:  "+levelTime + "\n"+"timestamp: "+startTrialString+"\n"+"dataset: "+dataset+"\n\n");
 
     
     }

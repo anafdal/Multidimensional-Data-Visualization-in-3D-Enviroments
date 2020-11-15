@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using TMPro;
 
-public class DataPlotter5D1 : MonoBehaviour
+public class DataPlotter3D : MonoBehaviour
 {
 
     // Name of the input file, no extension
@@ -62,8 +62,8 @@ public class DataPlotter5D1 : MonoBehaviour
 
     // Object which will contain instantiated prefabs in hiearchy
     public GameObject PointHolder;
-  
-    
+
+
 
 
     // Use this for initialization
@@ -73,13 +73,13 @@ public class DataPlotter5D1 : MonoBehaviour
         dataList2 = CSVReader.Read(inputfile2);
         dataList3 = CSVReader.Read(inputfile3);
 
-       
+
 
 
         // Declare list of strings, fill with keys (column names)
-       columnList1 = new List<string>(dataList1[1].Keys);
-       columnList2 = new List<string>(dataList2[1].Keys);
-       columnList3 = new List<string>(dataList3[1].Keys);
+        columnList1 = new List<string>(dataList1[1].Keys);
+        columnList2 = new List<string>(dataList2[1].Keys);
+        columnList3 = new List<string>(dataList3[1].Keys);
 
         geoArea = columnList1[0];//column for states
 
@@ -97,7 +97,7 @@ public class DataPlotter5D1 : MonoBehaviour
 
         min5 = Statistics.FindMinValue3(pm10Rate, dataList3, columnList3);
         max6 = Statistics.FindMaxValue3(pm10Rate, dataList3, columnList3);
-    
+
         for (var j = 1; j < columnList1.Count; j++)//through columns for dates
         {
             float z = j;//per date
@@ -139,16 +139,16 @@ public class DataPlotter5D1 : MonoBehaviour
                         Quaternion.identity);
 
 
-               
 
-                dataPoint.GetComponent<Renderer>().material.color = Slerp3(Color.blue, Color.white, Color.red,normalSO2);//HSB:(https://colorbrewer2.org/#type=diverging&scheme=RdBu&n=3)
 
-               
+                //dataPoint.GetComponent<Renderer>().material.color = Slerp3(Color.blue, Color.white, Color.red, normalSO2);//HSB:(https://colorbrewer2.org/#type=diverging&scheme=RdBu&n=3)
+                dataPoint.transform.localScale = new Vector3(sizeScale, sizeScale, sizeScale);
+
 
 
                 //dataPoint.GetComponent<Renderer>().material.color = Lerp3(Color.blue, Color.white, Color.red, Mathf.PingPong(normalNO2, 1));
 
-                dataPoint.transform.localScale = new Vector3(normalNO2 * sizeScale, normalNO2 * sizeScale, normalNO2 * sizeScale);//size interpolation by SO2
+                //dataPoint.transform.localScale = new Vector3(normalNO2 * sizeScale, normalNO2 * sizeScale, normalNO2 * sizeScale);//size interpolation by SO2
 
                 //new Vector3(normalVal*100, y, z) * plotScale
 
@@ -157,44 +157,44 @@ public class DataPlotter5D1 : MonoBehaviour
 
                 // Assigns original values to dataPointName
                 string dataPointName =
-                    "City: " + dataList1[i][geoArea] + "\n"+ //state
+                    "City: " + dataList1[i][geoArea] + "\n" + //state
                     " Month: " + columnList1[j];   //date
 
-                string dataNeeded = " NO2 Emission: " + dataList1[i][no2Rate]+ "\n " +//NO2 cases
+                string dataNeeded = " NO2 Emission: " + dataList1[i][no2Rate] + "\n " +//NO2 cases
                     " SO2 Emission: " + SO2[i] + "\n" +        //SO2 rate
                     " PM10 Fuel Consumption: " + PM10[i];  //PM10 rate
-                    //+ " Nomral NO2" + normalNO2;*/
+                                                           //+ " Nomral NO2" + normalNO2;*/
 
                 // Assigns name to the prefab
-                dataPoint.transform.name = dataPointName+ "\n"+dataNeeded;
+                dataPoint.transform.name = dataPointName + "\n" + dataNeeded;
 
 
 
                 // Gets material color and sets it to a new RGB color we define
 
             }
-        }     
+        }
     }
 
     private void GetYLabel()
     {
         // Set y Labels by finding game objects and setting TextMesh and assigning value (need to convert to string)
         y_min.text = min5.ToString("0.0");
-        y_mid.text= (min5 + (max6 - min5) / 2f).ToString("0.0");
+        y_mid.text = (min5 + (max6 - min5) / 2f).ToString("0.0");
         y_max.text = max6.ToString("0.0");
 
         //set position
-        y_min.transform.position= new Vector3(y_min.transform.position.x, Statistics.normalizeValue(min5, max6, min5)*yScale*plotScale, y_min.transform.position.z);
+        y_min.transform.position = new Vector3(y_min.transform.position.x, Statistics.normalizeValue(min5, max6, min5) * yScale * plotScale, y_min.transform.position.z);
         y_max.transform.position = new Vector3(y_max.transform.position.x, Statistics.normalizeValue(min5, max6, max6) * yScale * plotScale, y_max.transform.position.z);
 
-        y_mid.transform.position = new Vector3(y_mid.transform.position.x,(y_min.transform.position.y + (y_max.transform.position.y - y_min.transform.position.y) / 2f), y_mid.transform.position.z);
-        
+        y_mid.transform.position = new Vector3(y_mid.transform.position.x, (y_min.transform.position.y + (y_max.transform.position.y - y_min.transform.position.y) / 2f), y_mid.transform.position.z);
+
     }
- 
+
 
     static List<float> ChangeDate(List<float> Case, string valueRate, List<Dictionary<string, object>> dataList)
     {
-        float [] tempValue = new float[dataList.Count];//temporary array, a placeholder for the values
+        float[] tempValue = new float[dataList.Count];//temporary array, a placeholder for the values
         Case.Clear();
 
         for (var n = 0; n < dataList.Count; n++)
@@ -208,22 +208,22 @@ public class DataPlotter5D1 : MonoBehaviour
         //Debug.Log(temporary.Count);
         return Case;
     }
-/*
-    Color Lerp3(Color a, Color b, Color c, float t)
-    {
-        if (t < 0.5f) // 0.0 to 0.5 goes to a -> b
-            return Color.Lerp(a, b, t / 0.5f);
-        else // 0.5 to 1.0 goes to b -> c
-            return Color.Lerp(b, c, (t - 0.5f) / 0.5f);
-    }
-    public static Color Slerp(Color a, Color b, float t)
-    {
-        return (HSBColor.Lerp(HSBColor.FromColor(a), HSBColor.FromColor(b), t)).ToColor();
-    }*/
+    /*
+        Color Lerp3(Color a, Color b, Color c, float t)
+        {
+            if (t < 0.5f) // 0.0 to 0.5 goes to a -> b
+                return Color.Lerp(a, b, t / 0.5f);
+            else // 0.5 to 1.0 goes to b -> c
+                return Color.Lerp(b, c, (t - 0.5f) / 0.5f);
+        }
+        public static Color Slerp(Color a, Color b, float t)
+        {
+            return (HSBColor.Lerp(HSBColor.FromColor(a), HSBColor.FromColor(b), t)).ToColor();
+        }*/
     Color Slerp3(Color a, Color b, Color c, float t)
     {
         if (t < 0.5f) // 0.0 to 0.5 goes to a -> b
-            return (HSBColor.Lerp(HSBColor.FromColor(a), HSBColor.FromColor(b), t/0.5f)).ToColor();
+            return (HSBColor.Lerp(HSBColor.FromColor(a), HSBColor.FromColor(b), t / 0.5f)).ToColor();
         else // 0.5 to 1.0 goes to b -> c
             return (HSBColor.Lerp(HSBColor.FromColor(b), HSBColor.FromColor(c), (t - 0.5f) / 0.5f)).ToColor();
     }
