@@ -20,13 +20,19 @@ public class Questions : MonoBehaviour
     public static int indexQuestion = 0;//index of questions asked
     public static bool now = false;//make sure you only click answer once
 
-    
+    //timestamp
+    private string startTrialString;
+  
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         panel.text = "To start the trials, press spacebar";
-      
+
+        //Find the date and time when the game was run
+        var startTrial = System.DateTime.Now;
+        startTrialString = startTrial.ToString("dd-mm-yyyy-hh-mm-ss");
+
 
         //create streaming asset folder
         Directory.CreateDirectory(Application.streamingAssetsPath + "/Data_Logs/");
@@ -62,7 +68,7 @@ public class Questions : MonoBehaviour
             {
                 panel.text = "Trial has ended! Please start next trial!";//trial ends
                 startTrail = false;//trial ends
-
+              
             }
 
             
@@ -92,11 +98,13 @@ public class Questions : MonoBehaviour
         if (!File.Exists(txtDocumentName))
         {
             //add a heading inside that .txt file for this date
-            File.WriteAllText(txtDocumentName, "TITLE OF DATA LOG \n\n");
+            File.WriteAllText(txtDocumentName, "DATA LOG "+ "\n\n");
 
         }
 
+        
+        File.AppendAllText(txtDocumentName, data + "\n" + "time:  "+levelTime + "\n"+"timestamp: "+startTrialString+"\n\n");
 
-        File.AppendAllText(txtDocumentName, data + "\n" + levelTime + "\n");
+    
     }
 }

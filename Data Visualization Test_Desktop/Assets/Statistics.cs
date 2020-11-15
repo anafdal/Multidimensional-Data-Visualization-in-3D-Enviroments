@@ -59,7 +59,7 @@ public class Statistics : MonoBehaviour
                     maxValue = System.Convert.ToInt32(dataList[i][columnName]);
             }
         }
-            Debug.Log("Max: "+maxValue);
+            //Debug.Log("Max: "+maxValue);
        return maxValue;
         
     }
@@ -83,7 +83,7 @@ public class Statistics : MonoBehaviour
                     maxValue = System.Convert.ToSingle(dataList[i][columnName]);
             }
         }
-        Debug.Log("Max: " + maxValue);
+        //Debug.Log("Max: " + maxValue);
         return maxValue;
 
     }
@@ -108,7 +108,7 @@ public class Statistics : MonoBehaviour
                     minValue = System.Convert.ToInt32(dataList[i][columnName]);
             }
         }
-        Debug.Log("Min: " + minValue);
+        //Debug.Log("Min: " + minValue);
         return minValue;
 
     }
@@ -130,7 +130,7 @@ public class Statistics : MonoBehaviour
                     minValue = System.Convert.ToSingle(dataList[i][columnName]);
             }
         }
-        Debug.Log("Min: " + minValue);
+        //Debug.Log("Min: " + minValue);
         return minValue;
 
     }

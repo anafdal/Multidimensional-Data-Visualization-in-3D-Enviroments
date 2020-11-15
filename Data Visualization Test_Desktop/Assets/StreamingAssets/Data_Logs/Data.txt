@@ -1,20 +1,3 @@
 
 
-City: Nagpur
- Month: 10
- NO2 Emission: 40.98039
-  SO2 Emission: 8.745098
- PM10 Fuel Consumption: 129.1176
-13.02253
-City: Pune
- Month: 9
- NO2 Emission: 39.30435
-  SO2 Emission: 24.8913
- PM10 Fuel Consumption: 82.26087
-2.228029
-City: Nagpur
- Month: 11
- NO2 Emission: 38.54902
-  SO2 Emission: 7.843137
- PM10 Fuel Consumption: 124.1569
-1.826355
+

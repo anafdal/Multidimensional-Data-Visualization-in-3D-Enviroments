@@ -27,9 +27,10 @@ public class LabelPositionX : MonoBehaviour
 
     //scales
     public float plotScale;
-    public float sizeScale;
+    //public float sizeScale;
     public float yScale;
     public float zScale;
+    public float xScale;
 
     // The prefab for the data points that will be instantiated
     public GameObject PointPrefab;
@@ -62,12 +63,12 @@ public class LabelPositionX : MonoBehaviour
         for (var i = 0; i < dataList1.Count; i++)//go through row for states
         {
             float x = i;//per region
-
+            float xdef = x * xScale;
      
             // Instantiate as gameobject variable so that it can be manipulated within loop
             GameObject dataPoint = Instantiate(
                     PointPrefab,
-                    new Vector3(x*plotScale, LabelHolder.transform.position.y, LabelHolder.transform.position.z),
+                    new Vector3(xdef*plotScale, LabelHolder.transform.position.y, LabelHolder.transform.position.z),
                     Quaternion.identity);
 
             // Make child of PointHolder object, to keep points within container in hiearchy

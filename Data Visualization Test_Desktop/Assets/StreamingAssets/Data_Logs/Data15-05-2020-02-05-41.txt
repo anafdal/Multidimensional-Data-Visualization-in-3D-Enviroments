@@ -1,0 +1,23 @@
+DATA LOG 15-05-2020-02-05-41
+
+City: Kanpur
+ Month: 9
+ NO2 Emission: 30.32813
+  SO2 Emission: 7.34375
+ PM10 Fuel Consumption: 168.5156
+time:  0.9110022
+
+City: Kanpur
+ Month: 9
+ NO2 Emission: 30.32813
+  SO2 Emission: 7.34375
+ PM10 Fuel Consumption: 168.5156
+time:  0.2241631
+
+City: Kanpur
+ Month: 9
+ NO2 Emission: 30.32813
+  SO2 Emission: 7.34375
+ PM10 Fuel Consumption: 168.5156
+time:  0.1244089
+
