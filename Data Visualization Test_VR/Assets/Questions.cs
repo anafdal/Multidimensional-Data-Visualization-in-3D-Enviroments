@@ -18,6 +18,7 @@ public class Questions : MonoBehaviour
     public TMP_Text panel;//the panel that holds the questions
     public static bool startTrail = false;
     public static bool stopTrial = false;//so it doesn't go through whole loop
+    public string dataset;//specify dataset
 
 
     //data
@@ -34,13 +35,18 @@ public class Questions : MonoBehaviour
     public float activationTwo=0.1f;
    
     Coroutine restart;
-
+    //timestamp
+    private string startTrialString;
 
     public XRController leftDevice;
 
     void Awake()
     {
-        panel.text = "To start the trials, press Menu Button on left handle";
+        panel.text = "To start the trials, press Trigger Button on left handle. To select your answers, you will use the primary button in the left handle";
+
+        //Find the date and time when the game was run
+        var startTrial = System.DateTime.Now;
+        startTrialString = startTrial.ToString("dd-mm-yyyy-hh-mm-ss");
 
         //create streaming asset folder
         Directory.CreateDirectory(Application.streamingAssetsPath + "/Data_Logs/");
@@ -140,11 +146,11 @@ public class Questions : MonoBehaviour
         if (!File.Exists(txtDocumentName))
         {
             //add a heading inside that .txt file for this date
-            File.WriteAllText(txtDocumentName, "TITLE OF DATA LOG \n\n");
+            File.WriteAllText(txtDocumentName, "DATA LOG \n\n");
 
         }
 
 
-        File.AppendAllText(txtDocumentName, data + "\n" + levelTime + "\n");
+        File.AppendAllText(txtDocumentName, data + "\n" + "time:  " + levelTime + "\n" + "timestamp: " + startTrialString + "\n" + "dataset: " + dataset + "\n\n");
     }
 }

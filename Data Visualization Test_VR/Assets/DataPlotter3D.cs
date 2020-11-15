@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using TMPro;
 
-public class DataPlotter5D: MonoBehaviour
+public class DataPlotter3D : MonoBehaviour
 {
 
     // Name of the input file, no extension
@@ -35,6 +35,7 @@ public class DataPlotter5D: MonoBehaviour
     public float sizeScale;
     public float yScale;
     public float zScale;
+    public float xScale;
 
     // The prefab for the data points that will be instantiated
     public GameObject PointPrefab;
@@ -58,9 +59,12 @@ public class DataPlotter5D: MonoBehaviour
     public TMP_Text y_mid;
     public TMP_Text y_max;
 
+
     // Object which will contain instantiated prefabs in hiearchy
     public GameObject PointHolder;
-    
+
+
+
 
     // Use this for initialization
     void OnEnable()
@@ -70,10 +74,12 @@ public class DataPlotter5D: MonoBehaviour
         dataList3 = CSVReader.Read(inputfile3);
 
 
+
+
         // Declare list of strings, fill with keys (column names)
-       columnList1 = new List<string>(dataList1[1].Keys);
-       columnList2 = new List<string>(dataList2[1].Keys);
-       columnList3 = new List<string>(dataList3[1].Keys);
+        columnList1 = new List<string>(dataList1[1].Keys);
+        columnList2 = new List<string>(dataList2[1].Keys);
+        columnList3 = new List<string>(dataList3[1].Keys);
 
         geoArea = columnList1[0];//column for states
 
@@ -92,8 +98,6 @@ public class DataPlotter5D: MonoBehaviour
         min5 = Statistics.FindMinValue3(pm10Rate, dataList3, columnList3);
         max6 = Statistics.FindMaxValue3(pm10Rate, dataList3, columnList3);
 
-        GetYLabel();
-    
         for (var j = 1; j < columnList1.Count; j++)//through columns for dates
         {
             float z = j;//per date
@@ -108,6 +112,8 @@ public class DataPlotter5D: MonoBehaviour
 
             float zdef = zScale * z;
 
+            GetYLabel();//assign y labels
+
             //Loop through Pointlist
             for (var i = 0; i < dataList1.Count; i++)//go through row for states
             {
@@ -120,6 +126,7 @@ public class DataPlotter5D: MonoBehaviour
 
                 float y = normalPM10;
                 float ydef = yScale * y;//use third axis as well
+                float xdef = x * xScale;
 
                 //float ydef = (float)0.01 * y;
 
@@ -128,17 +135,20 @@ public class DataPlotter5D: MonoBehaviour
                 // Instantiate as gameobject variable so that it can be manipulated within loop
                 GameObject dataPoint = Instantiate(
                         PointPrefab,
-                        new Vector3(x, ydef, zdef) * plotScale,
+                        new Vector3(xdef, ydef, zdef) * plotScale,
                         Quaternion.identity);
 
 
 
 
-                //dataPoint.GetComponent<Renderer>().material.color = Color.Lerp(Color.blue, Color.red, Mathf.PingPong(normalNO2,1));//color interpolation represented by NO2
-                dataPoint.GetComponent<Renderer>().material.color = Slerp3(Color.blue, Color.white, Color.red, normalSO2);//HSB:(https://colorbrewer2.org/#type=diverging&scheme=RdBu&n=3)
+                //dataPoint.GetComponent<Renderer>().material.color = Slerp3(Color.blue, Color.white, Color.red, normalSO2);//HSB:(https://colorbrewer2.org/#type=diverging&scheme=RdBu&n=3)
+                dataPoint.transform.localScale = new Vector3(sizeScale, sizeScale, sizeScale);
 
 
-                dataPoint.transform.localScale = new Vector3(normalNO2 * sizeScale, normalNO2 * sizeScale, normalNO2 * sizeScale);//size interpolation by SO2
+
+                //dataPoint.GetComponent<Renderer>().material.color = Lerp3(Color.blue, Color.white, Color.red, Mathf.PingPong(normalNO2, 1));
+
+                //dataPoint.transform.localScale = new Vector3(normalNO2 * sizeScale, normalNO2 * sizeScale, normalNO2 * sizeScale);//size interpolation by SO2
 
                 //new Vector3(normalVal*100, y, z) * plotScale
 
@@ -158,12 +168,14 @@ public class DataPlotter5D: MonoBehaviour
                 // Assigns name to the prefab
                 dataPoint.transform.name = dataPointName + "\n" + dataNeeded;
 
-                
+
+
                 // Gets material color and sets it to a new RGB color we define
 
             }
-        }     
+        }
     }
+
     private void GetYLabel()
     {
         // Set y Labels by finding game objects and setting TextMesh and assigning value (need to convert to string)
@@ -180,11 +192,9 @@ public class DataPlotter5D: MonoBehaviour
     }
 
 
-
-
     static List<float> ChangeDate(List<float> Case, string valueRate, List<Dictionary<string, object>> dataList)
     {
-        float [] tempValue = new float[dataList.Count];//temporary array, a placeholder for the values
+        float[] tempValue = new float[dataList.Count];//temporary array, a placeholder for the values
         Case.Clear();
 
         for (var n = 0; n < dataList.Count; n++)
@@ -198,7 +208,18 @@ public class DataPlotter5D: MonoBehaviour
         //Debug.Log(temporary.Count);
         return Case;
     }
-
+    /*
+        Color Lerp3(Color a, Color b, Color c, float t)
+        {
+            if (t < 0.5f) // 0.0 to 0.5 goes to a -> b
+                return Color.Lerp(a, b, t / 0.5f);
+            else // 0.5 to 1.0 goes to b -> c
+                return Color.Lerp(b, c, (t - 0.5f) / 0.5f);
+        }
+        public static Color Slerp(Color a, Color b, float t)
+        {
+            return (HSBColor.Lerp(HSBColor.FromColor(a), HSBColor.FromColor(b), t)).ToColor();
+        }*/
     Color Slerp3(Color a, Color b, Color c, float t)
     {
         if (t < 0.5f) // 0.0 to 0.5 goes to a -> b
