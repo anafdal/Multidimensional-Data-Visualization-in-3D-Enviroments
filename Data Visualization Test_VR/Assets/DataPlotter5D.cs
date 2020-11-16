@@ -133,12 +133,16 @@ public class DataPlotter5D: MonoBehaviour
                         new Vector3(xdef, ydef, zdef) * plotScale,
                         Quaternion.identity);
 
+                Color blueColor = new Color();
+                ColorUtility.TryParseHtmlString("#2166AC", out blueColor);
+                Color redColor = new Color();
+                ColorUtility.TryParseHtmlString("#B2182B", out redColor);
+                Color whiteColor = new Color();
+                ColorUtility.TryParseHtmlString("#F7F7F7", out whiteColor);
 
 
 
-                //dataPoint.GetComponent<Renderer>().material.color = Color.Lerp(Color.blue, Color.red, Mathf.PingPong(normalNO2,1));//color interpolation represented by NO2
-                dataPoint.GetComponent<Renderer>().material.color = Slerp3(Color.blue, Color.white, Color.red, normalSO2);//HSB:(https://colorbrewer2.org/#type=diverging&scheme=RdBu&n=3)
-
+                dataPoint.GetComponent<Renderer>().material.color = Slerp3(blueColor, whiteColor, redColor, normalSO2);//HSB:(https://colorbrewer2.org/#type=diverging&scheme=RdBu&n=3)
 
                 dataPoint.transform.localScale = new Vector3(normalNO2 * sizeScale, normalNO2 * sizeScale, normalNO2 * sizeScale);//size interpolation by SO2
 
@@ -201,12 +205,20 @@ public class DataPlotter5D: MonoBehaviour
         return Case;
     }
 
+    /*Color Slerp3(Color a, Color b, Color c, float t)
+     {
+         if (t < 0.5f) // 0.0 to 0.5 goes to a -> b
+             return (HSBColor.Lerp(HSBColor.FromColor(a), HSBColor.FromColor(b), t / 0.5f)).ToColor();
+         else // 0.5 to 1.0 goes to b -> c
+             return (HSBColor.Lerp(HSBColor.FromColor(b), HSBColor.FromColor(c), (t - 0.5f) / 0.5f)).ToColor();
+     }*/
     Color Slerp3(Color a, Color b, Color c, float t)
     {
         if (t < 0.5f) // 0.0 to 0.5 goes to a -> b
-            return (HSBColor.Lerp(HSBColor.FromColor(a), HSBColor.FromColor(b), t / 0.5f)).ToColor();
+            return (LABColor.Lerp(LABColor.FromColor(a), LABColor.FromColor(b), t / 0.5f)).ToColor();
         else // 0.5 to 1.0 goes to b -> c
-            return (HSBColor.Lerp(HSBColor.FromColor(b), HSBColor.FromColor(c), (t - 0.5f) / 0.5f)).ToColor();
+            return (LABColor.Lerp(LABColor.FromColor(b), LABColor.FromColor(c), (t - 0.5f) / 0.5f)).ToColor();
     }
+
 
 }
