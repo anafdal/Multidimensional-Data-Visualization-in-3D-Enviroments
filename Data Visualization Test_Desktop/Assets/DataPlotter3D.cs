@@ -220,12 +220,12 @@ public class DataPlotter3D : MonoBehaviour
         {
             return (HSBColor.Lerp(HSBColor.FromColor(a), HSBColor.FromColor(b), t)).ToColor();
         }*/
-    Color Slerp3(Color a, Color b, Color c, float t)
+    /*Color Slerp3(Color a, Color b, Color c, float t)
     {
         if (t < 0.5f) // 0.0 to 0.5 goes to a -> b
             return (HSBColor.Lerp(HSBColor.FromColor(a), HSBColor.FromColor(b), t / 0.5f)).ToColor();
         else // 0.5 to 1.0 goes to b -> c
             return (HSBColor.Lerp(HSBColor.FromColor(b), HSBColor.FromColor(c), (t - 0.5f) / 0.5f)).ToColor();
-    }
+    }*/
 
 }

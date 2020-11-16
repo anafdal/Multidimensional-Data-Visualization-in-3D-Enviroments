@@ -23,14 +23,14 @@ public struct HCLColor
 		set { this.H = value; }
 	}
 
-	// a color-opponent accessor
+	
 	public float y
 	{
 		get { return this.C; }
 		set { this.C = value; }
 	}
 
-	// b color-opponent accessor
+	
 	public float z
 	{
 		get { return this.L; }

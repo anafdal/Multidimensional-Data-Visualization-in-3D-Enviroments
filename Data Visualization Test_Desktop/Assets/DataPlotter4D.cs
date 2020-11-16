@@ -232,8 +232,15 @@ public class DataPlotter4D : MonoBehaviour
             return (LABColor.Lerp(LABColor.FromColor(b), LABColor.FromColor(c), (t - 0.5f) / 0.5f)).ToColor();
     }
 
-   
-  
+   /* Color Slerp3(Color a, Color b, Color c, float t)
+    {
+        if (t < 0.5f) // 0.0 to 0.5 goes to a -> b
+            return (HSLColor.Lerp(HSLColor.FromColor(a), HSLColor.FromColor(b), t / 0.5f)).ToColor();
+        else // 0.5 to 1.0 goes to b -> c
+            return (HSLColor.Lerp(HSLColor.FromColor(b), HSLColor.FromColor(c), (t - 0.5f) / 0.5f)).ToColor();
+    }*/
+
+
 
 
 }
