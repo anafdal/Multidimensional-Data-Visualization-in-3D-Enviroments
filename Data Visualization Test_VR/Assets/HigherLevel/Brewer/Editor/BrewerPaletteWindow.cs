@@ -177,7 +177,8 @@ public class BrewerPaletteWindow : EditorWindow {
 		}
 	}
 
-	void DisplaySelectedPalette(Palette palette) {
+        [Obsolete]
+        void DisplaySelectedPalette(Palette palette) {
 		if (SelectedPalette == null) {
 			EditorGUILayout.HelpBox("Click on a colour scheme!", MessageType.Info);
 			return;

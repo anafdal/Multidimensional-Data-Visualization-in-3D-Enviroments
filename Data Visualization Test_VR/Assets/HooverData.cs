@@ -69,7 +69,7 @@ public class HooverData : MonoBehaviour
         UItext.visibility = 0;
        this.m_Material.color = startColor;
 
-        Debug.Log(now);
+        //Debug.Log(now);
     }
 
     private void OnDestroy()

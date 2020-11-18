@@ -13,7 +13,7 @@ public class Questions : MonoBehaviour
 {
 
     [SerializeField]
-    private string[] texts; // Specify your texts in the inspector
+    private string[] texts=null; // Specify your texts in the inspector
 
     public TMP_Text panel;//the panel that holds the questions
     public static bool startTrail = false;
