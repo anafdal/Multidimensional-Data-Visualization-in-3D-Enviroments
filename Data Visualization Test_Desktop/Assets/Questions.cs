@@ -53,8 +53,8 @@ public class Questions : MonoBehaviour
         else if(Input.GetKeyDown(KeyCode.Return) && startTrail == true && now == true)//trials is in session
         {
             CreateTextFile(HooverData.emmissionLevel, levelTime);//get data
-            Debug.Log(HooverData.data);
-            Debug.Log(levelTime);
+            //Debug.Log(HooverData.data);
+            //Debug.Log(levelTime);
 
             if (indexQuestion < 3)//there are only three questions to answer
             {
