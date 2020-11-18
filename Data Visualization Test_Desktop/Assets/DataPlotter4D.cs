@@ -138,7 +138,7 @@ public class DataPlotter4D : MonoBehaviour
                         new Vector3(xdef, ydef, zdef) * plotScale,
                         Quaternion.identity);
 
-                ///Color
+                //Testing Colors/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
                 Color blueColor = new Color();
                 ColorUtility.TryParseHtmlString("#2166AC", out blueColor);
@@ -147,7 +147,26 @@ public class DataPlotter4D : MonoBehaviour
                 Color whiteColor = new Color();
                 ColorUtility.TryParseHtmlString("#F7F7F7", out whiteColor);
 
-                dataPoint.GetComponent<Renderer>().material.color = Slerp3(blueColor, whiteColor, redColor,normalSO2);//HSB:(https://colorbrewer2.org/#type=diverging&scheme=RdBu&n=3)
+                //for Hsluv
+                IList <float> rColor= new float[] {178.0f,24.0f,43.0f};
+                IList<float> bColor = new float[] { 33.0f, 102.0f, 172.0f };
+                IList<float> wColor = new float[] { 247.0f, 247.0f, 247.0f };
+                
+
+                dataPoint.GetComponent<Renderer>().material.color = Slerp3(blueColor, whiteColor, redColor, normalSO2);//(https://colorbrewer2.org/#type=diverging&scheme=RdBu&n=3)
+
+                //Color newColor= new Color ((Hsluv.RgbToHsluv(rcolor))[0]/225, (Hsluv.RgbToHsluv(rcolor))[1]/225, (Hsluv.RgbToHsluv(rcolor))[2]/225);
+                //Color newColor = new Color((Hsluv.RgbToHsluv(bcolor))[0] / 225, (Hsluv.RgbToHsluv(bcolor))[1] / 225, (Hsluv.RgbToHsluv(bcolor))[2] / 225);
+                //Color newColor = new Color((Hsluv.RgbToHsluv(wcolor))[0] / 225, (Hsluv.RgbToHsluv(wcolor))[1] / 225, (Hsluv.RgbToHsluv(wcolor))[2] / 225);
+
+                //dataPoint.GetComponent<Renderer>().material.color = newColor;
+
+                //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+                //dataPoint.GetComponent<Renderer>().material.color = Slerp3("#2166AC", "#F7F7F7", "#B2182B", normalSO2);
                 dataPoint.transform.localScale = new Vector3(sizeScale, sizeScale, sizeScale);
 
 
@@ -215,6 +234,15 @@ public class DataPlotter4D : MonoBehaviour
         return Case;
     }
 
+    
+    //Using Labcolor for now
+    Color Slerp3(Color a, Color b, Color c, float t)
+    {
+        if (t < 0.5f) // 0.0 to 0.5 goes to a -> b
+            return (LABColor.Lerp(LABColor.FromColor(a), LABColor.FromColor(b), t / 0.5f)).ToColor();
+        else // 0.5 to 1.0 goes to b -> c
+            return (LABColor.Lerp(LABColor.FromColor(b), LABColor.FromColor(c), (t - 0.5f) / 0.5f)).ToColor();
+    }
     /*
     Color Slerp3(Color a, Color b, Color c, float t)
     {
@@ -223,24 +251,72 @@ public class DataPlotter4D : MonoBehaviour
         else // 0.5 to 1.0 goes to b -> c
             return (HSBColor.Lerp(HSBColor.FromColor(b), HSBColor.FromColor(c), (t - 0.5f) / 0.5f)).ToColor();
     }*/
+    /* Color Slerp3(Color a, Color b, Color c, float t)
+     {
+         if (t < 0.5f) { // 0.0 to 0.5 goes to a -> b
 
-   Color Slerp3(Color a, Color b, Color c, float t)
-    {
-        if (t < 0.5f) // 0.0 to 0.5 goes to a -> b
-            return (LABColor.Lerp(LABColor.FromColor(a), LABColor.FromColor(b), t / 0.5f)).ToColor();
-        else // 0.5 to 1.0 goes to b -> c
-            return (LABColor.Lerp(LABColor.FromColor(b), LABColor.FromColor(c), (t - 0.5f) / 0.5f)).ToColor();
-    }
+             //Color newColor=Hsluv.ConvertToColor(Hsluv.HsluvToRgb(Hsluv.Lerp(Hsluv.HexToHsluv(a), Hsluv.HexToHsluv(b), t / 0.5f)));
 
-   /* Color Slerp3(Color a, Color b, Color c, float t)
+             IList<float> col=Hsluv.Lerp(Hsluv.RgbToHsluv(Hsluv.ConvertToRGB(a)),Hsluv.RgbToHsluv(Hsluv.ConvertToRGB(b)), t / 0.5f);
+
+             return Hsluv.ConvertToColor(Hsluv.HpluvToRgb(col));
+
+         }
+         else { // 0.5 to 1.0 goes to b -> c
+
+             // Color newColor=Hsluv.ConvertToColor(Hsluv.Lerp(Hsluv.HextoLch(b), Hsluv.HextoLch(c),(t - 0.5f) / 0.5f));
+             //return Color.Lerp(Hsluv.ConvertToColor(Hsluv.HsluvToRgb(Hsluv.HexToHsluv(b))), Hsluv.ConvertToColor(Hsluv.HsluvToRgb(Hsluv.HexToHsluv(c))), (t - 0.5f) / 0.5f); 
+             IList<float> col = Hsluv.Lerp(Hsluv.RgbToHsluv(Hsluv.ConvertToRGB(b)), Hsluv.RgbToHsluv(Hsluv.ConvertToRGB(c)), (t - 0.5f) / 0.5f);
+
+             return Hsluv.ConvertToColor(Hsluv.HpluvToRgb(col));
+
+         }
+     }*/
+
+    /* Color Slerp3(Color a, Color b, Color c, float t)
     {
-        if (t < 0.5f) // 0.0 to 0.5 goes to a -> b
-            return (HSLColor.Lerp(HSLColor.FromColor(a), HSLColor.FromColor(b), t / 0.5f)).ToColor();
-        else // 0.5 to 1.0 goes to b -> c
-            return (HSLColor.Lerp(HSLColor.FromColor(b), HSLColor.FromColor(c), (t - 0.5f) / 0.5f)).ToColor();
+        if (t < 0.5f) { // 0.0 to 0.5 goes to a -> b
+
+            //Color newColor=Hsluv.ConvertToColor(Hsluv.HsluvToRgb(Hsluv.Lerp(Hsluv.HexToHsluv(a), Hsluv.HexToHsluv(b), t / 0.5f)));
+
+            IList<float> col=Hsluv.Lerp(Hsluv.RgbToHsluv(Hsluv.ConvertToRGB(a)),Hsluv.RgbToHsluv(Hsluv.ConvertToRGB(b)), t / 0.5f);
+
+            return Hsluv.ConvertToColor(Hsluv.HpluvToRgb(col));
+
+        }
+        else { // 0.5 to 1.0 goes to b -> c
+
+            // Color newColor=Hsluv.ConvertToColor(Hsluv.Lerp(Hsluv.HextoLch(b), Hsluv.HextoLch(c),(t - 0.5f) / 0.5f));
+            //return Color.Lerp(Hsluv.ConvertToColor(Hsluv.HsluvToRgb(Hsluv.HexToHsluv(b))), Hsluv.ConvertToColor(Hsluv.HsluvToRgb(Hsluv.HexToHsluv(c))), (t - 0.5f) / 0.5f); 
+            IList<float> col = Hsluv.Lerp(Hsluv.RgbToHsluv(Hsluv.ConvertToRGB(b)), Hsluv.RgbToHsluv(Hsluv.ConvertToRGB(c)), (t - 0.5f) / 0.5f);
+
+            return Hsluv.ConvertToColor(Hsluv.HpluvToRgb(col));
+
+        }
     }*/
 
+    /* Color Slerp3(IList<float> a, IList<float> b, IList<float> c, float t)
+    {
+        if (t < 0.5f) { // 0.0 to 0.5 goes to a -> b
+
+              Color aColor= new Color ((Hsluv.RgbToHsluv(a))[0]/225, (Hsluv.RgbToHsluv(a))[1]/225, (Hsluv.RgbToHsluv(a))[2]/225);
+              Color bColor = new Color((Hsluv.RgbToHsluv(b))[0] / 225, (Hsluv.RgbToHsluv(b))[1] / 225, (Hsluv.RgbToHsluv(b))[2] / 225);
+
+              return Color.Lerp(aColor,bColor, t / 0.5f);
 
 
+
+        }
+        else { // 0.5 to 1.0 goes to b -> c
+
+              Color bColor = new Color((Hsluv.RgbToHsluv(b))[0] / 225, (Hsluv.RgbToHsluv(b))[1] / 225, (Hsluv.RgbToHsluv(b))[2] / 225);
+              Color cColor = new Color((Hsluv.RgbToHsluv(c))[0] / 225, (Hsluv.RgbToHsluv(c))[1] / 225, (Hsluv.RgbToHsluv(c))[2] / 225);
+
+              return Color.Lerp(bColor, cColor, (t - 0.5f) / 0.5f);
+
+        }
+    }*/
+
+    
 
 }
