@@ -45,14 +45,6 @@ public class DataPlotter5D : MonoBehaviour
     private List<string> columnList2;
     private List<string> columnList3;
 
-    private float min1;
-    private float max2;
-
-    private float min3;
-    private float max4;
-
-    private float min5;
-    private float max6;
 
     //y-labels
     public TMP_Text y_min;
@@ -67,7 +59,7 @@ public class DataPlotter5D : MonoBehaviour
 
 
     // Use this for initialization
-    void OnEnable()
+    void Start()
     {
         dataList1 = CSVReader.Read(inputfile1);
         dataList2 = CSVReader.Read(inputfile2);
@@ -89,14 +81,7 @@ public class DataPlotter5D : MonoBehaviour
 
         //tempValue = new float[dataList1.Count];//temporary array
 
-        min1 = Statistics.FindMinValue3(no2Rate, dataList1, columnList1);
-        max2 = Statistics.FindMaxValue3(no2Rate, dataList1, columnList1);
-
-        min3 = Statistics.FindMinValue3(so2Rate, dataList2, columnList2);
-        max4 = Statistics.FindMaxValue3(so2Rate, dataList2, columnList2);
-
-        min5 = Statistics.FindMinValue3(pm10Rate, dataList3, columnList3);
-        max6 = Statistics.FindMaxValue3(pm10Rate, dataList3, columnList3);
+    
 
         for (var j = 1; j < columnList1.Count; j++)//through columns for dates
         {
@@ -119,9 +104,9 @@ public class DataPlotter5D : MonoBehaviour
             {
                 float x = i;//per state
 
-                float normalNO2 = Statistics.normalizeValue(min1, max2, NO2[i]);//make a list so you can normalize the whole thing
-                float normalSO2 = Statistics.normalizeValue(min3, max4, SO2[i]);//make a list so you can normalize the whole thing
-                float normalPM10 = Statistics.normalizeValue(min5, max6, PM10[i]);//make a list so you can normalize the whole thing
+                float normalNO2 = Statistics.normalizeValue(getMin(no2Rate, dataList1, columnList1), getMax(no2Rate, dataList1, columnList1), NO2[i]);//make a list so you can normalize the whole thing
+                float normalSO2 = Statistics.normalizeValue(getMin(so2Rate, dataList2, columnList2), getMax(so2Rate, dataList2, columnList2), SO2[i]);//make a list so you can normalize the whole thing
+                float normalPM10 = Statistics.normalizeValue(getMin(pm10Rate, dataList3, columnList3),getMax(pm10Rate, dataList3, columnList3), PM10[i]);//make a list so you can normalize the whole thing
 
 
                 float y = normalPM10;
@@ -184,16 +169,39 @@ public class DataPlotter5D : MonoBehaviour
         }
     }
 
+    public float getMin(string rate, List<Dictionary<string, object>> dataList,List <string> columnList)
+    {
+        //min1 = Statistics.FindMinValue3(no2Rate, dataList1, columnList1);
+        //min3 = Statistics.FindMinValue3(so2Rate, dataList2, columnList2);
+        //min5 = Statistics.FindMinValue3(pm10Rate, dataList3, columnList3);
+        float min = Statistics.FindMinValue3(rate, dataList, columnList);
+        return min;
+    }
+
+    public float getMax(string rate, List<Dictionary<string, object>> dataList, List<string> columnList)
+    {
+        //max2 = Statistics.FindMaxValue3(no2Rate, dataList1, columnList1);
+        //max4 = Statistics.FindMaxValue3(so2Rate, dataList2, columnList2);
+        //max6 = Statistics.FindMaxValue3(pm10Rate, dataList3, columnList3);
+
+        float max = Statistics.FindMaxValue3(rate, dataList, columnList);
+        return max;
+    }
+    public void PlotPoints()
+    {
+
+    }
+
     private void GetYLabel()
     {
         // Set y Labels by finding game objects and setting TextMesh and assigning value (need to convert to string)
-        y_min.text = min5.ToString("0.0");
-        y_mid.text = (min5 + (max6 - min5) / 2f).ToString("0.0");
-        y_max.text = max6.ToString("0.0");
+        y_min.text = getMin(pm10Rate, dataList3, columnList3).ToString("0.0");
+        y_mid.text = (getMin(pm10Rate, dataList3, columnList3) + (getMax(pm10Rate, dataList3, columnList3) - getMin(pm10Rate, dataList3, columnList3)) / 2f).ToString("0.0");
+        y_max.text = getMax(pm10Rate, dataList3, columnList3).ToString("0.0");
 
         //set position
-        y_min.transform.position = new Vector3(y_min.transform.position.x, Statistics.normalizeValue(min5, max6, min5) * yScale * plotScale, y_min.transform.position.z);
-        y_max.transform.position = new Vector3(y_max.transform.position.x, Statistics.normalizeValue(min5, max6, max6) * yScale * plotScale, y_max.transform.position.z);
+        y_min.transform.position = new Vector3(y_min.transform.position.x, Statistics.normalizeValue(getMin(pm10Rate, dataList3, columnList3), getMax(pm10Rate, dataList3, columnList3), getMin(pm10Rate, dataList3, columnList3)) * yScale * plotScale, y_min.transform.position.z);
+        y_max.transform.position = new Vector3(y_max.transform.position.x, Statistics.normalizeValue(getMin(pm10Rate, dataList3, columnList3), getMax(pm10Rate, dataList3, columnList3), getMax(pm10Rate, dataList3, columnList3)) * yScale * plotScale, y_max.transform.position.z);
 
         y_mid.transform.position = new Vector3(y_mid.transform.position.x, (y_min.transform.position.y + (y_max.transform.position.y - y_min.transform.position.y) / 2f), y_mid.transform.position.z);
 
@@ -216,25 +224,7 @@ public class DataPlotter5D : MonoBehaviour
         //Debug.Log(temporary.Count);
         return Case;
     }
-    /*
-        Color Lerp3(Color a, Color b, Color c, float t)
-        {
-            if (t < 0.5f) // 0.0 to 0.5 goes to a -> b
-                return Color.Lerp(a, b, t / 0.5f);
-            else // 0.5 to 1.0 goes to b -> c
-                return Color.Lerp(b, c, (t - 0.5f) / 0.5f);
-        }
-        public static Color Slerp(Color a, Color b, float t)
-        {
-            return (HSBColor.Lerp(HSBColor.FromColor(a), HSBColor.FromColor(b), t)).ToColor();
-        }*/
-    /*Color Slerp3(Color a, Color b, Color c, float t)
-    {
-        if (t < 0.5f) // 0.0 to 0.5 goes to a -> b
-            return (HSBColor.Lerp(HSBColor.FromColor(a), HSBColor.FromColor(b), t / 0.5f)).ToColor();
-        else // 0.5 to 1.0 goes to b -> c
-            return (HSBColor.Lerp(HSBColor.FromColor(b), HSBColor.FromColor(c), (t - 0.5f) / 0.5f)).ToColor();
-    }*/
+
     Color Slerp3(Color a, Color b, Color c, float t)
     {
         if (t < 0.5f) // 0.0 to 0.5 goes to a -> b

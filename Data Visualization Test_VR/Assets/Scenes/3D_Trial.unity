@@ -1766,7 +1766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae42c8f78c60684aab6be6c18bd7a9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 1
+  Type: 0
   colorblindShader: {fileID: 4800000, guid: b35b8f7ae8cf168488129d5f5f39ebf4, type: 3}
 --- !u!1 &811570508
 GameObject:
@@ -4124,6 +4124,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -92.900024
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592810808133720115, guid: 97f18d7971d4ad242b99bc88336dfb13,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -8.200012
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97f18d7971d4ad242b99bc88336dfb13, type: 3}

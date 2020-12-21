@@ -36,7 +36,7 @@ public class CameraRotate : MonoBehaviour
             //if(turnCamera)
             {
 
-                Debug.Log("Right-mouse click ");
+                //Debug.Log("Right-mouse click ");
                 yaw += 100;
                 //turnCamera = !turnCamera;
 

@@ -11,7 +11,7 @@ public class Questions : MonoBehaviour
 
     public TMP_Text panel;//the panel that holds the questions
     public static bool startTrail = false;
-    public string dataset;
+    public string dataset;//dataset type
   
 
     //data
@@ -23,7 +23,10 @@ public class Questions : MonoBehaviour
 
     //timestamp
     private string startTrialString;
-  
+
+    //output
+    private ArrayList finalOutput=new ArrayList(); 
+    //private int indexer=0;
 
     // Start is called before the first frame update
     void Awake()
@@ -53,6 +56,8 @@ public class Questions : MonoBehaviour
         else if(Input.GetKeyDown(KeyCode.Return) && startTrail == true && now == true)//trials is in session
         {
             CreateTextFile(HooverData.emmissionLevel, levelTime);//get data
+            CreateFinalOutput(HooverData.emmissionLevel, levelTime);
+            //indexer = +1;
             //Debug.Log(HooverData.data);
             //Debug.Log(levelTime);
 
@@ -67,7 +72,9 @@ public class Questions : MonoBehaviour
             }
             else
             {
-                panel.text = "Trial has ended! Please start next trial!";//trial ends
+                panel.text = "Trial has ended! Please start next trial!"+finalOutput[0]+finalOutput[1]+finalOutput[2];//trial ends
+                Debug.Log("Answer"+ finalOutput[0] + finalOutput[1] + finalOutput[2]);
+                //put answer here
                 startTrail = false;//trial ends
               
             }
@@ -90,6 +97,7 @@ public class Questions : MonoBehaviour
 
     }
 
+    
     public void CreateTextFile(string data, float levelTime)
     {
         //location of file
@@ -107,5 +115,14 @@ public class Questions : MonoBehaviour
         File.AppendAllText(txtDocumentName, data + "\n" + "time:  "+levelTime + "\n"+"timestamp: "+startTrialString+"\n"+"dataset: "+dataset+"\n\n");
 
     
+    }
+
+    //create a structure to store everything
+    public void CreateFinalOutput(string data, float levelTime)
+    {
+        //need only month, city, time and dataset type
+
+        finalOutput.Add(data + "time:  " + levelTime +  "dataset: " + dataset);
+       
     }
 }

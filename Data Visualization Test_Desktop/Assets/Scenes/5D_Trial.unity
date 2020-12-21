@@ -2676,9 +2676,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b22c37a5579fd0e4ca23173a82aa29c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputfile1: NO2R
-  inputfile2: SO2R
-  inputfile3: PM10R
+  inputfile1: NO2_2012R
+  inputfile2: SO2_2012R
+  inputfile3: PM10_2012R
   plotScale: 500
   sizeScale: 1000
   yScale: 10

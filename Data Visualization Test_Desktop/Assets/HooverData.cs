@@ -74,7 +74,7 @@ public class HooverData : MonoBehaviour
         startColor = this.m_Material.color;
         this.m_Material.color = this.m_Material.color.gamma * 3;
 
-        Questions.now = true;//you need only one asnwer and you only oick it when hovering
+        Questions.now = true;//you need only one asnwer and you only pick it when hovering
         //Update();//this works here;might not need this
     }
 
