@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using TMPro;
 
-public class DataPlotter5D: MonoBehaviour
+public class DataPlotter5D : MonoBehaviour
 {
 
     // Name of the input file, no extension
@@ -12,10 +12,13 @@ public class DataPlotter5D: MonoBehaviour
     public string inputfile2;
     public string inputfile3;
 
+    public string dataset;
+
     // List for holding data from CSV reader
-    private List<Dictionary<string, object>> dataList1;
-    private List<Dictionary<string, object>> dataList2;
-    private List<Dictionary<string, object>> dataList3;
+    ArrayList database = new ArrayList();
+    //private List<Dictionary<string, object>> dataList1;
+    //private List<Dictionary<string, object>> dataList2;
+    //private List<Dictionary<string, object>> dataList3;
 
     //list
     private List<float> NO2 = new List<float>();//list of all the total cases
@@ -45,36 +48,35 @@ public class DataPlotter5D: MonoBehaviour
     private List<string> columnList2;
     private List<string> columnList3;
 
-    private float min1;
-    private float max2;
-
-    private float min3;
-    private float max4;
-
-    private float min5;
-    private float max6;
 
     //y-labels
     public TMP_Text y_min;
     public TMP_Text y_mid;
     public TMP_Text y_max;
 
+
     // Object which will contain instantiated prefabs in hiearchy
     public GameObject PointHolder;
-    
 
     // Use this for initialization
-    void OnEnable()
+    void Start()
     {
-        dataList1 = CSVReader.Read(inputfile1);
-        dataList2 = CSVReader.Read(inputfile2);
-        dataList3 = CSVReader.Read(inputfile3);
+        List<Dictionary<string, object>> dataList1 = CSVReader.Read(inputfile1);
+        List<Dictionary<string, object>> dataList2 = CSVReader.Read(inputfile2);
+        List<Dictionary<string, object>> dataList3 = CSVReader.Read(inputfile3);
+        //database.Add(dataList1);
+        //database.Add(dataList2);
+        //database.Add(dataList3);
 
+        PlotPoints(dataList1, dataList2, dataList3);
+    }
 
+    public void PlotPoints(List<Dictionary<string, object>> dataList1, List<Dictionary<string, object>> dataList2, List<Dictionary<string, object>> dataList3)
+    {
         // Declare list of strings, fill with keys (column names)
-       columnList1 = new List<string>(dataList1[1].Keys);
-       columnList2 = new List<string>(dataList2[1].Keys);
-       columnList3 = new List<string>(dataList3[1].Keys);
+        columnList1 = new List<string>(dataList1[1].Keys);
+        columnList2 = new List<string>(dataList2[1].Keys);
+        columnList3 = new List<string>(dataList3[1].Keys);
 
         geoArea = columnList1[0];//column for states
 
@@ -82,19 +84,7 @@ public class DataPlotter5D: MonoBehaviour
         so2Rate = columnList2[1];//column for SO2
         pm10Rate = columnList3[1];//column for PM10 consumption
 
-        //tempValue = new float[dataList1.Count];//temporary array
 
-        min1 = Statistics.FindMinValue3(no2Rate, dataList1, columnList1);
-        max2 = Statistics.FindMaxValue3(no2Rate, dataList1, columnList1);
-
-        min3 = Statistics.FindMinValue3(so2Rate, dataList2, columnList2);
-        max4 = Statistics.FindMaxValue3(so2Rate, dataList2, columnList2);
-
-        min5 = Statistics.FindMinValue3(pm10Rate, dataList3, columnList3);
-        max6 = Statistics.FindMaxValue3(pm10Rate, dataList3, columnList3);
-
-        GetYLabel();
-    
         for (var j = 1; j < columnList1.Count; j++)//through columns for dates
         {
             float z = j;//per date
@@ -109,19 +99,20 @@ public class DataPlotter5D: MonoBehaviour
 
             float zdef = zScale * z;
 
+            GetYLabel(dataList3);//assign y labels
+
             //Loop through Pointlist
             for (var i = 0; i < dataList1.Count; i++)//go through row for states
             {
                 float x = i;//per state
 
-                float normalNO2 = Statistics.normalizeValue(min1, max2, NO2[i]);//make a list so you can normalize the whole thing
-                float normalSO2 = Statistics.normalizeValue(min3, max4, SO2[i]);//make a list so you can normalize the whole thing
-                float normalPM10 = Statistics.normalizeValue(min5, max6, PM10[i]);//make a list so you can normalize the whole thing
+
+                float normalPM10 = Statistics.normalizeValue(getMin(pm10Rate, dataList3, columnList3), getMax(pm10Rate, dataList3, columnList3), PM10[i]);//make a list so you can normalize the whole thing
 
 
                 float y = normalPM10;
                 float ydef = yScale * y;//use third axis as well
-                float xdef = xScale * x;
+                float xdef = x * xScale;
 
                 //float ydef = (float)0.01 * y;
 
@@ -133,18 +124,35 @@ public class DataPlotter5D: MonoBehaviour
                         new Vector3(xdef, ydef, zdef) * plotScale,
                         Quaternion.identity);
 
-                Color blueColor = new Color();
-                ColorUtility.TryParseHtmlString("#2166AC", out blueColor);
-                Color redColor = new Color();
-                ColorUtility.TryParseHtmlString("#B2182B", out redColor);
-                Color whiteColor = new Color();
-                ColorUtility.TryParseHtmlString("#F7F7F7", out whiteColor);
+                ///Color
+
+                if (dataset != "3D")
+                {
+
+                    float normalSO2 = Statistics.normalizeValue(getMin(so2Rate, dataList2, columnList2), getMax(so2Rate, dataList2, columnList2), SO2[i]);//make a list so you can normalize the whole thing
+
+
+                    Color blueColor = new Color();
+                    ColorUtility.TryParseHtmlString("#2166AC", out blueColor);
+                    Color redColor = new Color();
+                    ColorUtility.TryParseHtmlString("#B2182B", out redColor);
+                    Color whiteColor = new Color();
+                    ColorUtility.TryParseHtmlString("#F7F7F7", out whiteColor);
 
 
 
-                dataPoint.GetComponent<Renderer>().material.color = Slerp3(blueColor, whiteColor, redColor, normalSO2);//HSB:(https://colorbrewer2.org/#type=diverging&scheme=RdBu&n=3)
+                    dataPoint.GetComponent<Renderer>().material.color = Slerp3(blueColor, whiteColor, redColor, normalSO2);//HSB:(https://colorbrewer2.org/#type=diverging&scheme=RdBu&n=3)
+                                                                                                                           //dataPoint.transform.localScale = new Vector3(sizeScale, sizeScale, sizeScale);
 
-                dataPoint.transform.localScale = new Vector3(normalNO2 * sizeScale, normalNO2 * sizeScale, normalNO2 * sizeScale);//size interpolation by SO2
+                    if (dataset == "5D")
+                    {
+                        float normalNO2 = Statistics.normalizeValue(getMin(no2Rate, dataList1, columnList1), getMax(no2Rate, dataList1, columnList1), NO2[i]);//make a list so you can normalize the whole thing
+                        //dataPoint.GetComponent<Renderer>().material.color = Lerp3(Color.blue, Color.white, Color.red, Mathf.PingPong(normalNO2, 1));
+
+                        dataPoint.transform.localScale = new Vector3(normalNO2 * sizeScale, normalNO2 * sizeScale, normalNO2 * sizeScale);//size interpolation by SO2
+                    }
+
+                }
 
                 //new Vector3(normalVal*100, y, z) * plotScale
 
@@ -164,33 +172,50 @@ public class DataPlotter5D: MonoBehaviour
                 // Assigns name to the prefab
                 dataPoint.transform.name = dataPointName + "\n" + dataNeeded;
 
-                
+
+
                 // Gets material color and sets it to a new RGB color we define
 
             }
-        }     
+        }
     }
-    private void GetYLabel()
+    public float getMin(string rate, List<Dictionary<string, object>> dataList, List<string> columnList)
+    {
+        //min1 = Statistics.FindMinValue3(no2Rate, dataList1, columnList1);
+        //min3 = Statistics.FindMinValue3(so2Rate, dataList2, columnList2);
+        //min5 = Statistics.FindMinValue3(pm10Rate, dataList3, columnList3);
+        float min = Statistics.FindMinValue3(rate, dataList, columnList);
+        return min;
+    }
+
+    public float getMax(string rate, List<Dictionary<string, object>> dataList, List<string> columnList)
+    {
+        //max2 = Statistics.FindMaxValue3(no2Rate, dataList1, columnList1);
+        //max4 = Statistics.FindMaxValue3(so2Rate, dataList2, columnList2);
+        //max6 = Statistics.FindMaxValue3(pm10Rate, dataList3, columnList3);
+
+        float max = Statistics.FindMaxValue3(rate, dataList, columnList);
+        return max;
+    }
+    private void GetYLabel(List<Dictionary<string, object>> dataList3)
     {
         // Set y Labels by finding game objects and setting TextMesh and assigning value (need to convert to string)
-        y_min.text = min5.ToString("0.0");
-        y_mid.text = (min5 + (max6 - min5) / 2f).ToString("0.0");
-        y_max.text = max6.ToString("0.0");
+        y_min.text = getMin(pm10Rate, dataList3, columnList3).ToString("0.0");
+        y_mid.text = (getMin(pm10Rate, dataList3, columnList3) + (getMax(pm10Rate, dataList3, columnList3) - getMin(pm10Rate, dataList3, columnList3)) / 2f).ToString("0.0");
+        y_max.text = getMax(pm10Rate, dataList3, columnList3).ToString("0.0");
 
         //set position
-        y_min.transform.position = new Vector3(y_min.transform.position.x, Statistics.normalizeValue(min5, max6, min5) * yScale * plotScale, y_min.transform.position.z);
-        y_max.transform.position = new Vector3(y_max.transform.position.x, Statistics.normalizeValue(min5, max6, max6) * yScale * plotScale, y_max.transform.position.z);
+        y_min.transform.position = new Vector3(y_min.transform.position.x, Statistics.normalizeValue(getMin(pm10Rate, dataList3, columnList3), getMax(pm10Rate, dataList3, columnList3), getMin(pm10Rate, dataList3, columnList3)) * yScale * plotScale, y_min.transform.position.z);
+        y_max.transform.position = new Vector3(y_max.transform.position.x, Statistics.normalizeValue(getMin(pm10Rate, dataList3, columnList3), getMax(pm10Rate, dataList3, columnList3), getMax(pm10Rate, dataList3, columnList3)) * yScale * plotScale, y_max.transform.position.z);
 
         y_mid.transform.position = new Vector3(y_mid.transform.position.x, (y_min.transform.position.y + (y_max.transform.position.y - y_min.transform.position.y) / 2f), y_mid.transform.position.z);
 
     }
 
 
-
-
     static List<float> ChangeDate(List<float> Case, string valueRate, List<Dictionary<string, object>> dataList)
     {
-        float [] tempValue = new float[dataList.Count];//temporary array, a placeholder for the values
+        float[] tempValue = new float[dataList.Count];//temporary array, a placeholder for the values
         Case.Clear();
 
         for (var n = 0; n < dataList.Count; n++)
@@ -205,13 +230,6 @@ public class DataPlotter5D: MonoBehaviour
         return Case;
     }
 
-    /*Color Slerp3(Color a, Color b, Color c, float t)
-     {
-         if (t < 0.5f) // 0.0 to 0.5 goes to a -> b
-             return (HSBColor.Lerp(HSBColor.FromColor(a), HSBColor.FromColor(b), t / 0.5f)).ToColor();
-         else // 0.5 to 1.0 goes to b -> c
-             return (HSBColor.Lerp(HSBColor.FromColor(b), HSBColor.FromColor(c), (t - 0.5f) / 0.5f)).ToColor();
-     }*/
     Color Slerp3(Color a, Color b, Color c, float t)
     {
         if (t < 0.5f) // 0.0 to 0.5 goes to a -> b
@@ -220,5 +238,8 @@ public class DataPlotter5D: MonoBehaviour
             return (LABColor.Lerp(LABColor.FromColor(b), LABColor.FromColor(c), (t - 0.5f) / 0.5f)).ToColor();
     }
 
-
 }
+
+
+
+

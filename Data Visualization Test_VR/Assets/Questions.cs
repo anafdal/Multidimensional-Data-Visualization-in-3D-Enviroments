@@ -40,6 +40,9 @@ public class Questions : MonoBehaviour
 
     public XRController leftDevice;
 
+    //output
+    private ArrayList finalOutput = new ArrayList();
+
     void Awake()
     {
         panel.text = "To start the trials, press Trigger Button on left handle. To select your answers, you will use the primary button in the left handle";
@@ -68,7 +71,8 @@ public class Questions : MonoBehaviour
         else if (CheckIfActivated2(leftDevice, nextQuestion) && startTrail == true && stopTrial== false && HooverData.now == true)//trials is in session
         {
             CreateTextFile(HooverData.emmissionLevel, levelTime);//get data
-           
+            CreateFinalOutput(HooverData.emmissionLevel, levelTime);
+
             if (indexQuestion < 3)//there are only three questions to answer
             {
 
@@ -80,13 +84,14 @@ public class Questions : MonoBehaviour
 
 
             stopTrial = true;
-            restart = StartCoroutine(MyCoroutine(1));
+            restart = StartCoroutine(MyCoroutine(0.3f));
             indexQuestion += 1;//increase index
 
         }
         else if(indexQuestion>=4)
         {
-            panel.text = "Trial has ended! Please start next trial!";//trial ends
+            panel.text = "Trial has ended! Please start next trial!" + finalOutput[0] + finalOutput[1] + finalOutput[2];//trial ends;//trial ends
+            Debug.Log("Answer" + finalOutput[0] + finalOutput[1] + finalOutput[2]);
             startTrail = false;//trial ends
             stopTrial = true;
         }
@@ -152,5 +157,14 @@ public class Questions : MonoBehaviour
 
 
         File.AppendAllText(txtDocumentName, data + "\n" + "time:  " + levelTime + "\n" + "timestamp: " + startTrialString + "\n" + "dataset: " + dataset + "\n\n");
+    }
+
+    //create a structure to store everything
+    public void CreateFinalOutput(string data, float levelTime)
+    {
+        //need only month, city, time and dataset type
+
+        finalOutput.Add(data + "time:  " + levelTime + "dataset: " + dataset);
+
     }
 }

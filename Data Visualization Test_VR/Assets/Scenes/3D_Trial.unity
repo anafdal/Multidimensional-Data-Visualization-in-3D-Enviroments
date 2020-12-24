@@ -368,6 +368,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.392}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -521,6 +522,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -856,6 +858,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1378,6 +1381,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2080,6 +2084,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.41960788, g: 0.41960788, b: 0.41960788, a: 0.392}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2165,6 +2170,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.9811321, g: 0.032395888, b: 0.032395888, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2246,6 +2252,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.392}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2277,6 +2284,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1387911591}
   - component: {fileID: 1387911593}
+  - component: {fileID: 1387911592}
   m_Layer: 0
   m_Name: 'DataPlotter '
   m_TagString: Untagged
@@ -2298,7 +2306,7 @@ Transform:
   m_Father: {fileID: 895301850}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1387911593
+--- !u!114 &1387911592
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2306,6 +2314,33 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1387911590}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7eed009257d734f8e7d278f68d15bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputfile1: NO2_2012R
+  inputfile2: SO2_2012R
+  inputfile3: PM10_2012R
+  dataset: 3D
+  plotScale: 20
+  sizeScale: 10
+  yScale: 5
+  zScale: 3
+  xScale: 2
+  PointPrefab: {fileID: 3509923614277587540, guid: a04829af2b69c4d44ab9a4846c8d8b72,
+    type: 3}
+  y_min: {fileID: 539588514}
+  y_mid: {fileID: 589356110}
+  y_max: {fileID: 431651226}
+  PointHolder: {fileID: 2141368976}
+--- !u!114 &1387911593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387911590}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89f173861beba344bb9d38a68103cd31, type: 3}
   m_Name: 
@@ -3010,6 +3045,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3195,6 +3231,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4123,7 +4160,7 @@ PrefabInstance:
     - target: {fileID: 2592810808133720115, guid: 97f18d7971d4ad242b99bc88336dfb13,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -92.900024
+      value: -92.90004
       objectReference: {fileID: 0}
     - target: {fileID: 2592810808133720115, guid: 97f18d7971d4ad242b99bc88336dfb13,
         type: 3}
@@ -4257,7 +4294,7 @@ PrefabInstance:
     - target: {fileID: 6271169203879154432, guid: b388fc79f4c730c4ea4e61eb18053298,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -82
+      value: -82.000015
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b388fc79f4c730c4ea4e61eb18053298, type: 3}
