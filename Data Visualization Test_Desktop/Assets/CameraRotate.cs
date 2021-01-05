@@ -20,7 +20,7 @@ public class CameraRotate : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;//can lock cursor;
+       // Cursor.lockState = CursorLockMode.Locked;//can lock cursor;
     }
     void Update()
     {

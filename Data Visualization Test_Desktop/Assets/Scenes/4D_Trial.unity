@@ -1227,12 +1227,11 @@ MonoBehaviour:
   inputFiles:
   - PM10_2012
   - SO2_2012
-  dataset: 4D
-  plotScale: 500
-  sizeScale: 500
+  plotScale: 1000
+  sizeScale: 1500
   yScale: 10
   zScale: 2
-  xScale: 2
+  xScale: 3
   PointPrefab: {fileID: 3509923614277587540, guid: a04829af2b69c4d44ab9a4846c8d8b72,
     type: 3}
   y_min: {fileID: 505602274}

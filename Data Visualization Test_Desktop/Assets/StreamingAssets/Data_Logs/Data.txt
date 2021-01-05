@@ -1,2 +1,29 @@
 
 
+City: L
+ Month: 6
+ NO2 Emission: 59.37
+  SO2 Emission: 20.98
+ PM10 Fuel Consumption: 59.37
+time:  0.7585729
+timestamp: 05-29-2021-05-29-31
+dataset: 5D
+
+City: L
+ Month: 6
+ NO2 Emission: 59.37
+  SO2 Emission: 20.98
+ PM10 Fuel Consumption: 59.37
+time:  0.3651815
+timestamp: 05-29-2021-05-29-31
+dataset: 5D
+
+City: L
+ Month: 6
+ NO2 Emission: 59.37
+  SO2 Emission: 20.98
+ PM10 Fuel Consumption: 59.37
+time:  0.207639
+timestamp: 05-29-2021-05-29-31
+dataset: 5D
+
