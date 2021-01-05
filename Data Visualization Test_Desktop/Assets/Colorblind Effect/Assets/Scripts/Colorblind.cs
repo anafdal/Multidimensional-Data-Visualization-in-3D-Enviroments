@@ -27,7 +27,8 @@ namespace Wilberforce
             if (Debug.isDebugBuild) Debug.Log("Colorblind Effect Error: " + error);
         }
 
-		// initialization method
+        // initialization method
+        [System.Obsolete]
         void Start()
         {
 			// if shader is not set, try to find it first
