@@ -167,7 +167,9 @@ public class DataPlotter5D : MonoBehaviour
                  ColorUtility.TryParseHtmlString("#F7F7F7", out whiteColor);
 
                  dataPoint.GetComponent<Renderer>().material.color = Slerp3(blueColor, whiteColor, redColor, normalSO2);//HSB:(https://colorbrewer2.org/#type=diverging&scheme=RdBu&n=3)
-                                                                                                                           //dataPoint.transform.localScale = new Vector3(sizeScale, sizeScale, sizeScale);
+                                                                                                                        //dataPoint.transform.localScale = new Vector3(sizeScale, sizeScale, sizeScale);
+
+                //Debug.Log(normalSO2);
 
                  //Size 
                  float normalNO2 = Statistics.normalizeValue(getMin(no2Rate, dataList3, columnList3), getMax(no2Rate, dataList3, columnList3), NO2[i]);//make a list so you can normalize the whole thing

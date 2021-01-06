@@ -1,46 +1,100 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using TMPro;
 //Provides a colorscale and size scale for reference
 
 public class RefScale : MonoBehaviour
 {
     
     //array of normalized values 
-    private float[] myNum = { 0, 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1.0f };
+    private int[] test = { 0,1,2,3,4,5,6,7,8,9,10};
 
-    //scales
-    //public float yScale;
-    private float zScale;
-    private float xScale;
-
+    
     // The reference for the data points that will be instantiated
-    public GameObject Ref1;
-    public GameObject Ref2;
+    public GameObject Ref1;//color
+    public GameObject Ref2;//size
+
+    //scale
+    private float sizeScale;
+    private float plotScale;
+
+    //parent
+    public GameObject RefHolder;
 
     void Start()
     {
+        //get the correct sizes from th DataPlotter5D script
+        DataPlotter5D scale = FindObjectOfType<DataPlotter5D>();
+        sizeScale = scale.sizeScale;
         
-            ColorScale(Ref1);
         
 
+            ColorScale();
+            SizeScale();
+        
     }
-    public void ColorScale(GameObject Ref1)//label position for state/X axis
+
+    public void ColorScale()
     {
 
-        for (var i = 0; i < myNum.Length; i++)//go through row for states
+        for (var i = 0; i < test.Length; i++)//go through row for states
         {
-            float x = i;//per color
-           
+            float color = (float)i/10;//per color
+            float ydef = i + 0.5f;//per y position
+
+            //Debug.Log(color);
 
             // Instantiate as gameobject variable so that it can be manipulated within loop
             GameObject dataPoint = Instantiate(
                     Ref1,
-                    new Vector3(Ref1.transform.position.x, Ref1.transform.position.y+(i*100), Ref1.transform.position.z),
+                    new Vector3(Ref1.transform.position.x, Ref1.transform.position.y*ydef, Ref1.transform.position.z),
                     Quaternion.identity);
 
+            ///Color
+            Color blueColor = new Color();
+            ColorUtility.TryParseHtmlString("#2166AC", out blueColor);
+            Color redColor = new Color();
+            ColorUtility.TryParseHtmlString("#B2182B", out redColor);
+            Color whiteColor = new Color();
+            ColorUtility.TryParseHtmlString("#F7F7F7", out whiteColor);
+
+            dataPoint.GetComponent<Renderer>().material.color = Slerp3(blueColor, whiteColor, redColor, color);//HSB:(https://colorbrewer2.org/#type=diverging&scheme=RdBu&n=3)
+                                                                                                                   
+
             // Make child of PointHolder object, to keep points within container in hiearchy
-            dataPoint.transform.SetParent(Ref1.transform, true);
+            dataPoint.transform.SetParent(RefHolder.transform, true);
+
+
+            // Assigns original values to dataPointName
+            string dataPointName =
+                " " + i;//name
+
+            dataPoint.transform.name = dataPointName;
+        }
+    }
+    public void SizeScale()
+    {
+
+        for (var i = 0; i < test.Length; i++)//go through row for states
+        {
+            float size = (float)i / 10;//per color
+            float ydef = i + 0.5f;//per y position
+
+            
+
+            // Instantiate as gameobject variable so that it can be manipulated within loop
+            GameObject dataPoint = Instantiate(
+                    Ref2,
+                    new Vector3(Ref2.transform.position.x, Ref2.transform.position.y * ydef, Ref2.transform.position.z),
+                    Quaternion.identity);
+
+            //Size 
+            dataPoint.transform.localScale = new Vector3(size*sizeScale, size*sizeScale, size*sizeScale);//size interpolation by size
+
+            // Make child of PointHolder object, to keep points within container in hiearchy
+            dataPoint.transform.SetParent(RefHolder.transform, true);
 
 
             // Assigns original values to dataPointName
