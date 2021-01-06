@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using TMPro;
-
+//script used to rearrange and position the lables for the Z and X axes
 
 public class LabelPosition : MonoBehaviour
 {
@@ -11,8 +11,6 @@ public class LabelPosition : MonoBehaviour
     // Name of the input file, no extension
     public string inputfile1;
  
-
-
     // List for holding data from CSV reader
     private List<Dictionary<string, object>> dataList1;
 
@@ -49,7 +47,7 @@ public class LabelPosition : MonoBehaviour
         zScale = scale.zScale;
         xScale = scale.xScale;
 
-        Debug.Log("test" + plotScale + " " + zScale + " " + xScale);
+        //Debug.Log("test" + plotScale + " " + zScale + " " + xScale);
 
         //read a dataset
         dataList1 = CSVReader.Read(inputfile1);

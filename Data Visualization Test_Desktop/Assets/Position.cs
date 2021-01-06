@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using TMPro;
+//reararnge grid for the Z and X axes
 
 
 public class Position : MonoBehaviour
@@ -11,57 +12,88 @@ public class Position : MonoBehaviour
     // Name of the input file, no extension
     public string inputfile1;
 
-
-
     // List for holding data from CSV reader
     private List<Dictionary<string, object>> dataList1;
 
     //scales
-    public float plotScale;
+    private float plotScale;
     //public float yScale;
-    public float zScale;
-    public float xScale;
-
-    // The prefab for the data points that will be instantiated
-    //public GameObject PointPrefab;
+    private float zScale;
+    private float xScale;
+    public float sizeScale = 7.0f;//7 for GetZ and 2 for GetX
 
     //other
     private List<string> columnList1;
+    //column names
+    private string geoArea;
 
 
     // Object which will contain instantiated prefabs in hiearchy
-    //public GameObject LabelHolder;
-    public GameObject test;
+    public GameObject grid;
 
+    //parent of all the grid lines
+    public GameObject GridHolder;
 
     // Use this for initialization
     void Start()
     {
+        //get the correct sizes from th DataPlotter5D script
+        DataPlotter5D scale = FindObjectOfType<DataPlotter5D>();
+        plotScale = scale.plotScale;
+        zScale = scale.zScale;
+        xScale = scale.xScale;
+
+        //read file
         dataList1 = CSVReader.Read(inputfile1);
 
         // Declare list of strings, fill with keys (column names)
         columnList1 = new List<string>(dataList1[1].Keys);
-        
+        geoArea = columnList1[0];//column for state
 
-        GetX();
+
+        if (grid.transform.CompareTag("X"))//check orientation of label
+        {
+            GetX();
+        }
+        else if (grid.transform.CompareTag("Z"))
+        {
+            GetZ();
+        }
+        else
+        {
+            Debug.Log("Error!");
+        }
 
     }
 
-    public void GetX()//label position for state/X axis
+    public void GetX()//grid position for state/X axis
     {
-        ArrayList totalX = new ArrayList();
-
+        
         for (var i = 0; i < dataList1.Count; i++)//go through row for states
         {
             float x = i;//per region
             float xdef = x * xScale * plotScale;
 
-            totalX.Add(xdef);
-            Debug.Log(xdef);
+            // Instantiate as gameobject variable so that it can be manipulated within loop
+            GameObject dataPoint = Instantiate(
+                    grid,
+                    new Vector3(xdef, grid.transform.position.y, grid.transform.position.z),
+                    grid.transform.rotation);
+
+            // Make child of PointHolder object, to keep points within container in hiearchy
+            dataPoint.transform.SetParent(GridHolder.transform, true);
+
+            //change size
+            dataPoint.transform.localScale = new Vector3(dataPoint.transform.localScale.x, dataPoint.transform.localScale.y * sizeScale, dataPoint.transform.localScale.z);
+
+            // Assigns original values to dataPointName
+            string dataPointName =
+                " " + dataList1[i][geoArea];//region
+
+            dataPoint.transform.name = dataPointName;
         }
 
-        float distance = (float)(Convert.ToDouble(totalX[dataList1.Count-1]) - Convert.ToDouble(totalX[0]));
-        newScale(test, distance);
+        
     }
 
     public void GetZ()//label position for date/Z axis
@@ -70,22 +102,30 @@ public class Position : MonoBehaviour
         {
 
             float z = j;//per date
-            float zdef = zScale * z*plotScale;
+            float zdef = zScale * z;
 
-           
+            // Instantiate as gameobject variable so that it can be manipulated within loop
+            GameObject dataPoint = Instantiate(
+                    grid,
+                    new Vector3(grid.transform.position.x, grid.transform.position.y, zdef * plotScale),
+                    grid.transform.rotation);
+
+            dataPoint.transform.localScale = new Vector3(dataPoint.transform.localScale.x, dataPoint.transform.localScale.y*sizeScale, dataPoint.transform.localScale.z);
+
+            // Make child of PointHolder object, to keep points within container in hiearchy
+            dataPoint.transform.SetParent(GridHolder.transform, true);
+
+            // Assigns original values to dataPointName
+            string dataPointName =
+                " Month: " + columnList1[j];    //date
+
+
+            // Debug.Log(x + " " + y + " " + z);
+
+            // Assigns name to the prefab
+            dataPoint.transform.name = dataPointName;
         }
     }
 
-    public void newScale(GameObject theGameObject, float newSize)
-    {
-
-        float size = theGameObject.GetComponent<Renderer>().bounds.size.x;
-
-        Vector3 rescale = theGameObject.transform.localScale;
-
-        rescale.x = newSize * rescale.x / size;
-
-        theGameObject.transform.localScale = rescale;
-
-    }
+   
 }

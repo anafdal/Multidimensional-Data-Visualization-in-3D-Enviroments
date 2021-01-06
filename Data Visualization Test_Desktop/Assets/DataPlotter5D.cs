@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using TMPro;
+//Main script that controlers main features of the plot as well as plots the points
 
 public class DataPlotter5D : MonoBehaviour
 {
