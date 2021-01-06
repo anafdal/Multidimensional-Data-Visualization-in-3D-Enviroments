@@ -551,9 +551,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputfile1: PM10_2012
-  plotScale: 1000
-  zScale: 2
-  xScale: 3
   PointPrefab: {fileID: 7425777926043340555, guid: 99b01d68311f1064983d67b3c5fb7030,
     type: 3}
   LabelHolder: {fileID: 574745474}
@@ -1504,7 +1501,7 @@ PrefabInstance:
     - target: {fileID: 8437739505701702675, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 175.53369
+      value: 6.0404377
       objectReference: {fileID: 0}
     - target: {fileID: 8437739505701702675, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
@@ -1514,12 +1511,12 @@ PrefabInstance:
     - target: {fileID: 8437739505701702675, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9563
+      value: -7838
       objectReference: {fileID: 0}
     - target: {fileID: 8437739505701702675, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1144
+      value: 1230
       objectReference: {fileID: 0}
     - target: {fileID: 8437739505701702675, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
@@ -1529,7 +1526,7 @@ PrefabInstance:
     - target: {fileID: 8437739505701702675, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 15272
+      value: 11820.57
       objectReference: {fileID: 0}
     - target: {fileID: 8437739505701702701, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
@@ -1609,7 +1606,7 @@ PrefabInstance:
     - target: {fileID: 8437739505958426706, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: -159.91556
+      value: 159.9156
       objectReference: {fileID: 0}
     - target: {fileID: 8437739505958426706, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
@@ -1624,22 +1621,22 @@ PrefabInstance:
     - target: {fileID: 8437739506040507808, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 483.18
+      value: 481.23657
       objectReference: {fileID: 0}
     - target: {fileID: 8437739506040507808, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1543.01
+      value: 1185.5447
       objectReference: {fileID: 0}
     - target: {fileID: 8437739506040507808, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9637
+      value: -7850
       objectReference: {fileID: 0}
     - target: {fileID: 8437739506040507808, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2345
+      value: 2358
       objectReference: {fileID: 0}
     - target: {fileID: 8437739506040507812, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
@@ -1802,7 +1799,7 @@ PrefabInstance:
     - target: {fileID: 8437739506946151406, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 30.1
+      value: 966
       objectReference: {fileID: 0}
     - target: {fileID: 8437739506946151406, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
@@ -1817,12 +1814,17 @@ PrefabInstance:
     - target: {fileID: 8437739506946151406, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.03198099
+      value: 1.0364138
       objectReference: {fileID: 0}
     - target: {fileID: 8437739506946151406, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.0003746397
+      value: 0.00042991503
+      objectReference: {fileID: 0}
+    - target: {fileID: 8437739506946151406, guid: b01f630cef0fe2947995bec30dda1d61,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.14210196
       objectReference: {fileID: 0}
     - target: {fileID: 8437739507021809390, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
@@ -2367,7 +2369,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621359383}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16902, y: -1432, z: 17719}
+  m_LocalPosition: {x: 17638, y: -1432, z: 17719}
   m_LocalScale: {x: 4700, y: 15, z: 6500}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2573,9 +2575,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputfile1: PM10_2012
-  plotScale: 1000
-  zScale: 2
-  xScale: 3
   PointPrefab: {fileID: 7425777926043340555, guid: 99b01d68311f1064983d67b3c5fb7030,
     type: 3}
   LabelHolder: {fileID: 1672170521}
@@ -2979,7 +2978,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2139559065}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4afbe5bc61c17364ca1bed968f434813, type: 3}
   m_Name: 
@@ -3016,9 +3015,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputfile1: PM10_2012
-  plotScale: 1000
-  zScale: 3
-  xScale: 3
   PointPrefab: {fileID: 7425777926043340555, guid: 99b01d68311f1064983d67b3c5fb7030,
     type: 3}
   LabelHolder: {fileID: 1672170521}

@@ -22,10 +22,10 @@ public class LabelPosition : MonoBehaviour
   
 
     //scales
-    public float plotScale;
+    private float plotScale;
     //public float yScale;
-    public float zScale;
-    public float xScale;
+    private float zScale;
+    private float xScale;
 
     // The prefab for the data points that will be instantiated
     public GameObject PointPrefab;
@@ -42,6 +42,16 @@ public class LabelPosition : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+
+        //get the correct sizes from th DataPlotter5D script
+        DataPlotter5D scale = FindObjectOfType<DataPlotter5D>();
+        plotScale = scale.plotScale;
+        zScale = scale.zScale;
+        xScale = scale.xScale;
+
+        Debug.Log("test" + plotScale + " " + zScale + " " + xScale);
+
+        //read a dataset
         dataList1 = CSVReader.Read(inputfile1);
 
         // Declare list of strings, fill with keys (column names)
