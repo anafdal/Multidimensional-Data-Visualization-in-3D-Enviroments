@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Label
+  - X
+  - Y
+  - Z
   layers:
   - Default
   - TransparentFX

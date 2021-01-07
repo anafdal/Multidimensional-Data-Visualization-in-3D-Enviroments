@@ -52,7 +52,7 @@ public class LabelOrienter_Smooth : MonoBehaviour {
             if (faceCamera == true)           
             {
                 // Here the internal math reverses the direction so 3D text faces the correct way
-                go.transform.LookAt(2 * go.transform.position - targetPosition);
+                go.transform.LookAt(2*go.transform.position - targetPosition);
             }
             else
             {
