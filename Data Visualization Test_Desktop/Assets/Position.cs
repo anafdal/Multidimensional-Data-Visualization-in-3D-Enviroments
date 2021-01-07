@@ -17,7 +17,7 @@ public class Position : MonoBehaviour
 
     //scales
     private float plotScale;
-    //public float yScale;
+    private float yScale;
     private float zScale;
     private float xScale;
     public float sizeScale = 7.0f;//7 for GetZ and 2 for GetX
@@ -26,7 +26,11 @@ public class Position : MonoBehaviour
     private List<string> columnList1;
     //column names
     private string geoArea;
-
+    // List for holding data from CSV reader
+    private List<float> PM10 = new List<float>();
+    //column names
+    private string pm10Rate;
+    
 
     // Object which will contain instantiated prefabs in hiearchy
     public GameObject grid;
@@ -42,12 +46,14 @@ public class Position : MonoBehaviour
         plotScale = scale.plotScale;
         zScale = scale.zScale;
         xScale = scale.xScale;
+        yScale = scale.yScale;
 
         //read file
         dataList1 = CSVReader.Read(inputfile1);
 
         // Declare list of strings, fill with keys (column names)
         columnList1 = new List<string>(dataList1[1].Keys);
+        pm10Rate = columnList1[1];//column for PM10
         geoArea = columnList1[0];//column for state
 
 
@@ -58,6 +64,10 @@ public class Position : MonoBehaviour
         else if (grid.transform.CompareTag("Z"))
         {
             GetZ();
+        }
+        else if(grid.transform.CompareTag("Y"))
+        {
+            GetY();
         }
         else
         {
@@ -127,5 +137,12 @@ public class Position : MonoBehaviour
         }
     }
 
-   
+    public void GetY()//grid position for Y axis
+    {
+        
+
+
+
+    }
+    
 }
