@@ -20,7 +20,7 @@ public class Position : MonoBehaviour
     //public float yScale;
     private float zScale;
     private float xScale;
-    public float sizeScale = 7.0f;//7 for GetZ and 2 for GetX
+    public float sizeScale = 0.1f;//0.1 for GetX and 0.19 for GetZ
 
     //other
     private List<string> columnList1;
@@ -84,7 +84,7 @@ public class Position : MonoBehaviour
             dataPoint.transform.SetParent(GridHolder.transform, true);
 
             //change size
-            dataPoint.transform.localScale = new Vector3(dataPoint.transform.localScale.x, dataPoint.transform.localScale.y * sizeScale, dataPoint.transform.localScale.z);
+            dataPoint.transform.localScale = new Vector3(dataPoint.transform.localScale.x*0.1f, dataPoint.transform.localScale.y * sizeScale, dataPoint.transform.localScale.z*0.1f);
 
             // Assigns original values to dataPointName
             string dataPointName =
@@ -110,7 +110,7 @@ public class Position : MonoBehaviour
                     new Vector3(grid.transform.position.x, grid.transform.position.y, zdef * plotScale),
                     grid.transform.rotation);
 
-            dataPoint.transform.localScale = new Vector3(dataPoint.transform.localScale.x, dataPoint.transform.localScale.y*sizeScale, dataPoint.transform.localScale.z);
+            dataPoint.transform.localScale = new Vector3(dataPoint.transform.localScale.x*0.1f, dataPoint.transform.localScale.y*sizeScale, dataPoint.transform.localScale.z*0.1f);
 
             // Make child of PointHolder object, to keep points within container in hiearchy
             dataPoint.transform.SetParent(GridHolder.transform, true);
