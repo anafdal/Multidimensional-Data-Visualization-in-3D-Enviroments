@@ -7,3 +7,7 @@ The amount of data in our world is increasing quickly. As data keeps increasing,
 1. When presented with different levels of the data dimensions, how will this affect the user’s decoding of the data in Immersive Analytics?
 
 2. How will each 3D setting affect the user’s observation of a particular multi-dimensional data?
+
+## Technologies 
+Project is created with:
+* Unity: 2019.4.14f1
