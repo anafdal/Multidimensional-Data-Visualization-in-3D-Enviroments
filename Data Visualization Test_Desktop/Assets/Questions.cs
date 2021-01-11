@@ -72,8 +72,8 @@ public class Questions : MonoBehaviour
             }
             else
             {
-                panel.text = "Trial has ended! Please start next trial!"+finalOutput[0]+finalOutput[1]+finalOutput[2];//trial ends
-                Debug.Log("Answer"+ finalOutput[0] + finalOutput[1] + finalOutput[2]);
+                panel.text = "Record this down:"+"\n"+finalOutput[0]+finalOutput[1]+finalOutput[2];//trial ends
+                Debug.Log("Answer: "+ finalOutput[0] + finalOutput[1] + finalOutput[2]);
                 //put answer here
                 startTrail = false;//trial ends
               
@@ -121,8 +121,12 @@ public class Questions : MonoBehaviour
     public void CreateFinalOutput(string data, float levelTime)
     {
         //need only month, city, time and dataset type
+        string[] arr = data.Split('\n',':');
+        //data = arr[1] + arr[3];//just want month and date
 
-        finalOutput.Add(data + "time:  " + levelTime +  "dataset: " + dataset);
+        float time = Mathf.Round(levelTime * 100.0f) * 0.01f;//round two decimal places
+
+        finalOutput.Add(arr[1]+arr[3]+" "+ time +" "+ dataset+'\n');
        
     }
 }
