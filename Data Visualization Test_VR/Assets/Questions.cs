@@ -19,6 +19,7 @@ public class Questions : MonoBehaviour
     public static bool startTrail = false;
     public static bool stopTrial = false;//so it doesn't go through whole loop
     public string dataset;//specify dataset
+    public string goal;
 
 
     //data
@@ -45,7 +46,8 @@ public class Questions : MonoBehaviour
 
     void Awake()
     {
-        panel.text = "To start the trials, press Trigger Button on left handle. To select your answers, you will use the primary button in the left handle";
+        panel.text = "This is data of the pollution emission of 12 different cities in 2012. " + goal +
+        "To start the trials, press Trigger Button on left handle. To select your answers, you will use the primary button in the left handle";
 
         //Find the date and time when the game was run
         var startTrial = System.DateTime.Now;

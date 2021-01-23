@@ -3983,7 +3983,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 649776fcefea1f24d9cff277fb2030b6, type: 2}
+  - {fileID: 2100000, guid: a226f153cbf5d4f42b7c3c896d6b5537, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4261,6 +4261,7 @@ MonoBehaviour:
     in 2011?
   panel: {fileID: 2102759682}
   dataset: 5D
+  goal: 
   startTrials: 2
   nextQuestion: 6
   activationOne: 0.1
@@ -4336,7 +4337,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 649776fcefea1f24d9cff277fb2030b6, type: 2}
+  - {fileID: 2100000, guid: a226f153cbf5d4f42b7c3c896d6b5537, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
