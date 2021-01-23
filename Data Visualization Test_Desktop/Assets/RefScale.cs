@@ -18,7 +18,7 @@ public class RefScale : MonoBehaviour
 
     //scale
     private float sizeScale;
-    private float plotScale;
+    //private float plotScale;
 
     //parent
     public GameObject RefHolder;
@@ -42,7 +42,7 @@ public class RefScale : MonoBehaviour
         for (var i = 0; i < test.Length; i++)//go through row for states
         {
             float color = (float)i/10;//per color
-            float ydef = i + 0.5f;//per y position
+            float ydef = i + 0.01f;//per y position
 
             //Debug.Log(color);
 
@@ -80,7 +80,7 @@ public class RefScale : MonoBehaviour
         for (var i = 0; i < test.Length; i++)//go through row for states
         {
             float size = (float)i / 10;//per color
-            float ydef = i + 0.5f;//per y position
+            float ydef = i + 0.01f;//per y position
 
             
 

@@ -12,6 +12,7 @@ public class Questions : MonoBehaviour
     public TMP_Text panel;//the panel that holds the questions
     public static bool startTrail = false;
     public string dataset;//dataset type
+    public string goal;
   
 
     //data
@@ -31,7 +32,8 @@ public class Questions : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        panel.text = "To start the trials, press spacebar";
+        panel.text = "This is data of the pollution emission of 12 different cities in 2012. "+goal+
+            "To start the trials, press spacebar";
 
         //Find the date and time when the game was run
         var startTrial = System.DateTime.Now;

@@ -240,10 +240,11 @@ public class DataPlotter5D : MonoBehaviour
                 ColorUtility.TryParseHtmlString("#F7F7F7", out whiteColor);
 
                 dataPoint.GetComponent<Renderer>().material.color = Slerp3(blueColor, whiteColor, redColor, normalSO2);//HSB:(https://colorbrewer2.org/#type=diverging&scheme=RdBu&n=3)
-                                                                                                                       //dataPoint.transform.localScale = new Vector3(sizeScale, sizeScale, sizeScale);
+
 
                 //Size 
-                //dataPoint.transform.localScale = new Vector3(normalNO2 * sizeScale, normalNO2 * sizeScale, normalNO2 * sizeScale);//size interpolation by SO2
+                dataPoint.transform.localScale = new Vector3(sizeScale/2, sizeScale/2, sizeScale/2);
+
 
 
                 // Make child of PointHolder object, to keep points within container in hiearchy
@@ -296,8 +297,9 @@ public class DataPlotter5D : MonoBehaviour
 
                 ///Color
                 //dataPoint.GetComponent<Renderer>().material.color = Slerp3(blueColor, whiteColor, redColor, normalSO2);//HSB:(https://colorbrewer2.org/#type=diverging&scheme=RdBu&n=3)                                                                                                       
+               
                 //Size 
-                //dataPoint.transform.localScale = new Vector3(normalNO2 * sizeScale, normalNO2 * sizeScale, normalNO2 * sizeScale);//size interpolation by SO2
+                dataPoint.transform.localScale = new Vector3(sizeScale / 2, sizeScale / 2, sizeScale / 2);
 
 
                 // Make child of PointHolder object, to keep points within container in hiearchy
