@@ -33,8 +33,8 @@ public class Questions : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        panel.text = "This is data of the pollution emission of 12 different cities in 2012. "+goal+
-            "To start the trials, press spacebar";
+        panel.text = "This is the data of the pollution emission of 12 different cities in 2012. "+goal+
+            "To start the trials, press spacebar!";
 
         //Find the date and time when the game was run
         var startTrial = System.DateTime.Now;

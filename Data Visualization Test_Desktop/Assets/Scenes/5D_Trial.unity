@@ -2289,8 +2289,8 @@ PrefabInstance:
     - target: {fileID: 6563840886316171426, guid: e7e65d4edd3d283419ddf94bf1652355,
         type: 3}
       propertyPath: goal
-      value: In this trial, you will use the size of the points to determine the
-        rate of NItrogen Dioxide per month.
+      value: In this trial, you will use only the size of the points to determine
+        the rate of Nitrogen Dioxide per month.
       objectReference: {fileID: 0}
     - target: {fileID: 6563840886316171427, guid: e7e65d4edd3d283419ddf94bf1652355,
         type: 3}

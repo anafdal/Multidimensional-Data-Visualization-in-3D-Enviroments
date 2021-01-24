@@ -59,7 +59,7 @@ public class HooverData : MonoBehaviour
         }
         else//error
         {
-            Debug.Log("Error!");
+            //Debug.Log("Error!");
         }
         
     }

@@ -18,7 +18,7 @@ public class RefScale : MonoBehaviour
 
     //scale
     private float sizeScale;
-    //private float plotScale;
+    private string dataset;
 
     //parent
     public GameObject RefHolder;
@@ -28,11 +28,20 @@ public class RefScale : MonoBehaviour
         //get the correct sizes from th DataPlotter5D script
         DataPlotter5D scale = FindObjectOfType<DataPlotter5D>();
         sizeScale = scale.sizeScale;
-        
-        
+        Questions dimension = FindObjectOfType<Questions>();
+        dataset = dimension.dataset;
 
+
+        if (dataset == "5D")//need both
+        {
             ColorScale();
             SizeScale();
+        }
+        else if (dataset == "4D")//only need colorscale
+        {
+            ColorScale();
+        }
+       
         
     }
 
