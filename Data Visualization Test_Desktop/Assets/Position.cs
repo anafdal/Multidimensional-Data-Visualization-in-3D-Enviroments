@@ -17,10 +17,9 @@ public class Position : MonoBehaviour
 
     //scales
     private float plotScale;
-    private float yScale;
     private float zScale;
     private float xScale;
-    public float sizeScale = 7.0f;//7 for GetZ and 2 for GetX
+    public float sizeScale = 7.4f;//7.4 for GetZ and 2.07 for GetX
 
     //other
     private List<string> columnList1;
@@ -46,7 +45,7 @@ public class Position : MonoBehaviour
         plotScale = scale.plotScale;
         zScale = scale.zScale;
         xScale = scale.xScale;
-        yScale = scale.yScale;
+        
 
         //read file
         dataList1 = CSVReader.Read(inputfile1);

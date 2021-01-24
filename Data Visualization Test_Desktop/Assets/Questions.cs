@@ -101,7 +101,7 @@ public class Questions : MonoBehaviour
     }
 
     
-    public void CreateTextFile(string data, float levelTime)
+    public void CreateTextFile(string data, float levelTime)//create a text file
     {
         //location of file
         string txtDocumentName = Application.streamingAssetsPath + "/Data_Logs/" + "Data" + ".txt";

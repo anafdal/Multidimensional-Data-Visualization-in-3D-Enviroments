@@ -8,6 +8,9 @@ TagManager:
   - X
   - Z
   - Y
+  - ColorScale
+  - SizeScale
+  - Points
   layers:
   - Default
   - TransparentFX

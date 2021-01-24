@@ -11,6 +11,7 @@ public class HooverData : MonoBehaviour
 
     public static string data;//textual information
     public static string emmissionLevel;
+    
 
 
     private Material m_Material;//material to get shader info from
@@ -35,14 +36,31 @@ public class HooverData : MonoBehaviour
         //Debug.Log(this.name);
         UItext.visibility = 1;
 
-        string[] arr = name.Split('\n');
-        data = arr[0] + arr[1];//just want month and date
-        emmissionLevel = this.name;
+        if (this.transform.CompareTag("ColorScale"))//Color Reference
+        {
+            data = "Color Scale Reference";
+        }
+        else if (this.transform.CompareTag("SizeScale")) {//Size Reference
 
-        startColor = this.m_Material.color;
-        this.m_Material.color = this.m_Material.color.gamma * 3;
+            data = "Size Scale Reference";
 
-        Questions.now = true;//you need only one asnwer and you only pick it when hovering
+        }
+        else if (this.transform.CompareTag("Points"))//Data points
+        {
+
+            string[] arr = name.Split('\n');
+            data = arr[0] + arr[1];//just want month and date
+            emmissionLevel = this.name;
+
+            startColor = this.m_Material.color;
+            this.m_Material.color = this.m_Material.color.gamma * 3;
+
+            Questions.now = true;//you need only one asnwer and you only pick it when hovering
+        }
+        else//error
+        {
+            Debug.Log("Error!");
+        }
         
     }
 
@@ -54,9 +72,12 @@ public class HooverData : MonoBehaviour
         //data = "Click For Data";
         UItext.visibility = 0;
 
-        this.m_Material.color = startColor;
+        if (this.transform.CompareTag("Points"))//only data points will change color
+        {
+            this.m_Material.color = startColor;
+        }
 
-        Questions.now = false;////you need only one asnwer and you only oick it when hovering
+        Questions.now = false;////you need only one answer and you only pick it when hovering
     }
  
     
