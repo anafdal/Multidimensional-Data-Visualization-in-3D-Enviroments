@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+//hoovering over points and getting data
 
 
 public class HooverData : MonoBehaviour
@@ -27,40 +28,7 @@ public class HooverData : MonoBehaviour
         
     }
 
-    //might not need this anymore
-    void Update()//get data from here
-    {
-        
-
-       /* if (Input.GetKeyDown(KeyCode.Return) && now==true && Questions.startTrail==true && indexQuestion<3)//press enter; ttrials needs to be started for this to work; activated when pressed enter for first questions
-        {
-            
-            Debug.Log(data);
-            Debug.Log(levelTime);
-            CreateTextFile(data,levelTime);
-
-            //indexQuestion += 1;
-            recordTime = false;
-
-            //put data in text file, restart recording time and present next question
-        }
-
-
-        //record time while in level
-        if (recordTime == true)
-        {
-            levelTime += Time.deltaTime;
-        }
-        else//once eneter key is pressed get time and restart again counting time
-        {
-            levelTime = 0.0f;
-            //Debug.Log(levelTime + " enter key used");
-            recordTime = true;
-        }*/
-       
-
-    }
-
+ 
     public void OnMouseDown()
     {
 
@@ -75,7 +43,7 @@ public class HooverData : MonoBehaviour
         this.m_Material.color = this.m_Material.color.gamma * 3;
 
         Questions.now = true;//you need only one asnwer and you only pick it when hovering
-        //Update();//this works here;might not need this
+        
     }
 
 

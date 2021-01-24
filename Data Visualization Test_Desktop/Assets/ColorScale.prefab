@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1586096064423904203}
   - component: {fileID: 1586096064423904204}
   - component: {fileID: 1586096064423904205}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ColorScale
   m_TagString: Untagged
   m_Icon: {fileID: 0}

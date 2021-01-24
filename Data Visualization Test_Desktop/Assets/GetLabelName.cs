@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using TMPro;
+//getting title/data of points
 
 public class GetLabelName : MonoBehaviour
 {

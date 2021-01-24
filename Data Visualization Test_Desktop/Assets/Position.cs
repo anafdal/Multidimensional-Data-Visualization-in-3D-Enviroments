@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using TMPro;
-//reararnge grid for the Z and X axes
+//rearrange grid for the Z and X axes
 
 
 public class Position : MonoBehaviour
@@ -64,10 +64,6 @@ public class Position : MonoBehaviour
         else if (grid.transform.CompareTag("Z"))
         {
             GetZ();
-        }
-        else if(grid.transform.CompareTag("Y"))
-        {
-            GetY();
         }
         else
         {
@@ -137,12 +133,6 @@ public class Position : MonoBehaviour
         }
     }
 
-    public void GetY()//grid position for Y axis
-    {
-        
-
-
-
-    }
+ 
     
 }

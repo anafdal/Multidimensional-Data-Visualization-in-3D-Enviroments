@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//All calculations happen here
 
 public class Statistics : MonoBehaviour
 {
@@ -113,6 +114,7 @@ public class Statistics : MonoBehaviour
 
     }
 
+    //find min value
     public static float FindMinValue3(string columnName, List<Dictionary<string, object>> dataList, List<string> columnList)
     {
         float minValue = System.Convert.ToSingle(dataList[0][columnName]);

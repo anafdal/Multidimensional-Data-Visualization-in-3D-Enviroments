@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//user movement
 
 public class Movement : MonoBehaviour
 {
     public CharacterController controller;
-    public float speed = 1200.0f;
+    public float speed = 4000.0f;
   
                     
     private float y;

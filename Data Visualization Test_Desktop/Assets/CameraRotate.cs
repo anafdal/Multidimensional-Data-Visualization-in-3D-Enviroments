@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//camera rotation and application escape
+//camera rotation and turns, as well as application escape
 
 public class CameraRotate : MonoBehaviour
 {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.IO;
+//The tasks are assigned here and the output format
 
 public class Questions : MonoBehaviour
 {
@@ -75,7 +76,7 @@ public class Questions : MonoBehaviour
             else
             {
                 panel.text = "Record this down:"+"\n"+finalOutput[0]+finalOutput[1]+finalOutput[2];//trial ends
-                Debug.Log("Answer: "+ finalOutput[0] + finalOutput[1] + finalOutput[2]);
+                //Debug.Log("Answer: "+ finalOutput[0] + finalOutput[1] + finalOutput[2]);
                 //put answer here
                 startTrail = false;//trial ends
               
