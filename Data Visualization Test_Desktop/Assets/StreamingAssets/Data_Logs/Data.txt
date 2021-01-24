@@ -17,3 +17,75 @@ time:  10.39398
 timestamp: 24-06-2021-06-06-05
 dataset: 3D
 
+City: E
+ Month: 6
+time:  3.27472
+timestamp: 24-37-2021-06-37-43
+dataset: 5D
+
+City: E
+ Month: 6
+time:  1.689308
+timestamp: 24-37-2021-06-37-43
+dataset: 5D
+
+City: E
+ Month: 6
+time:  1.073188
+timestamp: 24-37-2021-06-37-43
+dataset: 5D
+
+City: H
+ Month: 7
+time:  2.710286
+timestamp: 24-40-2021-06-40-06
+dataset: 5D
+
+City: H
+ Month: 7
+time:  0.9716364
+timestamp: 24-40-2021-06-40-06
+dataset: 5D
+
+City: H
+ Month: 7
+time:  0.8440409
+timestamp: 24-40-2021-06-40-06
+dataset: 5D
+
+City: K
+ Month: 3
+time:  1.955045
+timestamp: 24-40-2021-06-40-25
+dataset: 4D
+
+City: K
+ Month: 3
+time:  0.2901624
+timestamp: 24-40-2021-06-40-25
+dataset: 4D
+
+City: K
+ Month: 3
+time:  0.3098593
+timestamp: 24-40-2021-06-40-25
+dataset: 4D
+
+City: G
+ Month: 6
+time:  1.108362
+timestamp: 24-40-2021-06-40-40
+dataset: 3D
+
+City: G
+ Month: 6
+time:  0.2930933
+timestamp: 24-40-2021-06-40-40
+dataset: 3D
+
+City: G
+ Month: 6
+time:  0.2909516
+timestamp: 24-40-2021-06-40-40
+dataset: 3D
+
