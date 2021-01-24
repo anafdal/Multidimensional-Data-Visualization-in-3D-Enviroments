@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using TMPro;
-//reararnge grid for the Z and X axes
+//rearrange grid for the Z and X axes
 
 
 public class Position : MonoBehaviour
@@ -20,7 +20,7 @@ public class Position : MonoBehaviour
     //public float yScale;
     private float zScale;
     private float xScale;
-    public float sizeScale = 0.1f;//0.1 for GetX and 0.19 for GetZ
+    public float sizeScale = 0.115f;//0.115 for GetX and 0.188 for GetZ
 
     //other
     private List<string> columnList1;
