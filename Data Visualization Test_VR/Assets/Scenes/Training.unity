@@ -1692,7 +1692,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &613695917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1721,7 +1721,7 @@ Transform:
   m_Children:
   - {fileID: 424894583}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &617870764 stripped
 GameObject:
@@ -1887,6 +1887,170 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1001 &698112016
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6271169203841126789, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169203841126789, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169203841126789, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169203841126789, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169203841126789, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169203841126789, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169203841126789, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169203841126789, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169203841126789, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169203841126789, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169203841126789, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169203841126789, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169203841126789, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169203841126789, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169203841126789, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169203841126789, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169203841126789, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169203841126789, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169203841126789, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169203841126789, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169203841126789, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169203841126790, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_Name
+      value: Training
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169203841126810, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 737360875}
+    - target: {fileID: 6271169203879154432, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -82
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169203879154439, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169204689713460, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169204689713460, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169204689713460, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169204689713460, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169204689713460, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271169204689713462, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_Name
+      value: Description
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b388fc79f4c730c4ea4e61eb18053298, type: 3}
 --- !u!1 &737360872
 GameObject:
   m_ObjectHideFlags: 0
@@ -2261,6 +2425,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &967082358 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6271169204689713460, guid: b388fc79f4c730c4ea4e61eb18053298,
+    type: 3}
+  m_PrefabInstance: {fileID: 698112016}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1048935911
 GameObject:
   m_ObjectHideFlags: 0
@@ -2536,7 +2712,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputFiles:
-  - PM10_2012
+  - PM10_2013R
+  - SO2_2013R
+  - NO2_2013R
   plotScale: 30
   sizeScale: 70
   yScale: 6
@@ -2658,7 +2836,7 @@ PrefabInstance:
     - target: {fileID: 8437739505958426706, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2428
+      value: 2657
       objectReference: {fileID: 0}
     - target: {fileID: 8437739505958426706, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
@@ -2673,7 +2851,7 @@ PrefabInstance:
     - target: {fileID: 8437739505958426706, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 10461.39
+      value: 9973.677
       objectReference: {fileID: 0}
     - target: {fileID: 8437739505958426732, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
@@ -2748,7 +2926,7 @@ PrefabInstance:
     - target: {fileID: 8437739506110805619, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3276
+      value: 3181
       objectReference: {fileID: 0}
     - target: {fileID: 8437739506110805619, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
@@ -3108,6 +3286,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Questions (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6271169203841126790, guid: b388fc79f4c730c4ea4e61eb18053298,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6271169203841126810, guid: b388fc79f4c730c4ea4e61eb18053298,
         type: 3}
       propertyPath: m_Camera
@@ -3325,12 +3508,12 @@ PrefabInstance:
     - target: {fileID: 2592810808133720115, guid: 97f18d7971d4ad242b99bc88336dfb13,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -92.92
+      value: -92.91998
       objectReference: {fileID: 0}
     - target: {fileID: 2592810808133720115, guid: 97f18d7971d4ad242b99bc88336dfb13,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -19.820023
+      value: -19.820007
       objectReference: {fileID: 0}
     - target: {fileID: 2592810808133720115, guid: 97f18d7971d4ad242b99bc88336dfb13,
         type: 3}
@@ -4425,6 +4608,7 @@ GameObject:
   - component: {fileID: 1881119929}
   - component: {fileID: 1881119938}
   - component: {fileID: 1881119939}
+  - component: {fileID: 1881119940}
   m_Layer: 10
   m_Name: VRRig
   m_TagString: Untagged
@@ -4627,24 +4811,67 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1881119927}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebe5a394f5ef91e4d8c74c32e31f2823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   texts:
-  - What is the outlier of the city of H?
-  - 'What is the lowest emission of PM-10 for the month of August (Month: 8)?'
-  - Which of the cities has the largest emission of PM-10 for which month?
+  - What is the outlier for the city of A?
+  - 'What is the lowest emission of Nitrogen Dioxide for the month of May (Month:
+    5)?'
+  - Which of the cities has the largest emission of Nitrogen Dioxide for which month?
   panel: {fileID: 2102759682}
   dataset: 5D
-  goal: In this trial, you will use only height (Y-axis) to determine the rate of
-    PM-10 per month.
+  goal: In this trial, you will use only the size of the points to determine the
+    rate of Nitrogen Dioxide per month.
   startTrials: 2
   nextQuestion: 6
   activationOne: 0.1
   activationTwo: 0.1
   leftDevice: {fileID: 338442301}
+--- !u!114 &1881119940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881119927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12200d4d23851214883357a853789055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texts:
+  - In this experiment you will go through 3 different trials and answer a few questions
+    about the graph. The data is from a recent study that measured the pollution
+    emission of 12 different cities for the year 2012. The data points present the
+    measurement of the pollutant emission per month per each city. Click left trigger
+    to go to the next section.
+  - You can move around by walking, or with the right joystick. You can also turn
+    by pressing the left joystick. To hoover on the coordinates of a point, just
+    click on the point. A table will appear with the month and city of that value.
+    To select a particular point as your answer, make sure you are clicking on the
+    point and clicking left primary button. That will take you to the next task in
+    the main trials.
+  - The pollutants will be represented either by the Y-axis, color, or size. The
+    cities will be represented by the X-axis, while the months will be represented
+    by the Z-axis. The grid provided on the floor will help guide you as well. Click
+    left primary button to go to the next section.
+  - A color scale and size scale are provided in this trial for refence on the right
+    of the plot. The bigger the size of the point, the bigger its value. As for the
+    color interpolation, blue represents the lowest value, white the center value,
+    and red the highest value. Click left primary button to go to the next section.
+  - In the end of the trial, you will be asked to record a given information. Please
+    make sure call me. The training trial has ended. Feel free to move around and
+    when you are ready, you can move to the main trials.
+  panel: {fileID: 967082358}
+  leftDevice: {fileID: 338442301}
+  triggerButton: 2
+  primaryButton: 6
+  activationOne: 0.1
+  activationTwo: 0.1
+  stopTrial: 0
 --- !u!224 &1967764697 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8437739505928479577, guid: b01f630cef0fe2947995bec30dda1d61,
@@ -4678,7 +4905,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2052849267}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1824, y: 1160, z: 2641}
+  m_LocalPosition: {x: -1824, y: 1160, z: 2672}
   m_LocalScale: {x: 32, y: 9965.318, z: 18.824755}
   m_Children: []
   m_Father: {fileID: 122876031}
