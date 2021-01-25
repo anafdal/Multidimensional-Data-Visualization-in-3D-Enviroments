@@ -4843,15 +4843,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   texts:
-  - In this experiment you will go through 3 different trials and answer a few questions
-    about the graph. The data is from a recent study that measured the pollution
-    emission of 12 different cities for the year 2012. The data points present the
-    measurement of the pollutant emission per month per each city. Click left trigger
-    to go to the next section.
+  - In this experiment you will go through 3 different trials. The data is from a
+    recent study that measured the pollution emission of 12 different cities for
+    the year 2012. The data points present the measurement of the pollutant emission
+    per month per each city. Click left trigger to go to the next section.
   - You can move around by walking, or with the right joystick. You can also turn
     by pressing the left joystick. To hoover on the coordinates of a point, just
     click on the point. A table will appear with the month and city of that value.
-    To select a particular point as your answer, make sure you are clicking on the
+    Click left trigger to go to the next section.
+  - To select a particular point as your answer, make sure you are clicking on the
     point and clicking left primary button. That will take you to the next task in
     the main trials.
   - The pollutants will be represented either by the Y-axis, color, or size. The
@@ -4871,7 +4871,6 @@ MonoBehaviour:
   primaryButton: 6
   activationOne: 0.1
   activationTwo: 0.1
-  stopTrial: 0
 --- !u!224 &1967764697 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8437739505928479577, guid: b01f630cef0fe2947995bec30dda1d61,

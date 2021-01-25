@@ -5,7 +5,7 @@ using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 using System.IO;
 using TMPro;
-using UnityEditorInternal;
+
 
 
 public class Training : MonoBehaviour

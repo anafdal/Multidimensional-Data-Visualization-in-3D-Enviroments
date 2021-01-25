@@ -5,7 +5,6 @@ using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 using System.IO;
 using TMPro;
-using UnityEditorInternal;
 
 
 //getting the controllers in so they can be used
