@@ -2993,12 +2993,12 @@ MonoBehaviour:
     cities will be represented by the X-axis, while the months will be represented
     by the Z-axis. The grid provided on the floor will help guide you as well. Click
     spacebar to go to the next section.
-  - "A color scale and size scale are provided in this trial for refence on the right
-    of the plot. The bigger the size of the point, the bigger it\u2019s value. As
-    for the color interpolation, blue represents the lowest value, white the center
-    value, and red the highest value. Click spacebar to go to the next section."
+  - A color scale and size scale are provided in this trial for refence on the right
+    of the plot. The bigger the size of the point, the bigger its value. As for the
+    color interpolation, blue represents the lowest value, white the center value,
+    and red the highest value. Click spacebar to go to the next section.
   - In the end of the trial, you will be asked to record a given information. Please
-    make sure you take a picture and call me. The training trial has ended. Fell
+    make sure you take a picture and call me. The training trial has ended. Feel
     free to move around and when you are ready, you can move to the main trials.
   panel: {fileID: 352664171}
 --- !u!1 &1621359383
