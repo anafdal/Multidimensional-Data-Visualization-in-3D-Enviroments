@@ -14,7 +14,7 @@ public class ContiniousMovement : MonoBehaviour
     private XRRig rig;//VR rig
 
     public float additionalHeight = 0.2f;
-    public float speed = 50;
+    public float speed = 90;
 
     // Start is called before the first frame update
     void Start()

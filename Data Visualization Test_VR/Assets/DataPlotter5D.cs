@@ -5,6 +5,7 @@ using System;
 using TMPro;
 //Main script that controlers main features of the plot as well as plots the points
 
+
 public class DataPlotter5D : MonoBehaviour
 {
 
@@ -112,10 +113,7 @@ public class DataPlotter5D : MonoBehaviour
                     //plot
                     Plot5D(dataList1, dataList2, dataList3);
                 }
-                else
-                {
-                    Debug.Log("Error!");
-                }
+
             }
         }
         else
@@ -167,7 +165,7 @@ public class DataPlotter5D : MonoBehaviour
                 Color whiteColor = new Color();
                 ColorUtility.TryParseHtmlString("#F7F7F7", out whiteColor);
 
-                dataPoint.GetComponent<Renderer>().material.color = Slerp3(blueColor, whiteColor, redColor, normalSO2);//HSB:(https://colorbrewer2.org/#type=diverging&scheme=RdBu&n=3)
+                dataPoint.GetComponent<Renderer>().material.color = Slerp3(blueColor, whiteColor, redColor, normalSO2);//based on (https://colorbrewer2.org/#type=diverging&scheme=RdBu&n=3)
                                                                                                                        //dataPoint.transform.localScale = new Vector3(sizeScale, sizeScale, sizeScale);
 
                 //Debug.Log(normalSO2);
@@ -187,13 +185,13 @@ public class DataPlotter5D : MonoBehaviour
                     "City: " + dataList1[i][geoArea] + "\n" + //state
                     " Month: " + columnList1[j];   //date
 
-                string dataNeeded = " NO2 Emission: " + dataList1[i][no2Rate] + "\n " +//NO2 cases
-                    " SO2 Emission: " + SO2[i] + "\n" +        //SO2 rate
-                    " PM10 Fuel Consumption: " + PM10[i];  //PM10 rate
-                                                           //+ " Nomral NO2" + normalNO2;*/
+                /* string dataNeeded = " NO2 Emission: " + dataList1[i][no2Rate] + "\n " +//NO2 cases
+                     " SO2 Emission: " + SO2[i] + "\n" +        //SO2 rate
+                     " PM10 Fuel Consumption: " + PM10[i];  //PM10 rate
+                                                            //+ " Nomral NO2" + normalNO2;*/
 
                 // Assigns name to the prefab
-                dataPoint.transform.name = dataPointName + "\n" + dataNeeded;
+                dataPoint.transform.name = dataPointName;
 
 
             }
@@ -240,11 +238,12 @@ public class DataPlotter5D : MonoBehaviour
                 Color whiteColor = new Color();
                 ColorUtility.TryParseHtmlString("#F7F7F7", out whiteColor);
 
-                dataPoint.GetComponent<Renderer>().material.color = Slerp3(blueColor, whiteColor, redColor, normalSO2);//HSB:(https://colorbrewer2.org/#type=diverging&scheme=RdBu&n=3)
+                dataPoint.GetComponent<Renderer>().material.color = Slerp3(blueColor, whiteColor, redColor, normalSO2);//based on (https://colorbrewer2.org/#type=diverging&scheme=RdBu&n=3)
 
 
                 //Size 
-                dataPoint.transform.localScale = new Vector3(sizeScale/2, sizeScale/2, sizeScale/2);
+                dataPoint.transform.localScale = new Vector3(sizeScale / 2, sizeScale / 2, sizeScale / 2);
+
 
 
                 // Make child of PointHolder object, to keep points within container in hiearchy
@@ -255,13 +254,13 @@ public class DataPlotter5D : MonoBehaviour
                     "City: " + dataList1[i][geoArea] + "\n" + //state
                     " Month: " + columnList1[j];   //date
 
-                string dataNeeded =
-                    " SO2 Emission: " + SO2[i] + "\n" +        //SO2 rate
-                    " PM10 Fuel Consumption: " + PM10[i];  //PM10 rate
-                                                           //+ " Nomral NO2" + normalNO2;*/
+                /* string dataNeeded = 
+                     " SO2 Emission: " + SO2[i] + "\n" +        //SO2 rate
+                     " PM10 Fuel Consumption: " + PM10[i];  //PM10 rate
+                                                            //+ " Nomral NO2" + normalNO2;*/
 
                 // Assigns name to the prefab
-                dataPoint.transform.name = dataPointName + "\n" + dataNeeded;
+                dataPoint.transform.name = dataPointName;
 
 
             }
@@ -295,10 +294,9 @@ public class DataPlotter5D : MonoBehaviour
                         new Vector3(xdef, ydef, zdef) * plotScale,
                         Quaternion.identity);
 
-                ///Color
-                //dataPoint.GetComponent<Renderer>().material.color = Slerp3(blueColor, whiteColor, redColor, normalSO2);//HSB:(https://colorbrewer2.org/#type=diverging&scheme=RdBu&n=3)                                                                                                       
+
                 //Size 
-                dataPoint.transform.localScale = new Vector3(sizeScale/2, sizeScale/2, sizeScale/2);
+                dataPoint.transform.localScale = new Vector3(sizeScale / 2, sizeScale / 2, sizeScale / 2);
 
 
                 // Make child of PointHolder object, to keep points within container in hiearchy
@@ -309,12 +307,12 @@ public class DataPlotter5D : MonoBehaviour
                     "City: " + dataList1[i][geoArea] + "\n" + //state
                     " Month: " + columnList1[j];   //date
 
-                string dataNeeded =
+                /*string dataNeeded =
                     " PM10 Fuel Consumption: " + PM10[i];  //PM10 rate
                                                            //+ " Nomral NO2" + normalNO2;*/
 
                 // Assigns name to the prefab
-                dataPoint.transform.name = dataPointName + "\n" + dataNeeded;
+                dataPoint.transform.name = dataPointName;
 
 
             }
@@ -369,7 +367,7 @@ public class DataPlotter5D : MonoBehaviour
         return Case;
     }
 
-    Color Slerp3(Color a, Color b, Color c, float t)
+    Color Slerp3(Color a, Color b, Color c, float t)//LABcolor script
     {
         if (t < 0.5f) // 0.0 to 0.5 goes to a -> b
             return (LABColor.Lerp(LABColor.FromColor(a), LABColor.FromColor(b), t / 0.5f)).ToColor();

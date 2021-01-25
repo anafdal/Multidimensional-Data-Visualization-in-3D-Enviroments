@@ -46,8 +46,8 @@ public class Questions : MonoBehaviour
 
     void Awake()
     {
-        panel.text = "This is data of the pollution emission of 12 different cities in 2012. " + goal +
-        "To start the trials, press Trigger Button on left handle. To select your answers, you will use the primary button in the left handle";
+        panel.text = panel.text = "This is the data of the pollution emission of 12 different cities in 2012. " + goal +
+            "To start the trials, press Trigger Button in left handle!";
 
         //Find the date and time when the game was run
         var startTrial = System.DateTime.Now;
@@ -92,8 +92,8 @@ public class Questions : MonoBehaviour
         }
         else if(indexQuestion>=4)
         {
-            panel.text = "Trial has ended! Please start next trial!" + finalOutput[0] + finalOutput[1] + finalOutput[2];//trial ends;//trial ends
-            Debug.Log("Answer" + finalOutput[0] + finalOutput[1] + finalOutput[2]);
+            panel.text = "Record this down:" + "\n" + finalOutput[0] + finalOutput[1] + finalOutput[2];//trial ends
+            //Debug.Log("Answer" + finalOutput[0] + finalOutput[1] + finalOutput[2]);
             startTrail = false;//trial ends
             stopTrial = true;
         }
@@ -165,8 +165,13 @@ public class Questions : MonoBehaviour
     public void CreateFinalOutput(string data, float levelTime)
     {
         //need only month, city, time and dataset type
+        //need only month, city, time and dataset type
+        string[] arr = data.Split('\n', ':');
+        //data = arr[1] + arr[3];//just want month and date
 
-        finalOutput.Add(data + "time:  " + levelTime + "dataset: " + dataset);
+        float time = Mathf.Round(levelTime * 100.0f) * 0.01f;//round two decimal places
+
+        finalOutput.Add(arr[1] + arr[3] + " " + time + " " + dataset + '\n');
 
     }
 }

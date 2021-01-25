@@ -1391,7 +1391,7 @@ MonoBehaviour:
   m_InteractionManager: {fileID: 933292766}
   m_InteractionLayerMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 6656
   m_AttachTransform: {fileID: 0}
   m_StartingSelectedInteractable: {fileID: 0}
   m_OnHoverEnter:
@@ -1443,11 +1443,11 @@ MonoBehaviour:
   m_SphereCastRadius: 0
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 6656
   m_RaycastTriggerInteraction: 1
   m_HoverToSelect: 0
   m_HoverTimeToSelect: 0.5
-  m_EnableUIInteraction: 1
+  m_EnableUIInteraction: 0
 --- !u!114 &572293586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1498,7 +1498,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 574745474}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1386, y: 55.500015, z: -285}
+  m_LocalPosition: {x: 1691, y: 55.500015, z: -285}
   m_LocalScale: {x: 0.06236878, y: 0.11876137, z: 0.05636771}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2028,7 +2028,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 811570508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1320, y: 147.21854, z: -153.50761}
+  m_LocalPosition: {x: 1683, y: 147.21854, z: -153.50761}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 441917153}
@@ -2542,8 +2542,8 @@ MonoBehaviour:
   plotScale: 30
   sizeScale: 70
   yScale: 6
-  zScale: 3
-  xScale: 4
+  zScale: 4
+  xScale: 5
   PointPrefab: {fileID: 3509923614277587540, guid: a04829af2b69c4d44ab9a4846c8d8b72,
     type: 3}
   y_min: {fileID: 539588514}
@@ -2575,7 +2575,7 @@ PrefabInstance:
     - target: {fileID: 8437739505701702675, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6758.1
+      value: -8283
       objectReference: {fileID: 0}
     - target: {fileID: 8437739505701702675, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
@@ -2585,12 +2585,12 @@ PrefabInstance:
     - target: {fileID: 8437739505701702675, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5820
+      value: 7643
       objectReference: {fileID: 0}
     - target: {fileID: 8437739505701702675, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 9865.247
+      value: 13004.368
       objectReference: {fileID: 0}
     - target: {fileID: 8437739505701702701, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
@@ -2660,7 +2660,7 @@ PrefabInstance:
     - target: {fileID: 8437739505958426706, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1924
+      value: 2657
       objectReference: {fileID: 0}
     - target: {fileID: 8437739505958426706, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
@@ -2675,7 +2675,7 @@ PrefabInstance:
     - target: {fileID: 8437739505958426706, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 7807.2046
+      value: 9973.677
       objectReference: {fileID: 0}
     - target: {fileID: 8437739505958426732, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
@@ -2685,22 +2685,22 @@ PrefabInstance:
     - target: {fileID: 8437739506040507808, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 769.5712
+      value: 955.4316
       objectReference: {fileID: 0}
     - target: {fileID: 8437739506040507808, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1130.6771
+      value: 1301.8687
       objectReference: {fileID: 0}
     - target: {fileID: 8437739506040507808, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7487.4
+      value: -8367
       objectReference: {fileID: 0}
     - target: {fileID: 8437739506040507808, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1974.4
+      value: 2868
       objectReference: {fileID: 0}
     - target: {fileID: 8437739506040507808, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
@@ -2760,7 +2760,7 @@ PrefabInstance:
     - target: {fileID: 8437739506110805619, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5821
+      value: 7644
       objectReference: {fileID: 0}
     - target: {fileID: 8437739506110805619, guid: b01f630cef0fe2947995bec30dda1d61,
         type: 3}
@@ -3118,7 +3118,7 @@ PrefabInstance:
     - target: {fileID: 6271169203879154432, guid: b388fc79f4c730c4ea4e61eb18053298,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -82.000015
+      value: -82
       objectReference: {fileID: 0}
     - target: {fileID: 6271169203879154439, guid: b388fc79f4c730c4ea4e61eb18053298,
         type: 3}
@@ -3307,12 +3307,22 @@ PrefabInstance:
     - target: {fileID: 2592810808133720115, guid: 97f18d7971d4ad242b99bc88336dfb13,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -92.90004
+      value: -92.91998
       objectReference: {fileID: 0}
     - target: {fileID: 2592810808133720115, guid: 97f18d7971d4ad242b99bc88336dfb13,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -16.699997
+      value: -19.820007
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592810808133720115, guid: 97f18d7971d4ad242b99bc88336dfb13,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -529.2575
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592810808133720115, guid: 97f18d7971d4ad242b99bc88336dfb13,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -56.4599
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97f18d7971d4ad242b99bc88336dfb13, type: 3}
@@ -3410,7 +3420,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621359383}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 254, y: -33, z: 588}
+  m_LocalPosition: {x: 585, y: -33, z: 588}
   m_LocalScale: {x: 295.43826, y: 0.94288814, z: 408.58484}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4371,8 +4381,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1814909317}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -6765.8, y: 1160, z: 5820.4}
-  m_LocalScale: {x: 22.738152, y: 9849.815, z: 10.626}
+  m_LocalPosition: {x: -8294, y: 1160, z: 7643}
+  m_LocalScale: {x: 22.738152, y: 12984.026, z: 10.626}
   m_Children: []
   m_Father: {fileID: 122876031}
   m_RootOrder: 5
@@ -4605,14 +4615,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   texts:
-  - What is the outlier for the city of Raipur in 2011?
-  - 'What is the lowest emission of Nitrogen Dioxide for the month of March (Month:
-    3)?'
-  - Which of the cities has the largest emission of Nitrogen Dioxide for which month
-    in 2011?
+  - What is the outlier for the city of A?
+  - 'What is the lowest emission of Nitrogen Dioxide for the month of May (Month:
+    5)?'
+  - Which of the cities has the largest emission of Nitrogen Dioxide for which month?
   panel: {fileID: 2102759682}
   dataset: 5D
-  goal: 
+  goal: In this trial, you will use only the size of the points to determine the
+    rate of Nitrogen Dioxide per month.
   startTrials: 2
   nextQuestion: 6
   activationOne: 0.1
@@ -4651,8 +4661,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2052849267}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1824, y: 1160, z: 1912}
-  m_LocalScale: {x: 32, y: 7800.6616, z: 18.824755}
+  m_LocalPosition: {x: -1824, y: 1160, z: 2641}
+  m_LocalScale: {x: 32, y: 9965.318, z: 18.824755}
   m_Children: []
   m_Father: {fileID: 122876031}
   m_RootOrder: 4
