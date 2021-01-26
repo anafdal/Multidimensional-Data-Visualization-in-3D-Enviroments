@@ -5,6 +5,7 @@ using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 using System.IO;
 using TMPro;
+//The tasks of the trials are developed here and its output format
 
 
 //getting the controllers in so they can be used

@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
+//hoover the coordinated for the poins that are picked
 
 
 public class HooverData : MonoBehaviour
@@ -38,8 +39,8 @@ public class HooverData : MonoBehaviour
         simpleInteractible = GetComponent<XRSimpleInteractable>();
 
 
-       simpleInteractible.onSelectEnter.AddListener(SetEnter);
-       simpleInteractible.onSelectExit.AddListener(SetExit);
+       simpleInteractible.onSelectEntered.AddListener(SetEnter);
+       simpleInteractible.onSelectExited.AddListener(SetExit);
 
 
     }
@@ -86,8 +87,8 @@ public class HooverData : MonoBehaviour
 
     private void OnDestroy()
     {
-        simpleInteractible.onSelectEnter.RemoveListener(SetEnter);
-        simpleInteractible.onSelectExit.RemoveListener(SetExit);
+        simpleInteractible.onSelectEntered.RemoveListener(SetEnter);
+        simpleInteractible.onSelectExited.RemoveListener(SetExit);
     }
 
 }

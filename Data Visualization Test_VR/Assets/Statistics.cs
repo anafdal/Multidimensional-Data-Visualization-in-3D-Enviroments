@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//Most of the statistics calculations are done here
 
 public class Statistics : MonoBehaviour
 {

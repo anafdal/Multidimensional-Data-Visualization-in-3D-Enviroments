@@ -1,127 +1,21 @@
 
-City: H
- Month: 4
-time:  5.407195
-timestamp: 24-06-2021-06-06-05
-dataset: 3D
 
-City: A
- Month: 8
-time:  13.76057
-timestamp: 24-06-2021-06-06-05
-dataset: 3D
 
-City: B
+City: K
  Month: 5
-time:  10.39398
-timestamp: 24-06-2021-06-06-05
-dataset: 3D
-
-City: E
- Month: 6
-time:  3.27472
-timestamp: 24-37-2021-06-37-43
-dataset: 5D
-
-City: E
- Month: 6
-time:  1.689308
-timestamp: 24-37-2021-06-37-43
-dataset: 5D
-
-City: E
- Month: 6
-time:  1.073188
-timestamp: 24-37-2021-06-37-43
-dataset: 5D
-
-City: H
- Month: 7
-time:  2.710286
-timestamp: 24-40-2021-06-40-06
-dataset: 5D
-
-City: H
- Month: 7
-time:  0.9716364
-timestamp: 24-40-2021-06-40-06
-dataset: 5D
-
-City: H
- Month: 7
-time:  0.8440409
-timestamp: 24-40-2021-06-40-06
-dataset: 5D
-
-City: K
- Month: 3
-time:  1.955045
-timestamp: 24-40-2021-06-40-25
-dataset: 4D
-
-City: K
- Month: 3
-time:  0.2901624
-timestamp: 24-40-2021-06-40-25
-dataset: 4D
-
-City: K
- Month: 3
-time:  0.3098593
-timestamp: 24-40-2021-06-40-25
-dataset: 4D
-
-City: G
- Month: 6
-time:  1.108362
-timestamp: 24-40-2021-06-40-40
-dataset: 3D
-
-City: G
- Month: 6
-time:  0.2930933
-timestamp: 24-40-2021-06-40-40
-dataset: 3D
-
-City: G
- Month: 6
-time:  0.2909516
-timestamp: 24-40-2021-06-40-40
+time:  1.037062
+timestamp: 26-26-2021-02-26-56
 dataset: 3D
 
 City: K
- Month: 4
-time:  9.617553
-timestamp: 24-46-2021-08-46-02
-dataset: 5D
-
-City: K
- Month: 4
-time:  0.4130244
-timestamp: 24-46-2021-08-46-02
-dataset: 5D
-
-City: K
- Month: 4
-time:  0.4522637
-timestamp: 24-46-2021-08-46-02
-dataset: 5D
-
-City: B
- Month: 4
-time:  2.019947
-timestamp: 25-36-2021-11-36-35
-dataset: 5D
-
-City: A
- Month: 4
-time:  2.521798
-timestamp: 25-36-2021-11-36-35
-dataset: 5D
-
-City: A
  Month: 5
-time:  1.516979
-timestamp: 25-36-2021-11-36-35
-dataset: 5D
+time:  0.1991638
+timestamp: 26-26-2021-02-26-56
+dataset: 3D
+
+City: K
+ Month: 5
+time:  0.1829948
+timestamp: 26-26-2021-02-26-56
+dataset: 3D
 

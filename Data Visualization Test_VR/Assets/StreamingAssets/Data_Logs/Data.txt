@@ -35,3 +35,201 @@ time:  1.476377
 timestamp: 25-04-2021-01-04-08
 dataset: 4D
 
+City: I
+ Month: 6
+time:  3.690214
+timestamp: 25-08-2021-08-08-29
+dataset: 4D
+
+City: I
+ Month: 6
+time:  0.779609
+timestamp: 25-08-2021-08-08-29
+dataset: 4D
+
+City: I
+ Month: 6
+time:  0.5007004
+timestamp: 25-08-2021-08-08-29
+dataset: 4D
+
+City: J
+ Month: 7
+time:  3.223722
+timestamp: 25-46-2021-11-46-43
+dataset: 4D
+
+City: J
+ Month: 7
+time:  0.4788314
+timestamp: 25-46-2021-11-46-43
+dataset: 4D
+
+City: J
+ Month: 7
+time:  0.3655948
+timestamp: 25-46-2021-11-46-43
+dataset: 4D
+
+City: G
+ Month: 4
+time:  12.43697
+timestamp: 25-49-2021-11-49-54
+dataset: 4D
+
+City: G
+ Month: 4
+time:  1.724128
+timestamp: 25-49-2021-11-49-54
+dataset: 4D
+
+City: G
+ Month: 4
+time:  0.4648122
+timestamp: 25-49-2021-11-49-54
+dataset: 4D
+
+City: I
+ Month: 6
+time:  3.6941
+timestamp: 26-01-2021-12-01-12
+dataset: 4D
+
+City: I
+ Month: 6
+time:  0.5148182
+timestamp: 26-01-2021-12-01-12
+dataset: 4D
+
+City: I
+ Month: 6
+time:  0.4728687
+timestamp: 26-01-2021-12-01-12
+dataset: 4D
+
+City: J
+ Month: 7
+time:  1.000804
+timestamp: 26-02-2021-12-02-36
+dataset: 5D
+
+City: J
+ Month: 7
+time:  1.907204
+timestamp: 26-02-2021-12-02-36
+dataset: 5D
+
+City: J
+ Month: 7
+time:  1.486529
+timestamp: 26-02-2021-12-02-36
+dataset: 5D
+
+City: H
+ Month: 3
+time:  3.777566
+timestamp: 26-09-2021-01-09-13
+dataset: 5D
+
+City: H
+ Month: 3
+time:  3.361804
+timestamp: 26-09-2021-01-09-13
+dataset: 5D
+
+City: H
+ Month: 3
+time:  1.721925
+timestamp: 26-09-2021-01-09-13
+dataset: 5D
+
+City: J
+ Month: 3
+time:  1.446965
+timestamp: 26-34-2021-01-34-42
+dataset: 5D
+
+City: I
+ Month: 2
+time:  4.34346
+timestamp: 26-34-2021-01-34-42
+dataset: 5D
+
+City: I
+ Month: 8
+time:  26.75874
+timestamp: 26-34-2021-01-34-42
+dataset: 5D
+
+City: D
+ Month: 6
+time:  1.364315
+timestamp: 26-59-2021-01-59-16
+dataset: 5D
+
+City: E
+ Month: 5
+time:  1.419297
+timestamp: 26-59-2021-01-59-16
+dataset: 5D
+
+City: D
+ Month: 5
+time:  1.308387
+timestamp: 26-59-2021-01-59-16
+dataset: 5D
+
+City: E
+ Month: 6
+time:  4.284857
+timestamp: 26-03-2021-02-03-43
+dataset: 5D
+
+City: E
+ Month: 6
+time:  0.3496004
+timestamp: 26-03-2021-02-03-43
+dataset: 5D
+
+City: E
+ Month: 6
+time:  0.3858504
+timestamp: 26-03-2021-02-03-43
+dataset: 5D
+
+City: A
+ Month: 6
+time:  20.20231
+timestamp: 26-06-2021-02-06-26
+dataset: 5D
+
+City: D
+ Month: 5
+time:  11.12299
+timestamp: 26-06-2021-02-06-26
+dataset: 5D
+
+City: L
+ Month: 1
+time:  24.69558
+timestamp: 26-06-2021-02-06-26
+dataset: 5D
+
+City: L
+ Month: 4
+time:  15.81059
+timestamp: 26-08-2021-02-08-35
+dataset: 5D
+
+City: L
+ Month: 4
+time:  0.5707161
+timestamp: 26-08-2021-02-08-35
+dataset: 5D
+
+City: L
+ Month: 4
+time:  0.3480404
+timestamp: 26-08-2021-02-08-35
+dataset: 5D
+

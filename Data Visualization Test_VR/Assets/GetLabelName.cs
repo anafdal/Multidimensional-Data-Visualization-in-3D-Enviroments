@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using TMPro;
+//show label name
 
 public class GetLabelName : MonoBehaviour
 {

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+//label orienter
 
 public class LabelOrienter_Smooth : MonoBehaviour {
 

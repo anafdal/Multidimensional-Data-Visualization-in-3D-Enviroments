@@ -5,6 +5,7 @@ using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 using System.IO;
 using TMPro;
+//assign controllers
 
 
 //getting the controllers in so they can be used
@@ -17,8 +18,8 @@ public class HandPresence : MonoBehaviour
  
 
    
-    // Update is called once per frame
-    void Update()
+    
+    void Awake()
     {
         //fix controllers
         List<InputDevice> devices = new List<InputDevice>();
