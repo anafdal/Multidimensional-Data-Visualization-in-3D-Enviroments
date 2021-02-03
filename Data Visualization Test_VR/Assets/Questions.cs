@@ -171,7 +171,7 @@ public class Questions : MonoBehaviour
 
         float time = Mathf.Round(levelTime * 100.0f) * 0.01f;//round two decimal places
 
-        finalOutput.Add(arr[1] + arr[3] + " " + time + " " + dataset + '\n');
+        finalOutput.Add(arr[1] + arr[3] + " " + arr[5] + "/ " + time + " " + dataset + '\n');
 
     }
 }

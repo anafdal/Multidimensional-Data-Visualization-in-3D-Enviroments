@@ -2986,7 +2986,7 @@ MonoBehaviour:
     to go to the next section.
   - To move around use the W, A, S, D keys. You can also turn by pressing the right
     mouse. To hoover on the coordinates of a point, just click on the point. A table
-    will appear on the right side with the month and city of that value. To select
+    will appear on the left side with the month and city of that value. To select
     a particular point as your answer, make sure you are clicking on the point and
     clicking Enter. That will take you to the next task in the main trials.
   - The pollutants will be represented either by the Y-axis, color, or size. The

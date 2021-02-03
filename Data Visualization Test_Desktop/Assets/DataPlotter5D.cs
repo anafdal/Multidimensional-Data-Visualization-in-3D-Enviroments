@@ -180,10 +180,10 @@ public class DataPlotter5D : MonoBehaviour
 
                 // Assigns original values to dataPointName
                 string dataPointName =
-                    "City: " + dataList1[i][geoArea] + "\n"+ //state
-                    " Month: " + columnList1[j];   //date
-
-               /* string dataNeeded = " NO2 Emission: " + dataList1[i][no2Rate] + "\n " +//NO2 cases
+                    "City: " + dataList1[i][geoArea] + "\n" + //state
+                    " Month: " + columnList1[j] + "\n" + //date
+                      " NO2 Emission: " + NO2[i];//rate
+                    /*+ "\n " +//NO2 cases
                     " SO2 Emission: " + SO2[i] + "\n" +        //SO2 rate
                     " PM10 Fuel Consumption: " + PM10[i];  //PM10 rate
                                                            //+ " Nomral NO2" + normalNO2;*/
@@ -250,12 +250,13 @@ public class DataPlotter5D : MonoBehaviour
                 // Assigns original values to dataPointName
                 string dataPointName =
                     "City: " + dataList1[i][geoArea] + "\n" + //state
-                    " Month: " + columnList1[j];   //date
+                    " Month: " + columnList1[j] + "\n" + //date
+                      " SO2 Emission: " + SO2[i];//rate
 
-               /* string dataNeeded = 
-                    " SO2 Emission: " + SO2[i] + "\n" +        //SO2 rate
-                    " PM10 Fuel Consumption: " + PM10[i];  //PM10 rate
-                                                           //+ " Nomral NO2" + normalNO2;*/
+                /* string dataNeeded = 
+                     " SO2 Emission: " + SO2[i] + "\n" +        //SO2 rate
+                     " PM10 Fuel Consumption: " + PM10[i];  //PM10 rate
+                                                            //+ " Nomral NO2" + normalNO2;*/
 
                 // Assigns name to the prefab
                 dataPoint.transform.name = dataPointName;
@@ -303,10 +304,10 @@ public class DataPlotter5D : MonoBehaviour
                 // Assigns original values to dataPointName
                 string dataPointName =
                     "City: " + dataList1[i][geoArea] + "\n" + //state
-                    " Month: " + columnList1[j];   //date
-
+                    " Month: " + columnList1[j] + "\n" + //date
+                      " PM10 Emission: " + PM10[i];//rate
                 /*string dataNeeded =
-                    " PM10 Fuel Consumption: " + PM10[i];  //PM10 rate
+                    " PM10 Emission: " + PM10[i];  //PM10 rate
                                                            //+ " Nomral NO2" + normalNO2;*/
 
                 // Assigns name to the prefab
